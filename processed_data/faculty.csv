@@ -1,0 +1,31 @@
+faculty_id,faculty_name,department,designation,specialization
+F001,Dr. Riya Reddy,Artificial Intelligence,Assistant Professor,Cloud Computing
+F002,Dr. Ananya Gupta,Data Science,Professor,Computer Vision
+F003,Dr. Sneha Iyer,Electronics,Assistant Professor,Data Science
+F004,Dr. Priya Kumar,Artificial Intelligence,Associate Professor,Cloud Computing
+F005,Dr. Aarav Sharma,Artificial Intelligence,Associate Professor,Machine Learning
+F006,Dr. Riya Kumar,Electronics,Professor,Internet of Things
+F007,Dr. Meera Gupta,Electronics,Professor,Smart Campus
+F008,Dr. Rohan Sharma,Data Science,Professor,Educational Technology
+F009,Dr. Diya Reddy,Electronics,Associate Professor,Internet of Things
+F010,Dr. Arjun Sharma,Data Science,Assistant Professor,Smart Campus
+F011,Dr. Neha Reddy,Computer Science,Professor,Educational Technology
+F012,Dr. Arjun Sharma,Information Technology,Professor,Cloud Computing
+F013,Dr. Nikhil Rao,Electronics,Professor,Natural Language Processing
+F014,Dr. Kavya Reddy,Artificial Intelligence,Associate Professor,Cyber Security
+F015,Dr. Sneha Reddy,Electronics,Assistant Professor,Smart Campus
+F016,Dr. Riya Reddy,Computer Science,Associate Professor,Machine Learning
+F017,Dr. Priya Nair,Artificial Intelligence,Associate Professor,Healthcare AI
+F018,Dr. Varun Patel,Artificial Intelligence,Assistant Professor,Big Data
+F019,Dr. Riya Patel,Artificial Intelligence,Associate Professor,Educational Technology
+F020,Dr. Rohan Nair,Information Technology,Professor,Healthcare AI
+F021,Dr. Ananya Iyer,Electronics,Associate Professor,Educational Technology
+F022,Dr. Sneha Reddy,Information Technology,Professor,Healthcare AI
+F023,Dr. Varun Rao,Computer Science,Professor,Educational Technology
+F024,Dr. Meera Rao,Artificial Intelligence,Assistant Professor,Data Science
+F025,Dr. Ishaan Patel,Information Technology,Associate Professor,Smart Campus
+F026,Dr. Nikhil Singh,Information Technology,Assistant Professor,Natural Language Processing
+F027,Dr. Ananya Iyer,Computer Science,Professor,Smart Campus
+F028,Dr. Priya Rao,Computer Science,Professor,Data Science
+F029,Dr. Neha Patel,Electronics,Associate Professor,Natural Language Processing
+F030,Dr. Arjun Patel,Electronics,Assistant Professor,Healthcare AI

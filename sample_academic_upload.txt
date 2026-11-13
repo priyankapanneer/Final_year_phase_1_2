@@ -1,0 +1,7 @@
+
+Anna University Department of Computer Science and Engineering.
+Dr. K. Kumar teaches CS101 Advanced Machine Learning.
+Student S0001 is enrolled in CS101 and is working on AI-Based Smart Campus Project.
+The AI-Based Smart Campus Project requires skills in Python, PyTorch, and Neo4j.
+Faculty Prof. Arul supervises Autonomous Drone Navigation Project.
+Student S0002 is working on Autonomous Drone Navigation Project which requires ROS, Robotics, and Computer Vision.

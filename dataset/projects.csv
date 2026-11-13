@@ -1,0 +1,81 @@
+project_id,project_name,domain,description,status
+P0001,AI-Based Smart Campus Project 001,Big Data,"Academic project involving JavaScript, Spark and PyTorch.",Completed
+P0002,AI-Based Educational Technology Project 002,Cloud Computing,"Academic project involving Spark, NumPy and Cypher.",Completed
+P0003,AI-Based Healthcare AI Project 003,Recommendation Systems,"Academic project involving Neo4j, Spark and SQL.",Ongoing
+P0004,AI-Based Machine Learning Project 004,Smart Campus,"Academic project involving React, PyTorch and NLP.",Proposed
+P0005,AI-Based Natural Language Processing Project 005,Recommendation Systems,"Academic project involving Deep Learning, C++ and Statistics.",Completed
+P0006,AI-Based Recommendation Systems Project 006,Cloud Computing,"Academic project involving OpenCV, NumPy and Statistics.",Completed
+P0007,AI-Based Cyber Security Project 007,Artificial Intelligence,"Academic project involving Machine Learning, Neo4j and NumPy.",Completed
+P0008,AI-Based Cyber Security Project 008,Machine Learning,"Academic project involving NumPy, TensorFlow and Python.",Ongoing
+P0009,AI-Based Information Retrieval Project 009,Machine Learning,"Academic project involving MongoDB, AWS and Knowledge Graphs.",Ongoing
+P0010,AI-Based Smart Campus Project 010,Natural Language Processing,"Academic project involving JavaScript, Java and Scikit-learn.",Ongoing
+P0011,AI-Based Healthcare AI Project 011,Recommendation Systems,"Academic project involving JavaScript, Git and AWS.",Ongoing
+P0012,AI-Based Cloud Computing Project 012,Big Data,"Academic project involving Python, OpenCV and C++.",Completed
+P0013,AI-Based Computer Vision Project 013,Knowledge Graphs,"Academic project involving MongoDB, JavaScript and Cypher.",Proposed
+P0014,AI-Based Big Data Project 014,Internet of Things,"Academic project involving Deep Learning, SQL and Git.",Ongoing
+P0015,AI-Based Knowledge Graphs Project 015,Computer Vision,"Academic project involving SQL, Java and TensorFlow.",Ongoing
+P0016,AI-Based Educational Technology Project 016,Smart Campus,"Academic project involving BERT, NLP and C++.",Completed
+P0017,AI-Based Recommendation Systems Project 017,Information Retrieval,"Academic project involving Computer Vision, BERT and Cypher.",Completed
+P0018,AI-Based Educational Technology Project 018,Internet of Things,"Academic project involving Transformers, TensorFlow and AWS.",Completed
+P0019,AI-Based Computer Vision Project 019,Cyber Security,"Academic project involving Python, BERT and NumPy.",Completed
+P0020,AI-Based Big Data Project 020,Cyber Security,"Academic project involving React, Data Visualization and Data Visualization.",Completed
+P0021,AI-Based Internet of Things Project 021,Data Science,"Academic project involving C++, Neo4j and Cypher.",Proposed
+P0022,AI-Based Smart Campus Project 022,Internet of Things,"Academic project involving Cypher, Python and Machine Learning.",Ongoing
+P0023,AI-Based Artificial Intelligence Project 023,Educational Technology,"Academic project involving Machine Learning, NumPy and PyTorch.",Proposed
+P0024,AI-Based Artificial Intelligence Project 024,Data Science,"Academic project involving Linux, C++ and NumPy.",Completed
+P0025,AI-Based Healthcare AI Project 025,Educational Technology,"Academic project involving Knowledge Graphs, SQL and Git.",Proposed
+P0026,AI-Based Healthcare AI Project 026,Smart Campus,"Academic project involving Pandas, JavaScript and Java.",Ongoing
+P0027,AI-Based Internet of Things Project 027,Data Science,"Academic project involving MongoDB, Knowledge Graphs and React.",Proposed
+P0028,AI-Based Cloud Computing Project 028,Healthcare AI,"Academic project involving Computer Vision, Knowledge Graphs and React.",Completed
+P0029,AI-Based Machine Learning Project 029,Healthcare AI,"Academic project involving Git, NLP and Java.",Ongoing
+P0030,AI-Based Knowledge Graphs Project 030,Artificial Intelligence,"Academic project involving Linux, FastAPI and OpenCV.",Completed
+P0031,AI-Based Data Science Project 031,Information Retrieval,"Academic project involving Scikit-learn, Neo4j and Machine Learning.",Proposed
+P0032,AI-Based Cloud Computing Project 032,Computer Vision,"Academic project involving Java, Git and Knowledge Graphs.",Completed
+P0033,AI-Based Computer Vision Project 033,Data Science,"Academic project involving Spark, Git and Java.",Proposed
+P0034,AI-Based Data Science Project 034,Computer Vision,"Academic project involving SQL, Linux and NumPy.",Ongoing
+P0035,AI-Based Information Retrieval Project 035,Cyber Security,"Academic project involving Docker, NLP and OpenCV.",Ongoing
+P0036,AI-Based Data Science Project 036,Natural Language Processing,"Academic project involving Computer Vision, AWS and Computer Vision.",Ongoing
+P0037,AI-Based Information Retrieval Project 037,Smart Campus,"Academic project involving Neo4j, PyTorch and Linux.",Completed
+P0038,AI-Based Healthcare AI Project 038,Cyber Security,"Academic project involving C++, Deep Learning and BERT.",Completed
+P0039,AI-Based Internet of Things Project 039,Computer Vision,"Academic project involving Pandas, SQL and C++.",Ongoing
+P0040,AI-Based Educational Technology Project 040,Computer Vision,"Academic project involving Scikit-learn, NLP and BERT.",Proposed
+P0041,AI-Based Cyber Security Project 041,Natural Language Processing,"Academic project involving AWS, NLP and NumPy.",Ongoing
+P0042,AI-Based Artificial Intelligence Project 042,Healthcare AI,"Academic project involving Spark, Statistics and NumPy.",Proposed
+P0043,AI-Based Cyber Security Project 043,Computer Vision,"Academic project involving Knowledge Graphs, Linux and Java.",Completed
+P0044,AI-Based Educational Technology Project 044,Educational Technology,"Academic project involving Machine Learning, NumPy and Neo4j.",Proposed
+P0045,AI-Based Educational Technology Project 045,Natural Language Processing,"Academic project involving Python, JavaScript and Spark.",Proposed
+P0046,AI-Based Educational Technology Project 046,Smart Campus,"Academic project involving NLP, Java and JavaScript.",Completed
+P0047,AI-Based Knowledge Graphs Project 047,Smart Campus,"Academic project involving Knowledge Graphs, NumPy and NumPy.",Ongoing
+P0048,AI-Based Big Data Project 048,Artificial Intelligence,"Academic project involving BERT, JavaScript and Data Visualization.",Ongoing
+P0049,AI-Based Data Science Project 049,Data Science,"Academic project involving NLP, Git and C++.",Proposed
+P0050,AI-Based Natural Language Processing Project 050,Internet of Things,"Academic project involving NumPy, Machine Learning and Pandas.",Proposed
+P0051,AI-Based Computer Vision Project 051,Knowledge Graphs,"Academic project involving SQL, Python and Docker.",Completed
+P0052,AI-Based Cloud Computing Project 052,Internet of Things,"Academic project involving Machine Learning, Statistics and Cypher.",Completed
+P0053,AI-Based Computer Vision Project 053,Smart Campus,"Academic project involving PyTorch, AWS and NLP.",Completed
+P0054,AI-Based Big Data Project 054,Computer Vision,"Academic project involving AWS, Statistics and Computer Vision.",Completed
+P0055,AI-Based Machine Learning Project 055,Natural Language Processing,"Academic project involving Spark, C++ and NLP.",Completed
+P0056,AI-Based Information Retrieval Project 056,Healthcare AI,"Academic project involving NLP, C++ and Linux.",Proposed
+P0057,AI-Based Recommendation Systems Project 057,Data Science,"Academic project involving Data Visualization, NumPy and AWS.",Completed
+P0058,AI-Based Internet of Things Project 058,Internet of Things,"Academic project involving Scikit-learn, OpenCV and Scikit-learn.",Completed
+P0059,AI-Based Healthcare AI Project 059,Healthcare AI,"Academic project involving Statistics, AWS and Knowledge Graphs.",Completed
+P0060,AI-Based Smart Campus Project 060,Data Science,"Academic project involving Neo4j, TensorFlow and SQL.",Completed
+P0061,AI-Based Smart Campus Project 061,Natural Language Processing,"Academic project involving TensorFlow, Linux and Computer Vision.",Completed
+P0062,AI-Based Data Science Project 062,Internet of Things,"Academic project involving Transformers, NumPy and NLP.",Proposed
+P0063,AI-Based Natural Language Processing Project 063,Big Data,"Academic project involving OpenCV, C++ and C++.",Ongoing
+P0064,AI-Based Cyber Security Project 064,Healthcare AI,"Academic project involving Docker, Computer Vision and Neo4j.",Ongoing
+P0065,AI-Based Smart Campus Project 065,Cyber Security,"Academic project involving MongoDB, Transformers and C++.",Completed
+P0066,AI-Based Data Science Project 066,Educational Technology,"Academic project involving C++, NLP and NLP.",Proposed
+P0067,AI-Based Internet of Things Project 067,Data Science,"Academic project involving JavaScript, OpenCV and MongoDB.",Proposed
+P0068,AI-Based Educational Technology Project 068,Big Data,"Academic project involving React, Git and JavaScript.",Ongoing
+P0069,AI-Based Internet of Things Project 069,Information Retrieval,"Academic project involving Spark, Java and MongoDB.",Completed
+P0070,AI-Based Internet of Things Project 070,Natural Language Processing,"Academic project involving Scikit-learn, React and React.",Ongoing
+P0071,AI-Based Information Retrieval Project 071,Healthcare AI,"Academic project involving TensorFlow, NumPy and Neo4j.",Ongoing
+P0072,AI-Based Recommendation Systems Project 072,Machine Learning,"Academic project involving PyTorch, FastAPI and Knowledge Graphs.",Proposed
+P0073,AI-Based Computer Vision Project 073,Natural Language Processing,"Academic project involving Knowledge Graphs, Scikit-learn and BERT.",Proposed
+P0074,AI-Based Machine Learning Project 074,Internet of Things,"Academic project involving Knowledge Graphs, React and Transformers.",Proposed
+P0075,AI-Based Natural Language Processing Project 075,Natural Language Processing,"Academic project involving Data Visualization, BERT and Docker.",Proposed
+P0076,AI-Based Data Science Project 076,Recommendation Systems,"Academic project involving Statistics, Transformers and Java.",Completed
+P0077,AI-Based Machine Learning Project 077,Artificial Intelligence,"Academic project involving Knowledge Graphs, Git and Transformers.",Ongoing
+P0078,AI-Based Educational Technology Project 078,Knowledge Graphs,"Academic project involving Git, Transformers and Deep Learning.",Proposed
+P0079,AI-Based Educational Technology Project 079,Artificial Intelligence,"Academic project involving Computer Vision, OpenCV and Knowledge Graphs.",Proposed
+P0080,AI-Based Computer Vision Project 080,Educational Technology,"Academic project involving Scikit-learn, Computer Vision and TensorFlow.",Proposed

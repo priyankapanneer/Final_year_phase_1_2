@@ -1,0 +1,5922 @@
+[
+  {
+    "text": "Student S0235 has skill SK016.",
+    "subject": "S0235",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0156 has skill SK008.",
+    "subject": "S0156",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0236 has skill SK028.",
+    "subject": "S0236",
+    "subject_type": "STUDENT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0270 is enrolled in course C024.",
+    "subject": "S0270",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0050 has skill SK001.",
+    "subject": "S0050",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0143 has skill SK019.",
+    "subject": "S0143",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0161 works on project P0040.",
+    "subject": "S0161",
+    "subject_type": "STUDENT",
+    "object": "P0040",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0151 has skill SK019.",
+    "subject": "S0151",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0002 requires skill SK026.",
+    "subject": "P0002",
+    "subject_type": "PROJECT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0152 is enrolled in course C014.",
+    "subject": "S0152",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0008 requires skill SK024.",
+    "subject": "P0008",
+    "subject_type": "PROJECT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0074 works on project P0026.",
+    "subject": "S0074",
+    "subject_type": "STUDENT",
+    "object": "P0026",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0237 works on project P0014.",
+    "subject": "S0237",
+    "subject_type": "STUDENT",
+    "object": "P0014",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0001 is enrolled in course C022.",
+    "subject": "S0001",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0208 is enrolled in course C023.",
+    "subject": "S0208",
+    "subject_type": "STUDENT",
+    "object": "C023",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0251 works on project P0032.",
+    "subject": "S0251",
+    "subject_type": "STUDENT",
+    "object": "P0032",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0122 works on project P0014.",
+    "subject": "S0122",
+    "subject_type": "STUDENT",
+    "object": "P0014",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0067 has skill SK013.",
+    "subject": "S0067",
+    "subject_type": "STUDENT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0297 is enrolled in course C012.",
+    "subject": "S0297",
+    "subject_type": "STUDENT",
+    "object": "C012",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F016 teaches course C030.",
+    "subject": "F016",
+    "subject_type": "FACULTY",
+    "object": "C030",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0210 is enrolled in course C024.",
+    "subject": "S0210",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0048 is enrolled in course C031.",
+    "subject": "S0048",
+    "subject_type": "STUDENT",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0193 is enrolled in course C011.",
+    "subject": "S0193",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0227 works on project P0041.",
+    "subject": "S0227",
+    "subject_type": "STUDENT",
+    "object": "P0041",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0231 has skill SK022.",
+    "subject": "S0231",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0053 is enrolled in course C002.",
+    "subject": "S0053",
+    "subject_type": "STUDENT",
+    "object": "C002",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0005 has skill SK027.",
+    "subject": "S0005",
+    "subject_type": "STUDENT",
+    "object": "SK027",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0269 has skill SK003.",
+    "subject": "S0269",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0227 has skill SK012.",
+    "subject": "S0227",
+    "subject_type": "STUDENT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0092 is enrolled in course C017.",
+    "subject": "S0092",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0231 has skill SK014.",
+    "subject": "S0231",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0086 works on project P0077.",
+    "subject": "S0086",
+    "subject_type": "STUDENT",
+    "object": "P0077",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0101 works on project P0061.",
+    "subject": "S0101",
+    "subject_type": "STUDENT",
+    "object": "P0061",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0204 is enrolled in course C009.",
+    "subject": "S0204",
+    "subject_type": "STUDENT",
+    "object": "C009",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0113 has skill SK003.",
+    "subject": "S0113",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F027 teaches course C032.",
+    "subject": "F027",
+    "subject_type": "FACULTY",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0212 is enrolled in course C027.",
+    "subject": "S0212",
+    "subject_type": "STUDENT",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0194 is enrolled in course C025.",
+    "subject": "S0194",
+    "subject_type": "STUDENT",
+    "object": "C025",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0100 has skill SK029.",
+    "subject": "S0100",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F025 teaches course C027.",
+    "subject": "F025",
+    "subject_type": "FACULTY",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0295 has skill SK005.",
+    "subject": "S0295",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0018 has skill SK009.",
+    "subject": "S0018",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0010 requires skill SK014.",
+    "subject": "P0010",
+    "subject_type": "PROJECT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0095 has skill SK021.",
+    "subject": "S0095",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0264 has skill SK029.",
+    "subject": "S0264",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0092 is enrolled in course C007.",
+    "subject": "S0092",
+    "subject_type": "STUDENT",
+    "object": "C007",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0235 works on project P0055.",
+    "subject": "S0235",
+    "subject_type": "STUDENT",
+    "object": "P0055",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0199 is enrolled in course C037.",
+    "subject": "S0199",
+    "subject_type": "STUDENT",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0192 works on project P0017.",
+    "subject": "S0192",
+    "subject_type": "STUDENT",
+    "object": "P0017",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0266 has skill SK015.",
+    "subject": "S0266",
+    "subject_type": "STUDENT",
+    "object": "SK015",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0103 has skill SK021.",
+    "subject": "S0103",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0216 has skill SK002.",
+    "subject": "S0216",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0129 is enrolled in course C007.",
+    "subject": "S0129",
+    "subject_type": "STUDENT",
+    "object": "C007",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0160 is enrolled in course C021.",
+    "subject": "S0160",
+    "subject_type": "STUDENT",
+    "object": "C021",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0007 requires skill SK021.",
+    "subject": "P0007",
+    "subject_type": "PROJECT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0108 has skill SK018.",
+    "subject": "S0108",
+    "subject_type": "STUDENT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0272 works on project P0058.",
+    "subject": "S0272",
+    "subject_type": "STUDENT",
+    "object": "P0058",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0059 has skill SK009.",
+    "subject": "S0059",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0064 has skill SK002.",
+    "subject": "S0064",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0146 works on project P0003.",
+    "subject": "S0146",
+    "subject_type": "STUDENT",
+    "object": "P0003",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0034 works on project P0050.",
+    "subject": "S0034",
+    "subject_type": "STUDENT",
+    "object": "P0050",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0102 works on project P0036.",
+    "subject": "S0102",
+    "subject_type": "STUDENT",
+    "object": "P0036",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0028 is enrolled in course C016.",
+    "subject": "S0028",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0047 requires skill SK017.",
+    "subject": "P0047",
+    "subject_type": "PROJECT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Project P0021 requires skill SK001.",
+    "subject": "P0021",
+    "subject_type": "PROJECT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0027 has skill SK010.",
+    "subject": "S0027",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0161 has skill SK004.",
+    "subject": "S0161",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0181 works on project P0034.",
+    "subject": "S0181",
+    "subject_type": "STUDENT",
+    "object": "P0034",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0231 is enrolled in course C022.",
+    "subject": "S0231",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0192 works on project P0023.",
+    "subject": "S0192",
+    "subject_type": "STUDENT",
+    "object": "P0023",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0243 has skill SK002.",
+    "subject": "S0243",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0107 has skill SK009.",
+    "subject": "S0107",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0254 has skill SK024.",
+    "subject": "S0254",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F008 supervises project P0045.",
+    "subject": "F008",
+    "subject_type": "FACULTY",
+    "object": "P0045",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0100 has skill SK022.",
+    "subject": "S0100",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0212 has skill SK009.",
+    "subject": "S0212",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0273 has skill SK022.",
+    "subject": "S0273",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0064 requires skill SK004.",
+    "subject": "P0064",
+    "subject_type": "PROJECT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0182 has skill SK014.",
+    "subject": "S0182",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0007 requires skill SK023.",
+    "subject": "P0007",
+    "subject_type": "PROJECT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0043 has skill SK018.",
+    "subject": "S0043",
+    "subject_type": "STUDENT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0014 requires skill SK017.",
+    "subject": "P0014",
+    "subject_type": "PROJECT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0012 is enrolled in course C016.",
+    "subject": "S0012",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0175 has skill SK013.",
+    "subject": "S0175",
+    "subject_type": "STUDENT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0126 works on project P0049.",
+    "subject": "S0126",
+    "subject_type": "STUDENT",
+    "object": "P0049",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0284 is enrolled in course C006.",
+    "subject": "S0284",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0291 works on project P0038.",
+    "subject": "S0291",
+    "subject_type": "STUDENT",
+    "object": "P0038",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F016 teaches course C017.",
+    "subject": "F016",
+    "subject_type": "FACULTY",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0220 is enrolled in course C013.",
+    "subject": "S0220",
+    "subject_type": "STUDENT",
+    "object": "C013",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F017 supervises project P0028.",
+    "subject": "F017",
+    "subject_type": "FACULTY",
+    "object": "P0028",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Faculty F016 teaches course C006.",
+    "subject": "F016",
+    "subject_type": "FACULTY",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0221 has skill SK007.",
+    "subject": "S0221",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0042 is enrolled in course C018.",
+    "subject": "S0042",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0299 works on project P0001.",
+    "subject": "S0299",
+    "subject_type": "STUDENT",
+    "object": "P0001",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0184 is enrolled in course C014.",
+    "subject": "S0184",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0039 is enrolled in course C018.",
+    "subject": "S0039",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0293 is enrolled in course C040.",
+    "subject": "S0293",
+    "subject_type": "STUDENT",
+    "object": "C040",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0281 has skill SK015.",
+    "subject": "S0281",
+    "subject_type": "STUDENT",
+    "object": "SK015",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0252 has skill SK016.",
+    "subject": "S0252",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0029 is enrolled in course C009.",
+    "subject": "S0029",
+    "subject_type": "STUDENT",
+    "object": "C009",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0182 is enrolled in course C018.",
+    "subject": "S0182",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0288 has skill SK008.",
+    "subject": "S0288",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0158 works on project P0074.",
+    "subject": "S0158",
+    "subject_type": "STUDENT",
+    "object": "P0074",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F026 teaches course C034.",
+    "subject": "F026",
+    "subject_type": "FACULTY",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Project P0069 requires skill SK018.",
+    "subject": "P0069",
+    "subject_type": "PROJECT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Project P0029 requires skill SK023.",
+    "subject": "P0029",
+    "subject_type": "PROJECT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0017 has skill SK010.",
+    "subject": "S0017",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0196 is enrolled in course C024.",
+    "subject": "S0196",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0216 works on project P0070.",
+    "subject": "S0216",
+    "subject_type": "STUDENT",
+    "object": "P0070",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0104 has skill SK011.",
+    "subject": "S0104",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0186 has skill SK029.",
+    "subject": "S0186",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0158 has skill SK027.",
+    "subject": "S0158",
+    "subject_type": "STUDENT",
+    "object": "SK027",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0156 has skill SK024.",
+    "subject": "S0156",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0055 is enrolled in course C011.",
+    "subject": "S0055",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0078 requires skill SK021.",
+    "subject": "P0078",
+    "subject_type": "PROJECT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0126 has skill SK005.",
+    "subject": "S0126",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0073 has skill SK016.",
+    "subject": "S0073",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0032 has skill SK013.",
+    "subject": "S0032",
+    "subject_type": "STUDENT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0164 has skill SK015.",
+    "subject": "S0164",
+    "subject_type": "STUDENT",
+    "object": "SK015",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0024 has skill SK008.",
+    "subject": "S0024",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0136 has skill SK011.",
+    "subject": "S0136",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0046 has skill SK013.",
+    "subject": "S0046",
+    "subject_type": "STUDENT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0052 is enrolled in course C039.",
+    "subject": "S0052",
+    "subject_type": "STUDENT",
+    "object": "C039",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0137 has skill SK017.",
+    "subject": "S0137",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0098 has skill SK010.",
+    "subject": "S0098",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0212 has skill SK029.",
+    "subject": "S0212",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0300 has skill SK030.",
+    "subject": "S0300",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0256 has skill SK017.",
+    "subject": "S0256",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0202 is enrolled in course C037.",
+    "subject": "S0202",
+    "subject_type": "STUDENT",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0009 is enrolled in course C001.",
+    "subject": "S0009",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0053 is enrolled in course C040.",
+    "subject": "S0053",
+    "subject_type": "STUDENT",
+    "object": "C040",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0238 has skill SK005.",
+    "subject": "S0238",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F011 supervises project P0017.",
+    "subject": "F011",
+    "subject_type": "FACULTY",
+    "object": "P0017",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0161 is enrolled in course C008.",
+    "subject": "S0161",
+    "subject_type": "STUDENT",
+    "object": "C008",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0044 is enrolled in course C038.",
+    "subject": "S0044",
+    "subject_type": "STUDENT",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0203 works on project P0001.",
+    "subject": "S0203",
+    "subject_type": "STUDENT",
+    "object": "P0001",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0255 is enrolled in course C023.",
+    "subject": "S0255",
+    "subject_type": "STUDENT",
+    "object": "C023",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0274 is enrolled in course C004.",
+    "subject": "S0274",
+    "subject_type": "STUDENT",
+    "object": "C004",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0149 works on project P0013.",
+    "subject": "S0149",
+    "subject_type": "STUDENT",
+    "object": "P0013",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0209 has skill SK021.",
+    "subject": "S0209",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0187 has skill SK029.",
+    "subject": "S0187",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0134 has skill SK025.",
+    "subject": "S0134",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0250 has skill SK003.",
+    "subject": "S0250",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F021 teaches course C023.",
+    "subject": "F021",
+    "subject_type": "FACULTY",
+    "object": "C023",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0193 has skill SK027.",
+    "subject": "S0193",
+    "subject_type": "STUDENT",
+    "object": "SK027",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F027 supervises project P0024.",
+    "subject": "F027",
+    "subject_type": "FACULTY",
+    "object": "P0024",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0255 has skill SK029.",
+    "subject": "S0255",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0259 works on project P0057.",
+    "subject": "S0259",
+    "subject_type": "STUDENT",
+    "object": "P0057",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0031 requires skill SK010.",
+    "subject": "P0031",
+    "subject_type": "PROJECT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0083 is enrolled in course C027.",
+    "subject": "S0083",
+    "subject_type": "STUDENT",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0003 works on project P0056.",
+    "subject": "S0003",
+    "subject_type": "STUDENT",
+    "object": "P0056",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0293 is enrolled in course C039.",
+    "subject": "S0293",
+    "subject_type": "STUDENT",
+    "object": "C039",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0213 has skill SK005.",
+    "subject": "S0213",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0135 is enrolled in course C014.",
+    "subject": "S0135",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0106 is enrolled in course C011.",
+    "subject": "S0106",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0106 has skill SK030.",
+    "subject": "S0106",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0234 is enrolled in course C034.",
+    "subject": "S0234",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0230 is enrolled in course C006.",
+    "subject": "S0230",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0100 works on project P0038.",
+    "subject": "S0100",
+    "subject_type": "STUDENT",
+    "object": "P0038",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0088 has skill SK003.",
+    "subject": "S0088",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0061 works on project P0074.",
+    "subject": "S0061",
+    "subject_type": "STUDENT",
+    "object": "P0074",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0125 is enrolled in course C037.",
+    "subject": "S0125",
+    "subject_type": "STUDENT",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0073 requires skill SK013.",
+    "subject": "P0073",
+    "subject_type": "PROJECT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0127 has skill SK002.",
+    "subject": "S0127",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0161 is enrolled in course C001.",
+    "subject": "S0161",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0163 works on project P0045.",
+    "subject": "S0163",
+    "subject_type": "STUDENT",
+    "object": "P0045",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0163 is enrolled in course C040.",
+    "subject": "S0163",
+    "subject_type": "STUDENT",
+    "object": "C040",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0207 works on project P0001.",
+    "subject": "S0207",
+    "subject_type": "STUDENT",
+    "object": "P0001",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0211 is enrolled in course C017.",
+    "subject": "S0211",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0048 works on project P0045.",
+    "subject": "S0048",
+    "subject_type": "STUDENT",
+    "object": "P0045",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0151 is enrolled in course C029.",
+    "subject": "S0151",
+    "subject_type": "STUDENT",
+    "object": "C029",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0194 is enrolled in course C003.",
+    "subject": "S0194",
+    "subject_type": "STUDENT",
+    "object": "C003",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0057 is enrolled in course C037.",
+    "subject": "S0057",
+    "subject_type": "STUDENT",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0082 is enrolled in course C018.",
+    "subject": "S0082",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0265 has skill SK003.",
+    "subject": "S0265",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0275 is enrolled in course C026.",
+    "subject": "S0275",
+    "subject_type": "STUDENT",
+    "object": "C026",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0284 has skill SK003.",
+    "subject": "S0284",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0183 is enrolled in course C009.",
+    "subject": "S0183",
+    "subject_type": "STUDENT",
+    "object": "C009",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F022 teaches course C019.",
+    "subject": "F022",
+    "subject_type": "FACULTY",
+    "object": "C019",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0054 is enrolled in course C005.",
+    "subject": "S0054",
+    "subject_type": "STUDENT",
+    "object": "C005",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0065 has skill SK010.",
+    "subject": "S0065",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0123 has skill SK016.",
+    "subject": "S0123",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0158 is enrolled in course C027.",
+    "subject": "S0158",
+    "subject_type": "STUDENT",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0083 has skill SK030.",
+    "subject": "S0083",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0217 works on project P0077.",
+    "subject": "S0217",
+    "subject_type": "STUDENT",
+    "object": "P0077",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0225 has skill SK017.",
+    "subject": "S0225",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0092 has skill SK030.",
+    "subject": "S0092",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0287 has skill SK023.",
+    "subject": "S0287",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0057 requires skill SK027.",
+    "subject": "P0057",
+    "subject_type": "PROJECT",
+    "object": "SK027",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0294 has skill SK022.",
+    "subject": "S0294",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0253 is enrolled in course C013.",
+    "subject": "S0253",
+    "subject_type": "STUDENT",
+    "object": "C013",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0204 has skill SK022.",
+    "subject": "S0204",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0099 is enrolled in course C009.",
+    "subject": "S0099",
+    "subject_type": "STUDENT",
+    "object": "C009",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0037 has skill SK029.",
+    "subject": "S0037",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0060 is enrolled in course C027.",
+    "subject": "S0060",
+    "subject_type": "STUDENT",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0200 has skill SK004.",
+    "subject": "S0200",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0097 has skill SK026.",
+    "subject": "S0097",
+    "subject_type": "STUDENT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0248 has skill SK025.",
+    "subject": "S0248",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0233 works on project P0046.",
+    "subject": "S0233",
+    "subject_type": "STUDENT",
+    "object": "P0046",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0127 has skill SK004.",
+    "subject": "S0127",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0199 is enrolled in course C018.",
+    "subject": "S0199",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0270 is enrolled in course C031.",
+    "subject": "S0270",
+    "subject_type": "STUDENT",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0010 has skill SK009.",
+    "subject": "S0010",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0203 is enrolled in course C032.",
+    "subject": "S0203",
+    "subject_type": "STUDENT",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0280 works on project P0001.",
+    "subject": "S0280",
+    "subject_type": "STUDENT",
+    "object": "P0001",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0103 is enrolled in course C022.",
+    "subject": "S0103",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0122 is enrolled in course C014.",
+    "subject": "S0122",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0071 works on project P0029.",
+    "subject": "S0071",
+    "subject_type": "STUDENT",
+    "object": "P0029",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0048 requires skill SK030.",
+    "subject": "P0048",
+    "subject_type": "PROJECT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0071 has skill SK007.",
+    "subject": "S0071",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0274 is enrolled in course C001.",
+    "subject": "S0274",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0279 is enrolled in course C037.",
+    "subject": "S0279",
+    "subject_type": "STUDENT",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0002 requires skill SK005.",
+    "subject": "P0002",
+    "subject_type": "PROJECT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Faculty F022 supervises project P0005.",
+    "subject": "F022",
+    "subject_type": "FACULTY",
+    "object": "P0005",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Project P0056 requires skill SK012.",
+    "subject": "P0056",
+    "subject_type": "PROJECT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0064 has skill SK030.",
+    "subject": "S0064",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0267 is enrolled in course C027.",
+    "subject": "S0267",
+    "subject_type": "STUDENT",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0034 has skill SK012.",
+    "subject": "S0034",
+    "subject_type": "STUDENT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0229 is enrolled in course C011.",
+    "subject": "S0229",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0071 works on project P0068.",
+    "subject": "S0071",
+    "subject_type": "STUDENT",
+    "object": "P0068",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0096 is enrolled in course C018.",
+    "subject": "S0096",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0291 has skill SK018.",
+    "subject": "S0291",
+    "subject_type": "STUDENT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0028 is enrolled in course C023.",
+    "subject": "S0028",
+    "subject_type": "STUDENT",
+    "object": "C023",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0165 is enrolled in course C034.",
+    "subject": "S0165",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0069 has skill SK025.",
+    "subject": "S0069",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0198 is enrolled in course C031.",
+    "subject": "S0198",
+    "subject_type": "STUDENT",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0256 works on project P0059.",
+    "subject": "S0256",
+    "subject_type": "STUDENT",
+    "object": "P0059",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0242 has skill SK004.",
+    "subject": "S0242",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F022 supervises project P0026.",
+    "subject": "F022",
+    "subject_type": "FACULTY",
+    "object": "P0026",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0247 has skill SK009.",
+    "subject": "S0247",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0058 is enrolled in course C016.",
+    "subject": "S0058",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0038 is enrolled in course C006.",
+    "subject": "S0038",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F014 supervises project P0058.",
+    "subject": "F014",
+    "subject_type": "FACULTY",
+    "object": "P0058",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Project P0021 requires skill SK018.",
+    "subject": "P0021",
+    "subject_type": "PROJECT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0179 is enrolled in course C031.",
+    "subject": "S0179",
+    "subject_type": "STUDENT",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0219 has skill SK007.",
+    "subject": "S0219",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0112 is enrolled in course C028.",
+    "subject": "S0112",
+    "subject_type": "STUDENT",
+    "object": "C028",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0078 is enrolled in course C009.",
+    "subject": "S0078",
+    "subject_type": "STUDENT",
+    "object": "C009",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0110 works on project P0060.",
+    "subject": "S0110",
+    "subject_type": "STUDENT",
+    "object": "P0060",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0122 has skill SK003.",
+    "subject": "S0122",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0120 works on project P0072.",
+    "subject": "S0120",
+    "subject_type": "STUDENT",
+    "object": "P0072",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0206 has skill SK020.",
+    "subject": "S0206",
+    "subject_type": "STUDENT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0150 is enrolled in course C037.",
+    "subject": "S0150",
+    "subject_type": "STUDENT",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0128 is enrolled in course C036.",
+    "subject": "S0128",
+    "subject_type": "STUDENT",
+    "object": "C036",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0090 has skill SK018.",
+    "subject": "S0090",
+    "subject_type": "STUDENT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0046 is enrolled in course C013.",
+    "subject": "S0046",
+    "subject_type": "STUDENT",
+    "object": "C013",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0219 has skill SK023.",
+    "subject": "S0219",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0146 is enrolled in course C006.",
+    "subject": "S0146",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0136 has skill SK017.",
+    "subject": "S0136",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0242 is enrolled in course C039.",
+    "subject": "S0242",
+    "subject_type": "STUDENT",
+    "object": "C039",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0011 has skill SK001.",
+    "subject": "S0011",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0267 is enrolled in course C005.",
+    "subject": "S0267",
+    "subject_type": "STUDENT",
+    "object": "C005",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0263 has skill SK025.",
+    "subject": "S0263",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0194 has skill SK027.",
+    "subject": "S0194",
+    "subject_type": "STUDENT",
+    "object": "SK027",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0171 works on project P0077.",
+    "subject": "S0171",
+    "subject_type": "STUDENT",
+    "object": "P0077",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0140 is enrolled in course C015.",
+    "subject": "S0140",
+    "subject_type": "STUDENT",
+    "object": "C015",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0296 has skill SK011.",
+    "subject": "S0296",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0249 is enrolled in course C022.",
+    "subject": "S0249",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0001 is enrolled in course C006.",
+    "subject": "S0001",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0103 is enrolled in course C017.",
+    "subject": "S0103",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0254 has skill SK016.",
+    "subject": "S0254",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0133 has skill SK021.",
+    "subject": "S0133",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F030 supervises project P0046.",
+    "subject": "F030",
+    "subject_type": "FACULTY",
+    "object": "P0046",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0085 has skill SK023.",
+    "subject": "S0085",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0152 has skill SK016.",
+    "subject": "S0152",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0206 is enrolled in course C006.",
+    "subject": "S0206",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0028 is enrolled in course C007.",
+    "subject": "S0028",
+    "subject_type": "STUDENT",
+    "object": "C007",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0196 is enrolled in course C025.",
+    "subject": "S0196",
+    "subject_type": "STUDENT",
+    "object": "C025",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F024 teaches course C038.",
+    "subject": "F024",
+    "subject_type": "FACULTY",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0225 has skill SK021.",
+    "subject": "S0225",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0177 is enrolled in course C035.",
+    "subject": "S0177",
+    "subject_type": "STUDENT",
+    "object": "C035",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0125 works on project P0027.",
+    "subject": "S0125",
+    "subject_type": "STUDENT",
+    "object": "P0027",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0191 is enrolled in course C009.",
+    "subject": "S0191",
+    "subject_type": "STUDENT",
+    "object": "C009",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0111 has skill SK030.",
+    "subject": "S0111",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F007 supervises project P0012.",
+    "subject": "F007",
+    "subject_type": "FACULTY",
+    "object": "P0012",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0220 is enrolled in course C025.",
+    "subject": "S0220",
+    "subject_type": "STUDENT",
+    "object": "C025",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0048 has skill SK023.",
+    "subject": "S0048",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0160 has skill SK019.",
+    "subject": "S0160",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0211 works on project P0029.",
+    "subject": "S0211",
+    "subject_type": "STUDENT",
+    "object": "P0029",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0064 has skill SK003.",
+    "subject": "S0064",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0133 is enrolled in course C006.",
+    "subject": "S0133",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0261 has skill SK025.",
+    "subject": "S0261",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0094 has skill SK002.",
+    "subject": "S0094",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0202 works on project P0007.",
+    "subject": "S0202",
+    "subject_type": "STUDENT",
+    "object": "P0007",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0140 has skill SK025.",
+    "subject": "S0140",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0098 is enrolled in course C002.",
+    "subject": "S0098",
+    "subject_type": "STUDENT",
+    "object": "C002",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0017 works on project P0016.",
+    "subject": "S0017",
+    "subject_type": "STUDENT",
+    "object": "P0016",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0037 requires skill SK008.",
+    "subject": "P0037",
+    "subject_type": "PROJECT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0036 is enrolled in course C015.",
+    "subject": "S0036",
+    "subject_type": "STUDENT",
+    "object": "C015",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0051 requires skill SK024.",
+    "subject": "P0051",
+    "subject_type": "PROJECT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Project P0028 requires skill SK013.",
+    "subject": "P0028",
+    "subject_type": "PROJECT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0252 is enrolled in course C021.",
+    "subject": "S0252",
+    "subject_type": "STUDENT",
+    "object": "C021",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0078 requires skill SK012.",
+    "subject": "P0078",
+    "subject_type": "PROJECT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0138 is enrolled in course C010.",
+    "subject": "S0138",
+    "subject_type": "STUDENT",
+    "object": "C010",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0190 has skill SK006.",
+    "subject": "S0190",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0061 is enrolled in course C034.",
+    "subject": "S0061",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0240 has skill SK009.",
+    "subject": "S0240",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0046 requires skill SK021.",
+    "subject": "P0046",
+    "subject_type": "PROJECT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0026 is enrolled in course C024.",
+    "subject": "S0026",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0216 works on project P0056.",
+    "subject": "S0216",
+    "subject_type": "STUDENT",
+    "object": "P0056",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0046 has skill SK023.",
+    "subject": "S0046",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0166 works on project P0030.",
+    "subject": "S0166",
+    "subject_type": "STUDENT",
+    "object": "P0030",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0133 has skill SK030.",
+    "subject": "S0133",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0050 requires skill SK008.",
+    "subject": "P0050",
+    "subject_type": "PROJECT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0052 has skill SK011.",
+    "subject": "S0052",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0185 has skill SK002.",
+    "subject": "S0185",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0069 requires skill SK016.",
+    "subject": "P0069",
+    "subject_type": "PROJECT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0257 has skill SK007.",
+    "subject": "S0257",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0190 is enrolled in course C021.",
+    "subject": "S0190",
+    "subject_type": "STUDENT",
+    "object": "C021",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0256 has skill SK009.",
+    "subject": "S0256",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F025 supervises project P0068.",
+    "subject": "F025",
+    "subject_type": "FACULTY",
+    "object": "P0068",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0211 has skill SK008.",
+    "subject": "S0211",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0202 has skill SK002.",
+    "subject": "S0202",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0285 works on project P0041.",
+    "subject": "S0285",
+    "subject_type": "STUDENT",
+    "object": "P0041",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0011 requires skill SK006.",
+    "subject": "P0011",
+    "subject_type": "PROJECT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0217 has skill SK019.",
+    "subject": "S0217",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0072 is enrolled in course C002.",
+    "subject": "S0072",
+    "subject_type": "STUDENT",
+    "object": "C002",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0291 has skill SK014.",
+    "subject": "S0291",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0184 is enrolled in course C003.",
+    "subject": "S0184",
+    "subject_type": "STUDENT",
+    "object": "C003",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0212 is enrolled in course C020.",
+    "subject": "S0212",
+    "subject_type": "STUDENT",
+    "object": "C020",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0016 has skill SK029.",
+    "subject": "S0016",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0235 is enrolled in course C008.",
+    "subject": "S0235",
+    "subject_type": "STUDENT",
+    "object": "C008",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0118 has skill SK015.",
+    "subject": "S0118",
+    "subject_type": "STUDENT",
+    "object": "SK015",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0291 is enrolled in course C031.",
+    "subject": "S0291",
+    "subject_type": "STUDENT",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0147 is enrolled in course C017.",
+    "subject": "S0147",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0277 is enrolled in course C014.",
+    "subject": "S0277",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0081 has skill SK026.",
+    "subject": "S0081",
+    "subject_type": "STUDENT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0272 has skill SK004.",
+    "subject": "S0272",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0092 has skill SK016.",
+    "subject": "S0092",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0084 has skill SK023.",
+    "subject": "S0084",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0029 is enrolled in course C020.",
+    "subject": "S0029",
+    "subject_type": "STUDENT",
+    "object": "C020",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0202 has skill SK030.",
+    "subject": "S0202",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0022 has skill SK024.",
+    "subject": "S0022",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0277 has skill SK018.",
+    "subject": "S0277",
+    "subject_type": "STUDENT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0048 requires skill SK021.",
+    "subject": "P0048",
+    "subject_type": "PROJECT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0130 is enrolled in course C010.",
+    "subject": "S0130",
+    "subject_type": "STUDENT",
+    "object": "C010",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0213 is enrolled in course C028.",
+    "subject": "S0213",
+    "subject_type": "STUDENT",
+    "object": "C028",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0239 has skill SK017.",
+    "subject": "S0239",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0281 has skill SK006.",
+    "subject": "S0281",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0168 works on project P0076.",
+    "subject": "S0168",
+    "subject_type": "STUDENT",
+    "object": "P0076",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0145 has skill SK011.",
+    "subject": "S0145",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0060 has skill SK029.",
+    "subject": "S0060",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0019 requires skill SK003.",
+    "subject": "P0019",
+    "subject_type": "PROJECT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0227 has skill SK023.",
+    "subject": "S0227",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0146 has skill SK006.",
+    "subject": "S0146",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0206 is enrolled in course C035.",
+    "subject": "S0206",
+    "subject_type": "STUDENT",
+    "object": "C035",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0218 has skill SK022.",
+    "subject": "S0218",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0142 is enrolled in course C006.",
+    "subject": "S0142",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0279 is enrolled in course C003.",
+    "subject": "S0279",
+    "subject_type": "STUDENT",
+    "object": "C003",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0267 is enrolled in course C015.",
+    "subject": "S0267",
+    "subject_type": "STUDENT",
+    "object": "C015",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0277 has skill SK017.",
+    "subject": "S0277",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0062 works on project P0067.",
+    "subject": "S0062",
+    "subject_type": "STUDENT",
+    "object": "P0067",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0033 is enrolled in course C017.",
+    "subject": "S0033",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0043 has skill SK014.",
+    "subject": "S0043",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0059 is enrolled in course C018.",
+    "subject": "S0059",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0151 works on project P0002.",
+    "subject": "S0151",
+    "subject_type": "STUDENT",
+    "object": "P0002",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0262 is enrolled in course C006.",
+    "subject": "S0262",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0015 is enrolled in course C023.",
+    "subject": "S0015",
+    "subject_type": "STUDENT",
+    "object": "C023",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0197 is enrolled in course C036.",
+    "subject": "S0197",
+    "subject_type": "STUDENT",
+    "object": "C036",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0285 has skill SK004.",
+    "subject": "S0285",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0106 has skill SK008.",
+    "subject": "S0106",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0127 has skill SK017.",
+    "subject": "S0127",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0040 is enrolled in course C034.",
+    "subject": "S0040",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F007 supervises project P0053.",
+    "subject": "F007",
+    "subject_type": "FACULTY",
+    "object": "P0053",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0135 has skill SK024.",
+    "subject": "S0135",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0284 has skill SK008.",
+    "subject": "S0284",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0014 requires skill SK003.",
+    "subject": "P0014",
+    "subject_type": "PROJECT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0070 has skill SK012.",
+    "subject": "S0070",
+    "subject_type": "STUDENT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0082 is enrolled in course C005.",
+    "subject": "S0082",
+    "subject_type": "STUDENT",
+    "object": "C005",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0268 is enrolled in course C034.",
+    "subject": "S0268",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F024 teaches course C020.",
+    "subject": "F024",
+    "subject_type": "FACULTY",
+    "object": "C020",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0100 has skill SK019.",
+    "subject": "S0100",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0203 has skill SK026.",
+    "subject": "S0203",
+    "subject_type": "STUDENT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0184 has skill SK009.",
+    "subject": "S0184",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0070 is enrolled in course C026.",
+    "subject": "S0070",
+    "subject_type": "STUDENT",
+    "object": "C026",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0118 has skill SK030.",
+    "subject": "S0118",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0215 works on project P0062.",
+    "subject": "S0215",
+    "subject_type": "STUDENT",
+    "object": "P0062",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0295 has skill SK001.",
+    "subject": "S0295",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0020 is enrolled in course C006.",
+    "subject": "S0020",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0243 has skill SK014.",
+    "subject": "S0243",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0090 has skill SK008.",
+    "subject": "S0090",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0026 has skill SK030.",
+    "subject": "S0026",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0058 has skill SK027.",
+    "subject": "S0058",
+    "subject_type": "STUDENT",
+    "object": "SK027",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0045 has skill SK022.",
+    "subject": "S0045",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0122 has skill SK028.",
+    "subject": "S0122",
+    "subject_type": "STUDENT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0207 is enrolled in course C010.",
+    "subject": "S0207",
+    "subject_type": "STUDENT",
+    "object": "C010",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0181 is enrolled in course C036.",
+    "subject": "S0181",
+    "subject_type": "STUDENT",
+    "object": "C036",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0004 has skill SK014.",
+    "subject": "S0004",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0118 is enrolled in course C016.",
+    "subject": "S0118",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0056 has skill SK017.",
+    "subject": "S0056",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0112 works on project P0037.",
+    "subject": "S0112",
+    "subject_type": "STUDENT",
+    "object": "P0037",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F007 supervises project P0023.",
+    "subject": "F007",
+    "subject_type": "FACULTY",
+    "object": "P0023",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0103 is enrolled in course C031.",
+    "subject": "S0103",
+    "subject_type": "STUDENT",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0191 is enrolled in course C022.",
+    "subject": "S0191",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0155 is enrolled in course C039.",
+    "subject": "S0155",
+    "subject_type": "STUDENT",
+    "object": "C039",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0156 is enrolled in course C033.",
+    "subject": "S0156",
+    "subject_type": "STUDENT",
+    "object": "C033",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0028 has skill SK008.",
+    "subject": "S0028",
+    "subject_type": "STUDENT",
+    "object": "SK008",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0006 works on project P0075.",
+    "subject": "S0006",
+    "subject_type": "STUDENT",
+    "object": "P0075",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0237 works on project P0067.",
+    "subject": "S0237",
+    "subject_type": "STUDENT",
+    "object": "P0067",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0155 has skill SK017.",
+    "subject": "S0155",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0218 has skill SK023.",
+    "subject": "S0218",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0278 is enrolled in course C003.",
+    "subject": "S0278",
+    "subject_type": "STUDENT",
+    "object": "C003",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0081 is enrolled in course C033.",
+    "subject": "S0081",
+    "subject_type": "STUDENT",
+    "object": "C033",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0268 has skill SK016.",
+    "subject": "S0268",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0293 is enrolled in course C013.",
+    "subject": "S0293",
+    "subject_type": "STUDENT",
+    "object": "C013",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0096 is enrolled in course C029.",
+    "subject": "S0096",
+    "subject_type": "STUDENT",
+    "object": "C029",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0001 requires skill SK028.",
+    "subject": "P0001",
+    "subject_type": "PROJECT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0034 works on project P0069.",
+    "subject": "S0034",
+    "subject_type": "STUDENT",
+    "object": "P0069",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0099 has skill SK020.",
+    "subject": "S0099",
+    "subject_type": "STUDENT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0128 has skill SK007.",
+    "subject": "S0128",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0217 has skill SK017.",
+    "subject": "S0217",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0100 has skill SK025.",
+    "subject": "S0100",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F004 supervises project P0023.",
+    "subject": "F004",
+    "subject_type": "FACULTY",
+    "object": "P0023",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0133 works on project P0017.",
+    "subject": "S0133",
+    "subject_type": "STUDENT",
+    "object": "P0017",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0202 works on project P0013.",
+    "subject": "S0202",
+    "subject_type": "STUDENT",
+    "object": "P0013",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0131 is enrolled in course C035.",
+    "subject": "S0131",
+    "subject_type": "STUDENT",
+    "object": "C035",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0035 has skill SK001.",
+    "subject": "S0035",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0224 has skill SK001.",
+    "subject": "S0224",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0300 is enrolled in course C017.",
+    "subject": "S0300",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0080 works on project P0061.",
+    "subject": "S0080",
+    "subject_type": "STUDENT",
+    "object": "P0061",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F007 supervises project P0021.",
+    "subject": "F007",
+    "subject_type": "FACULTY",
+    "object": "P0021",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0165 is enrolled in course C033.",
+    "subject": "S0165",
+    "subject_type": "STUDENT",
+    "object": "C033",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0266 has skill SK019.",
+    "subject": "S0266",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0047 has skill SK030.",
+    "subject": "S0047",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0228 has skill SK022.",
+    "subject": "S0228",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0112 is enrolled in course C033.",
+    "subject": "S0112",
+    "subject_type": "STUDENT",
+    "object": "C033",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0133 has skill SK004.",
+    "subject": "S0133",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0273 has skill SK013.",
+    "subject": "S0273",
+    "subject_type": "STUDENT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0269 is enrolled in course C022.",
+    "subject": "S0269",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0123 has skill SK009.",
+    "subject": "S0123",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0080 has skill SK030.",
+    "subject": "S0080",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0032 is enrolled in course C025.",
+    "subject": "S0032",
+    "subject_type": "STUDENT",
+    "object": "C025",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0059 requires skill SK018.",
+    "subject": "P0059",
+    "subject_type": "PROJECT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0054 is enrolled in course C014.",
+    "subject": "S0054",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0181 works on project P0072.",
+    "subject": "S0181",
+    "subject_type": "STUDENT",
+    "object": "P0072",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0265 has skill SK011.",
+    "subject": "S0265",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0060 requires skill SK016.",
+    "subject": "P0060",
+    "subject_type": "PROJECT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0224 is enrolled in course C032.",
+    "subject": "S0224",
+    "subject_type": "STUDENT",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0013 works on project P0017.",
+    "subject": "S0013",
+    "subject_type": "STUDENT",
+    "object": "P0017",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0051 has skill SK027.",
+    "subject": "S0051",
+    "subject_type": "STUDENT",
+    "object": "SK027",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0209 has skill SK004.",
+    "subject": "S0209",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0002 requires skill SK020.",
+    "subject": "P0002",
+    "subject_type": "PROJECT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0056 works on project P0036.",
+    "subject": "S0056",
+    "subject_type": "STUDENT",
+    "object": "P0036",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0046 has skill SK028.",
+    "subject": "S0046",
+    "subject_type": "STUDENT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0189 has skill SK001.",
+    "subject": "S0189",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0167 is enrolled in course C013.",
+    "subject": "S0167",
+    "subject_type": "STUDENT",
+    "object": "C013",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0169 has skill SK001.",
+    "subject": "S0169",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0080 requires skill SK011.",
+    "subject": "P0080",
+    "subject_type": "PROJECT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0115 works on project P0020.",
+    "subject": "S0115",
+    "subject_type": "STUDENT",
+    "object": "P0020",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0244 has skill SK006.",
+    "subject": "S0244",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0114 is enrolled in course C014.",
+    "subject": "S0114",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0088 has skill SK029.",
+    "subject": "S0088",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0279 is enrolled in course C035.",
+    "subject": "S0279",
+    "subject_type": "STUDENT",
+    "object": "C035",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0064 works on project P0007.",
+    "subject": "S0064",
+    "subject_type": "STUDENT",
+    "object": "P0007",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0151 is enrolled in course C002.",
+    "subject": "S0151",
+    "subject_type": "STUDENT",
+    "object": "C002",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0261 has skill SK019.",
+    "subject": "S0261",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0065 requires skill SK026.",
+    "subject": "P0065",
+    "subject_type": "PROJECT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Faculty F005 teaches course C032.",
+    "subject": "F005",
+    "subject_type": "FACULTY",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0298 works on project P0066.",
+    "subject": "S0298",
+    "subject_type": "STUDENT",
+    "object": "P0066",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F003 teaches course C018.",
+    "subject": "F003",
+    "subject_type": "FACULTY",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0096 has skill SK019.",
+    "subject": "S0096",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F015 teaches course C034.",
+    "subject": "F015",
+    "subject_type": "FACULTY",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0229 has skill SK012.",
+    "subject": "S0229",
+    "subject_type": "STUDENT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0274 has skill SK001.",
+    "subject": "S0274",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0044 requires skill SK015.",
+    "subject": "P0044",
+    "subject_type": "PROJECT",
+    "object": "SK015",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0156 is enrolled in course C016.",
+    "subject": "S0156",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0149 has skill SK021.",
+    "subject": "S0149",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0072 requires skill SK020.",
+    "subject": "P0072",
+    "subject_type": "PROJECT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0186 has skill SK005.",
+    "subject": "S0186",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0253 has skill SK029.",
+    "subject": "S0253",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0072 has skill SK023.",
+    "subject": "S0072",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0034 has skill SK019.",
+    "subject": "S0034",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0225 is enrolled in course C040.",
+    "subject": "S0225",
+    "subject_type": "STUDENT",
+    "object": "C040",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0029 is enrolled in course C013.",
+    "subject": "S0029",
+    "subject_type": "STUDENT",
+    "object": "C013",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F025 teaches course C013.",
+    "subject": "F025",
+    "subject_type": "FACULTY",
+    "object": "C013",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Project P0036 requires skill SK006.",
+    "subject": "P0036",
+    "subject_type": "PROJECT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0089 has skill SK022.",
+    "subject": "S0089",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0060 has skill SK011.",
+    "subject": "S0060",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0075 has skill SK012.",
+    "subject": "S0075",
+    "subject_type": "STUDENT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F019 teaches course C031.",
+    "subject": "F019",
+    "subject_type": "FACULTY",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0043 has skill SK011.",
+    "subject": "S0043",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0005 is enrolled in course C031.",
+    "subject": "S0005",
+    "subject_type": "STUDENT",
+    "object": "C031",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0255 has skill SK005.",
+    "subject": "S0255",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0188 is enrolled in course C026.",
+    "subject": "S0188",
+    "subject_type": "STUDENT",
+    "object": "C026",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0232 is enrolled in course C021.",
+    "subject": "S0232",
+    "subject_type": "STUDENT",
+    "object": "C021",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0003 is enrolled in course C003.",
+    "subject": "S0003",
+    "subject_type": "STUDENT",
+    "object": "C003",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0221 has skill SK010.",
+    "subject": "S0221",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0218 has skill SK024.",
+    "subject": "S0218",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0059 is enrolled in course C012.",
+    "subject": "S0059",
+    "subject_type": "STUDENT",
+    "object": "C012",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0006 requires skill SK012.",
+    "subject": "P0006",
+    "subject_type": "PROJECT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0021 has skill SK024.",
+    "subject": "S0021",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0180 has skill SK001.",
+    "subject": "S0180",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0076 has skill SK004.",
+    "subject": "S0076",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0039 has skill SK012.",
+    "subject": "S0039",
+    "subject_type": "STUDENT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0294 is enrolled in course C038.",
+    "subject": "S0294",
+    "subject_type": "STUDENT",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0299 has skill SK021.",
+    "subject": "S0299",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0182 has skill SK011.",
+    "subject": "S0182",
+    "subject_type": "STUDENT",
+    "object": "SK011",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0268 has skill SK007.",
+    "subject": "S0268",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0092 has skill SK010.",
+    "subject": "S0092",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0045 has skill SK010.",
+    "subject": "S0045",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0098 works on project P0074.",
+    "subject": "S0098",
+    "subject_type": "STUDENT",
+    "object": "P0074",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0054 requires skill SK017.",
+    "subject": "P0054",
+    "subject_type": "PROJECT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0291 is enrolled in course C024.",
+    "subject": "S0291",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0150 is enrolled in course C032.",
+    "subject": "S0150",
+    "subject_type": "STUDENT",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0050 has skill SK020.",
+    "subject": "S0050",
+    "subject_type": "STUDENT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0267 is enrolled in course C030.",
+    "subject": "S0267",
+    "subject_type": "STUDENT",
+    "object": "C030",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0298 is enrolled in course C040.",
+    "subject": "S0298",
+    "subject_type": "STUDENT",
+    "object": "C040",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0082 has skill SK006.",
+    "subject": "S0082",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0260 is enrolled in course C027.",
+    "subject": "S0260",
+    "subject_type": "STUDENT",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0041 is enrolled in course C033.",
+    "subject": "S0041",
+    "subject_type": "STUDENT",
+    "object": "C033",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0040 has skill SK012.",
+    "subject": "S0040",
+    "subject_type": "STUDENT",
+    "object": "SK012",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0162 is enrolled in course C028.",
+    "subject": "S0162",
+    "subject_type": "STUDENT",
+    "object": "C028",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0024 is enrolled in course C001.",
+    "subject": "S0024",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0055 has skill SK021.",
+    "subject": "S0055",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0016 works on project P0042.",
+    "subject": "S0016",
+    "subject_type": "STUDENT",
+    "object": "P0042",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0010 requires skill SK026.",
+    "subject": "P0010",
+    "subject_type": "PROJECT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0025 has skill SK001.",
+    "subject": "S0025",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0254 has skill SK004.",
+    "subject": "S0254",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0029 has skill SK016.",
+    "subject": "S0029",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0217 is enrolled in course C025.",
+    "subject": "S0217",
+    "subject_type": "STUDENT",
+    "object": "C025",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0246 is enrolled in course C016.",
+    "subject": "S0246",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0039 requires skill SK028.",
+    "subject": "P0039",
+    "subject_type": "PROJECT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0237 is enrolled in course C015.",
+    "subject": "S0237",
+    "subject_type": "STUDENT",
+    "object": "C015",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0119 works on project P0013.",
+    "subject": "S0119",
+    "subject_type": "STUDENT",
+    "object": "P0013",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F025 supervises project P0071.",
+    "subject": "F025",
+    "subject_type": "FACULTY",
+    "object": "P0071",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0209 is enrolled in course C032.",
+    "subject": "S0209",
+    "subject_type": "STUDENT",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0201 is enrolled in course C019.",
+    "subject": "S0201",
+    "subject_type": "STUDENT",
+    "object": "C019",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0138 is enrolled in course C037.",
+    "subject": "S0138",
+    "subject_type": "STUDENT",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0028 has skill SK014.",
+    "subject": "S0028",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0120 has skill SK017.",
+    "subject": "S0120",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0219 has skill SK021.",
+    "subject": "S0219",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0077 is enrolled in course C036.",
+    "subject": "S0077",
+    "subject_type": "STUDENT",
+    "object": "C036",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0018 requires skill SK010.",
+    "subject": "P0018",
+    "subject_type": "PROJECT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0029 is enrolled in course C015.",
+    "subject": "S0029",
+    "subject_type": "STUDENT",
+    "object": "C015",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0153 has skill SK016.",
+    "subject": "S0153",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0083 works on project P0056.",
+    "subject": "S0083",
+    "subject_type": "STUDENT",
+    "object": "P0056",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0211 has skill SK026.",
+    "subject": "S0211",
+    "subject_type": "STUDENT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0227 has skill SK029.",
+    "subject": "S0227",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0228 has skill SK016.",
+    "subject": "S0228",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0206 has skill SK021.",
+    "subject": "S0206",
+    "subject_type": "STUDENT",
+    "object": "SK021",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0164 has skill SK005.",
+    "subject": "S0164",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0286 is enrolled in course C005.",
+    "subject": "S0286",
+    "subject_type": "STUDENT",
+    "object": "C005",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0066 has skill SK010.",
+    "subject": "S0066",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0296 works on project P0055.",
+    "subject": "S0296",
+    "subject_type": "STUDENT",
+    "object": "P0055",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0255 works on project P0080.",
+    "subject": "S0255",
+    "subject_type": "STUDENT",
+    "object": "P0080",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0109 is enrolled in course C003.",
+    "subject": "S0109",
+    "subject_type": "STUDENT",
+    "object": "C003",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0202 works on project P0017.",
+    "subject": "S0202",
+    "subject_type": "STUDENT",
+    "object": "P0017",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0076 works on project P0064.",
+    "subject": "S0076",
+    "subject_type": "STUDENT",
+    "object": "P0064",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0024 is enrolled in course C038.",
+    "subject": "S0024",
+    "subject_type": "STUDENT",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0031 has skill SK030.",
+    "subject": "S0031",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0231 has skill SK001.",
+    "subject": "S0231",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0209 has skill SK026.",
+    "subject": "S0209",
+    "subject_type": "STUDENT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0087 has skill SK002.",
+    "subject": "S0087",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0224 works on project P0029.",
+    "subject": "S0224",
+    "subject_type": "STUDENT",
+    "object": "P0029",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0066 is enrolled in course C007.",
+    "subject": "S0066",
+    "subject_type": "STUDENT",
+    "object": "C007",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0137 has skill SK010.",
+    "subject": "S0137",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0165 is enrolled in course C039.",
+    "subject": "S0165",
+    "subject_type": "STUDENT",
+    "object": "C039",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0275 has skill SK007.",
+    "subject": "S0275",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0017 has skill SK030.",
+    "subject": "S0017",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0162 works on project P0009.",
+    "subject": "S0162",
+    "subject_type": "STUDENT",
+    "object": "P0009",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0074 is enrolled in course C038.",
+    "subject": "S0074",
+    "subject_type": "STUDENT",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0113 is enrolled in course C032.",
+    "subject": "S0113",
+    "subject_type": "STUDENT",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0002 requires skill SK019.",
+    "subject": "P0002",
+    "subject_type": "PROJECT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0258 works on project P0056.",
+    "subject": "S0258",
+    "subject_type": "STUDENT",
+    "object": "P0056",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F029 supervises project P0039.",
+    "subject": "F029",
+    "subject_type": "FACULTY",
+    "object": "P0039",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0095 is enrolled in course C024.",
+    "subject": "S0095",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0079 has skill SK024.",
+    "subject": "S0079",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0231 has skill SK030.",
+    "subject": "S0231",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0157 is enrolled in course C014.",
+    "subject": "S0157",
+    "subject_type": "STUDENT",
+    "object": "C014",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0157 is enrolled in course C018.",
+    "subject": "S0157",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0168 has skill SK017.",
+    "subject": "S0168",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0293 is enrolled in course C034.",
+    "subject": "S0293",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0034 has skill SK007.",
+    "subject": "S0034",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0048 has skill SK002.",
+    "subject": "S0048",
+    "subject_type": "STUDENT",
+    "object": "SK002",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0248 is enrolled in course C012.",
+    "subject": "S0248",
+    "subject_type": "STUDENT",
+    "object": "C012",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F029 teaches course C039.",
+    "subject": "F029",
+    "subject_type": "FACULTY",
+    "object": "C039",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0029 is enrolled in course C011.",
+    "subject": "S0029",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0218 has skill SK007.",
+    "subject": "S0218",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0033 requires skill SK028.",
+    "subject": "P0033",
+    "subject_type": "PROJECT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0263 has skill SK024.",
+    "subject": "S0263",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0258 is enrolled in course C001.",
+    "subject": "S0258",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0064 works on project P0056.",
+    "subject": "S0064",
+    "subject_type": "STUDENT",
+    "object": "P0056",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0286 has skill SK009.",
+    "subject": "S0286",
+    "subject_type": "STUDENT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0291 has skill SK025.",
+    "subject": "S0291",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0294 is enrolled in course C010.",
+    "subject": "S0294",
+    "subject_type": "STUDENT",
+    "object": "C010",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0046 requires skill SK003.",
+    "subject": "P0046",
+    "subject_type": "PROJECT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0257 has skill SK017.",
+    "subject": "S0257",
+    "subject_type": "STUDENT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0222 works on project P0014.",
+    "subject": "S0222",
+    "subject_type": "STUDENT",
+    "object": "P0014",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0077 has skill SK022.",
+    "subject": "S0077",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0254 has skill SK025.",
+    "subject": "S0254",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0287 has skill SK028.",
+    "subject": "S0287",
+    "subject_type": "STUDENT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0194 works on project P0028.",
+    "subject": "S0194",
+    "subject_type": "STUDENT",
+    "object": "P0028",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0133 works on project P0024.",
+    "subject": "S0133",
+    "subject_type": "STUDENT",
+    "object": "P0024",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0136 works on project P0045.",
+    "subject": "S0136",
+    "subject_type": "STUDENT",
+    "object": "P0045",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0229 is enrolled in course C024.",
+    "subject": "S0229",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0174 has skill SK007.",
+    "subject": "S0174",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0071 requires skill SK007.",
+    "subject": "P0071",
+    "subject_type": "PROJECT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0230 has skill SK018.",
+    "subject": "S0230",
+    "subject_type": "STUDENT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0048 requires skill SK003.",
+    "subject": "P0048",
+    "subject_type": "PROJECT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Project P0053 requires skill SK020.",
+    "subject": "P0053",
+    "subject_type": "PROJECT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0154 is enrolled in course C017.",
+    "subject": "S0154",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F007 teaches course C037.",
+    "subject": "F007",
+    "subject_type": "FACULTY",
+    "object": "C037",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0156 has skill SK003.",
+    "subject": "S0156",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0066 has skill SK024.",
+    "subject": "S0066",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0074 has skill SK005.",
+    "subject": "S0074",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0011 has skill SK025.",
+    "subject": "S0011",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0178 is enrolled in course C001.",
+    "subject": "S0178",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0074 has skill SK029.",
+    "subject": "S0074",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0010 requires skill SK006.",
+    "subject": "P0010",
+    "subject_type": "PROJECT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0216 has skill SK020.",
+    "subject": "S0216",
+    "subject_type": "STUDENT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0031 is enrolled in course C011.",
+    "subject": "S0031",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0254 works on project P0027.",
+    "subject": "S0254",
+    "subject_type": "STUDENT",
+    "object": "P0027",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0142 is enrolled in course C024.",
+    "subject": "S0142",
+    "subject_type": "STUDENT",
+    "object": "C024",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0169 works on project P0079.",
+    "subject": "S0169",
+    "subject_type": "STUDENT",
+    "object": "P0079",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F010 supervises project P0058.",
+    "subject": "F010",
+    "subject_type": "FACULTY",
+    "object": "P0058",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0244 is enrolled in course C004.",
+    "subject": "S0244",
+    "subject_type": "STUDENT",
+    "object": "C004",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0246 has skill SK029.",
+    "subject": "S0246",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0184 is enrolled in course C005.",
+    "subject": "S0184",
+    "subject_type": "STUDENT",
+    "object": "C005",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0300 is enrolled in course C025.",
+    "subject": "S0300",
+    "subject_type": "STUDENT",
+    "object": "C025",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0188 has skill SK006.",
+    "subject": "S0188",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0105 is enrolled in course C022.",
+    "subject": "S0105",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0122 is enrolled in course C033.",
+    "subject": "S0122",
+    "subject_type": "STUDENT",
+    "object": "C033",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0108 has skill SK028.",
+    "subject": "S0108",
+    "subject_type": "STUDENT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0022 works on project P0075.",
+    "subject": "S0022",
+    "subject_type": "STUDENT",
+    "object": "P0075",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0215 is enrolled in course C011.",
+    "subject": "S0215",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0208 works on project P0062.",
+    "subject": "S0208",
+    "subject_type": "STUDENT",
+    "object": "P0062",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0162 is enrolled in course C012.",
+    "subject": "S0162",
+    "subject_type": "STUDENT",
+    "object": "C012",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0197 has skill SK023.",
+    "subject": "S0197",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0200 is enrolled in course C008.",
+    "subject": "S0200",
+    "subject_type": "STUDENT",
+    "object": "C008",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0099 has skill SK004.",
+    "subject": "S0099",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0176 works on project P0078.",
+    "subject": "S0176",
+    "subject_type": "STUDENT",
+    "object": "P0078",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0021 requires skill SK009.",
+    "subject": "P0021",
+    "subject_type": "PROJECT",
+    "object": "SK009",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0151 is enrolled in course C030.",
+    "subject": "S0151",
+    "subject_type": "STUDENT",
+    "object": "C030",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0074 is enrolled in course C030.",
+    "subject": "S0074",
+    "subject_type": "STUDENT",
+    "object": "C030",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0258 has skill SK016.",
+    "subject": "S0258",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0250 has skill SK010.",
+    "subject": "S0250",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0235 is enrolled in course C010.",
+    "subject": "S0235",
+    "subject_type": "STUDENT",
+    "object": "C010",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F028 teaches course C003.",
+    "subject": "F028",
+    "subject_type": "FACULTY",
+    "object": "C003",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0233 has skill SK006.",
+    "subject": "S0233",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0051 has skill SK015.",
+    "subject": "S0051",
+    "subject_type": "STUDENT",
+    "object": "SK015",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0037 requires skill SK013.",
+    "subject": "P0037",
+    "subject_type": "PROJECT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0086 is enrolled in course C022.",
+    "subject": "S0086",
+    "subject_type": "STUDENT",
+    "object": "C022",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0229 is enrolled in course C016.",
+    "subject": "S0229",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0039 requires skill SK016.",
+    "subject": "P0039",
+    "subject_type": "PROJECT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0057 works on project P0059.",
+    "subject": "S0057",
+    "subject_type": "STUDENT",
+    "object": "P0059",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0273 has skill SK020.",
+    "subject": "S0273",
+    "subject_type": "STUDENT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0243 is enrolled in course C011.",
+    "subject": "S0243",
+    "subject_type": "STUDENT",
+    "object": "C011",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0186 has skill SK019.",
+    "subject": "S0186",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0221 works on project P0028.",
+    "subject": "S0221",
+    "subject_type": "STUDENT",
+    "object": "P0028",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0111 works on project P0048.",
+    "subject": "S0111",
+    "subject_type": "STUDENT",
+    "object": "P0048",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0075 is enrolled in course C004.",
+    "subject": "S0075",
+    "subject_type": "STUDENT",
+    "object": "C004",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0257 works on project P0065.",
+    "subject": "S0257",
+    "subject_type": "STUDENT",
+    "object": "P0065",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0163 is enrolled in course C009.",
+    "subject": "S0163",
+    "subject_type": "STUDENT",
+    "object": "C009",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0215 has skill SK016.",
+    "subject": "S0215",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0108 has skill SK010.",
+    "subject": "S0108",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0200 has skill SK016.",
+    "subject": "S0200",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0086 is enrolled in course C006.",
+    "subject": "S0086",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0147 is enrolled in course C033.",
+    "subject": "S0147",
+    "subject_type": "STUDENT",
+    "object": "C033",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0032 is enrolled in course C010.",
+    "subject": "S0032",
+    "subject_type": "STUDENT",
+    "object": "C010",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0172 has skill SK014.",
+    "subject": "S0172",
+    "subject_type": "STUDENT",
+    "object": "SK014",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F008 supervises project P0015.",
+    "subject": "F008",
+    "subject_type": "FACULTY",
+    "object": "P0015",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0223 is enrolled in course C005.",
+    "subject": "S0223",
+    "subject_type": "STUDENT",
+    "object": "C005",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0066 requires skill SK003.",
+    "subject": "P0066",
+    "subject_type": "PROJECT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0251 has skill SK007.",
+    "subject": "S0251",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0013 has skill SK020.",
+    "subject": "S0013",
+    "subject_type": "STUDENT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0191 has skill SK022.",
+    "subject": "S0191",
+    "subject_type": "STUDENT",
+    "object": "SK022",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0023 is enrolled in course C017.",
+    "subject": "S0023",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0050 is enrolled in course C006.",
+    "subject": "S0050",
+    "subject_type": "STUDENT",
+    "object": "C006",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0252 has skill SK030.",
+    "subject": "S0252",
+    "subject_type": "STUDENT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0275 is enrolled in course C035.",
+    "subject": "S0275",
+    "subject_type": "STUDENT",
+    "object": "C035",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0155 is enrolled in course C032.",
+    "subject": "S0155",
+    "subject_type": "STUDENT",
+    "object": "C032",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0293 has skill SK006.",
+    "subject": "S0293",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0021 is enrolled in course C036.",
+    "subject": "S0021",
+    "subject_type": "STUDENT",
+    "object": "C036",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0034 requires skill SK026.",
+    "subject": "P0034",
+    "subject_type": "PROJECT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0266 works on project P0077.",
+    "subject": "S0266",
+    "subject_type": "STUDENT",
+    "object": "P0077",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0192 has skill SK010.",
+    "subject": "S0192",
+    "subject_type": "STUDENT",
+    "object": "SK010",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0018 requires skill SK030.",
+    "subject": "P0018",
+    "subject_type": "PROJECT",
+    "object": "SK030",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0233 has skill SK001.",
+    "subject": "S0233",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Project P0005 requires skill SK020.",
+    "subject": "P0005",
+    "subject_type": "PROJECT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0276 is enrolled in course C019.",
+    "subject": "S0276",
+    "subject_type": "STUDENT",
+    "object": "C019",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0298 works on project P0045.",
+    "subject": "S0298",
+    "subject_type": "STUDENT",
+    "object": "P0045",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0215 has skill SK013.",
+    "subject": "S0215",
+    "subject_type": "STUDENT",
+    "object": "SK013",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0016 is enrolled in course C038.",
+    "subject": "S0016",
+    "subject_type": "STUDENT",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0284 is enrolled in course C027.",
+    "subject": "S0284",
+    "subject_type": "STUDENT",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0067 has skill SK018.",
+    "subject": "S0067",
+    "subject_type": "STUDENT",
+    "object": "SK018",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0129 works on project P0018.",
+    "subject": "S0129",
+    "subject_type": "STUDENT",
+    "object": "P0018",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0183 has skill SK003.",
+    "subject": "S0183",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0151 has skill SK016.",
+    "subject": "S0151",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0202 works on project P0014.",
+    "subject": "S0202",
+    "subject_type": "STUDENT",
+    "object": "P0014",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0248 has skill SK001.",
+    "subject": "S0248",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0061 has skill SK020.",
+    "subject": "S0061",
+    "subject_type": "STUDENT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0209 works on project P0034.",
+    "subject": "S0209",
+    "subject_type": "STUDENT",
+    "object": "P0034",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0200 is enrolled in course C035.",
+    "subject": "S0200",
+    "subject_type": "STUDENT",
+    "object": "C035",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0228 works on project P0065.",
+    "subject": "S0228",
+    "subject_type": "STUDENT",
+    "object": "P0065",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Faculty F029 supervises project P0038.",
+    "subject": "F029",
+    "subject_type": "FACULTY",
+    "object": "P0038",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0142 is enrolled in course C017.",
+    "subject": "S0142",
+    "subject_type": "STUDENT",
+    "object": "C017",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0215 has skill SK007.",
+    "subject": "S0215",
+    "subject_type": "STUDENT",
+    "object": "SK007",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0295 has skill SK003.",
+    "subject": "S0295",
+    "subject_type": "STUDENT",
+    "object": "SK003",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0055 has skill SK006.",
+    "subject": "S0055",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0157 has skill SK004.",
+    "subject": "S0157",
+    "subject_type": "STUDENT",
+    "object": "SK004",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0185 is enrolled in course C007.",
+    "subject": "S0185",
+    "subject_type": "STUDENT",
+    "object": "C007",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0133 is enrolled in course C015.",
+    "subject": "S0133",
+    "subject_type": "STUDENT",
+    "object": "C015",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0141 is enrolled in course C035.",
+    "subject": "S0141",
+    "subject_type": "STUDENT",
+    "object": "C035",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0083 has skill SK025.",
+    "subject": "S0083",
+    "subject_type": "STUDENT",
+    "object": "SK025",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0197 is enrolled in course C028.",
+    "subject": "S0197",
+    "subject_type": "STUDENT",
+    "object": "C028",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0185 is enrolled in course C001.",
+    "subject": "S0185",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0054 has skill SK024.",
+    "subject": "S0054",
+    "subject_type": "STUDENT",
+    "object": "SK024",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0006 works on project P0076.",
+    "subject": "S0006",
+    "subject_type": "STUDENT",
+    "object": "P0076",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0033 has skill SK029.",
+    "subject": "S0033",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0053 has skill SK001.",
+    "subject": "S0053",
+    "subject_type": "STUDENT",
+    "object": "SK001",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0013 has skill SK019.",
+    "subject": "S0013",
+    "subject_type": "STUDENT",
+    "object": "SK019",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0102 is enrolled in course C026.",
+    "subject": "S0102",
+    "subject_type": "STUDENT",
+    "object": "C026",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F011 supervises project P0021.",
+    "subject": "F011",
+    "subject_type": "FACULTY",
+    "object": "P0021",
+    "object_type": "PROJECT",
+    "relation": "SUPERVISES"
+  },
+  {
+    "text": "Student S0024 has skill SK005.",
+    "subject": "S0024",
+    "subject_type": "STUDENT",
+    "object": "SK005",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0047 is enrolled in course C001.",
+    "subject": "S0047",
+    "subject_type": "STUDENT",
+    "object": "C001",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0211 is enrolled in course C004.",
+    "subject": "S0211",
+    "subject_type": "STUDENT",
+    "object": "C004",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0255 is enrolled in course C019.",
+    "subject": "S0255",
+    "subject_type": "STUDENT",
+    "object": "C019",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0253 has skill SK026.",
+    "subject": "S0253",
+    "subject_type": "STUDENT",
+    "object": "SK026",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Faculty F005 teaches course C027.",
+    "subject": "F005",
+    "subject_type": "FACULTY",
+    "object": "C027",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0106 is enrolled in course C034.",
+    "subject": "S0106",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0077 has skill SK028.",
+    "subject": "S0077",
+    "subject_type": "STUDENT",
+    "object": "SK028",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0006 has skill SK016.",
+    "subject": "S0006",
+    "subject_type": "STUDENT",
+    "object": "SK016",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0135 is enrolled in course C038.",
+    "subject": "S0135",
+    "subject_type": "STUDENT",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0113 has skill SK029.",
+    "subject": "S0113",
+    "subject_type": "STUDENT",
+    "object": "SK029",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0175 works on project P0027.",
+    "subject": "S0175",
+    "subject_type": "STUDENT",
+    "object": "P0027",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0169 has skill SK006.",
+    "subject": "S0169",
+    "subject_type": "STUDENT",
+    "object": "SK006",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0221 works on project P0047.",
+    "subject": "S0221",
+    "subject_type": "STUDENT",
+    "object": "P0047",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Project P0043 requires skill SK020.",
+    "subject": "P0043",
+    "subject_type": "PROJECT",
+    "object": "SK020",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0115 has skill SK023.",
+    "subject": "S0115",
+    "subject_type": "STUDENT",
+    "object": "SK023",
+    "object_type": "SKILL",
+    "relation": "HAS_SKILL"
+  },
+  {
+    "text": "Student S0050 is enrolled in course C004.",
+    "subject": "S0050",
+    "subject_type": "STUDENT",
+    "object": "C004",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Project P0021 requires skill SK017.",
+    "subject": "P0021",
+    "subject_type": "PROJECT",
+    "object": "SK017",
+    "object_type": "SKILL",
+    "relation": "REQUIRES_SKILL"
+  },
+  {
+    "text": "Student S0166 works on project P0075.",
+    "subject": "S0166",
+    "subject_type": "STUDENT",
+    "object": "P0075",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0102 is enrolled in course C018.",
+    "subject": "S0102",
+    "subject_type": "STUDENT",
+    "object": "C018",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0039 works on project P0074.",
+    "subject": "S0039",
+    "subject_type": "STUDENT",
+    "object": "P0074",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0051 works on project P0007.",
+    "subject": "S0051",
+    "subject_type": "STUDENT",
+    "object": "P0007",
+    "object_type": "PROJECT",
+    "relation": "WORKS_ON"
+  },
+  {
+    "text": "Student S0007 is enrolled in course C004.",
+    "subject": "S0007",
+    "subject_type": "STUDENT",
+    "object": "C004",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Faculty F026 teaches course C038.",
+    "subject": "F026",
+    "subject_type": "FACULTY",
+    "object": "C038",
+    "object_type": "COURSE",
+    "relation": "TEACHES"
+  },
+  {
+    "text": "Student S0225 is enrolled in course C019.",
+    "subject": "S0225",
+    "subject_type": "STUDENT",
+    "object": "C019",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0068 is enrolled in course C016.",
+    "subject": "S0068",
+    "subject_type": "STUDENT",
+    "object": "C016",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  },
+  {
+    "text": "Student S0296 is enrolled in course C034.",
+    "subject": "S0296",
+    "subject_type": "STUDENT",
+    "object": "C034",
+    "object_type": "COURSE",
+    "relation": "ENROLLED_IN"
+  }
+]

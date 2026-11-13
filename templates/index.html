@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AcadGraph — Multi-Tenant Agentic Academic Platform</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        background: #0f172a;
+        color: #f8fafc;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 25px;
+      }
+
+      /* Header */
+      .header {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        border: 1px solid #334155;
+        color: white;
+        padding: 40px;
+        border-radius: 16px;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .header h1 {
+        font-size: 38px;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #38bdf8, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .header p {
+        font-size: 16px;
+        color: #94a3b8;
+        max-width: 750px;
+      }
+
+      .tenant-badge {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: #1e293b;
+        border: 1px solid #38bdf8;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        color: #38bdf8;
+        font-weight: 600;
+      }
+
+      /* Statistics */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 35px;
+      }
+
+      .stat-card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .stat-card h3 {
+        font-size: 28px;
+        margin-bottom: 5px;
+        color: #38bdf8;
+      }
+
+      .stat-card p {
+        color: #94a3b8;
+        font-size: 14px;
+      }
+
+      /* Feature Cards */
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .feature-card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 14px;
+        padding: 28px;
+        min-height: 220px;
+        transition: all 0.2s;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: #38bdf8;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      }
+
+      .feature-card.highlight {
+        border-color: #38bdf8;
+        background: linear-gradient(180deg, #1e293b, #172554);
+      }
+
+      .feature-number {
+        font-size: 12px;
+        font-weight: bold;
+        color: #38bdf8;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+      }
+
+      .feature-card h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #f8fafc;
+      }
+
+      .feature-card p {
+        color: #94a3b8;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      .explore {
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #38bdf8;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        color: #64748b;
+        margin-top: 50px;
+        font-size: 14px;
+      }
+
+      @media (max-width: 900px) {
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .features {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        .tenant-badge {
+          position: static;
+          display: inline-block;
+          margin-top: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <span class="tenant-badge">Multi-Tenant SaaS • RBAC Enabled</span>
+        <h1>AcadGraph</h1>
+        <p>
+          Agentic AI-Powered Academic Knowledge Graph Intelligence Platform. Connect multiple universities, upload raw academic text files, and explore autonomous GraphRAG intelligence in Neo4j.
+        </p>
+      </div>
+
+      <!-- Statistics -->
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Neo4j</h3>
+          <p>Graph Knowledge Base</p>
+        </div>
+        <div class="stat-card">
+          <h3>Multi-Tenant</h3>
+          <p>Isolated Per University</p>
+        </div>
+        <div class="stat-card">
+          <h3>SciBERT</h3>
+          <p>Academic NER & Relations</p>
+        </div>
+        <div class="stat-card">
+          <h3>4 Roles</h3>
+          <p>RBAC Security Control</p>
+        </div>
+      </div>
+
+      <!-- Main Features -->
+      <div class="features">
+        <!-- AI Copilot Chatbot -->
+        <a class="feature-card highlight" href="/chat">
+          <div>
+            <div class="feature-number">MODULE 01 • AGENTIC AI</div>
+            <h2>Academic Copilot</h2>
+            <p>
+              Natural language academic chatbot with GraphRAG. Answers queries directly from Neo4j and accepts live text updates to ingest new knowledge!
+            </p>
+          </div>
+          <div class="explore">Launch Copilot →</div>
+        </a>
+
+        <!-- Document Studio -->
+        <a class="feature-card highlight" href="/upload">
+          <div>
+            <div class="feature-number">MODULE 02 • AUTO-INGESTION</div>
+            <h2>Document Studio</h2>
+            <p>
+              Upload course syllabi or text files. The SciBERT pipeline automatically extracts entities & relations and merges them into Neo4j.
+            </p>
+          </div>
+          <div class="explore">Open Studio →</div>
+        </a>
+
+        <!-- Knowledge Graph -->
+        <a class="feature-card" href="/graph">
+          <div>
+            <div class="feature-number">MODULE 03 • VISUALIZATION</div>
+            <h2>Knowledge Graph Explorer</h2>
+            <p>
+              Interactive visual explorer for academic nodes, skills, projects, and faculty relationships across universities.
+            </p>
+          </div>
+          <div class="explore">Explore Graph →</div>
+        </a>
+
+        <!-- Recommendation -->
+        <a class="feature-card" href="/recommendation">
+          <div>
+            <div class="feature-number">MODULE 04 • RECOMMENDER</div>
+            <h2>Project Recommendation</h2>
+            <p>
+              Identify matching capstone projects for students using skill overlaps, graph topology, and academic evidence.
+            </p>
+          </div>
+          <div class="explore">View Recommendations →</div>
+        </a>
+
+        <!-- Knowledge Gap -->
+        <a class="feature-card" href="/knowledge-gap">
+          <div>
+            <div class="feature-number">MODULE 05 • GAP ANALYSIS</div>
+            <h2>Curriculum Gap Analysis</h2>
+            <p>
+              Detect missing modern industry skills in syllabi and quantify skill gap severity across academic programs.
+            </p>
+          </div>
+          <div class="explore">Analyze Gaps →</div>
+        </a>
+
+        <!-- Temporal -->
+        <a class="feature-card" href="/temporal">
+          <div>
+            <div class="feature-number">MODULE 06 • TRENDS</div>
+            <h2>Temporal Trends</h2>
+            <p>
+              Analyze research output, enrollment shifts, and topic evolution across academic terms and years.
+            </p>
+          </div>
+          <div class="explore">View Trends →</div>
+        </a>
+      </div>
+
+      <div class="footer">
+        AcadGraph SaaS — Multi-University Knowledge Graph Intelligence & RBAC
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AcadGraph - Temporal Insights</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 35px 25px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            background: #111;
+            color: white;
+            padding: 30px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #ddd;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #555;
+        }
+
+        .section {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .trend-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .trend-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #eee;
+            border-radius: 8px;
+            padding: 15px 18px;
+        }
+
+        .period {
+            font-weight: bold;
+        }
+
+        .value {
+            font-weight: bold;
+        }
+
+        .highlight {
+            margin-top: 20px;
+            padding: 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .highlight strong {
+            font-size: 18px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 25px;
+            color: #555;
+        }
+
+        .error {
+            color: #a00000;
+            background: #fff0f0;
+            border: 1px solid #e0b0b0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #777;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+
+            .trend-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <a href="/" class="back">
+        ← Back to Home
+    </a>
+
+
+    <div class="header">
+
+        <h1>AcadGraph</h1>
+
+        <p>
+            Temporal Academic Insights
+        </p>
+
+    </div>
+
+
+    <div class="title">
+
+        <h2>
+            Temporal Academic Insights
+        </h2>
+
+        <p>
+            Analyze academic activity across semesters
+            and research years.
+        </p>
+
+    </div>
+
+
+    <!-- Enrollment Trends -->
+
+    <div class="section">
+
+        <h3>
+            Enrollment Trends
+        </h3>
+
+        <div
+            id="enrollmentTrends"
+            class="trend-list"
+        >
+
+            <div class="loading">
+                Loading enrollment trends...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Publication Trends -->
+
+    <div class="section">
+
+        <h3>
+            Research Authorship Trends
+        </h3>
+
+        <div
+            id="publicationTrends"
+            class="trend-list"
+        >
+
+            <div class="loading">
+                Loading research trends...
+            </div>
+
+        </div>
+
+        <div
+            id="researchHighlight"
+            class="highlight"
+            style="display: none;"
+        >
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        AcadGraph — Academic Knowledge Intelligence Platform
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+async function loadTemporalInsights() {
+
+    const enrollmentContainer =
+        document.getElementById(
+            "enrollmentTrends"
+        );
+
+    const publicationContainer =
+        document.getElementById(
+            "publicationTrends"
+        );
+
+    const highlight =
+        document.getElementById(
+            "researchHighlight"
+        );
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/temporal-insights"
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to load temporal insights."
+            );
+
+        }
+
+
+        // =========================================
+        // Enrollment Trends
+        // =========================================
+
+        enrollmentContainer.innerHTML = "";
+
+
+        data.enrollment_trends.forEach(
+            item => {
+
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                row.className =
+                    "trend-row";
+
+
+                row.innerHTML = `
+
+                    <span class="period">
+                        ${item.semester}
+                    </span>
+
+                    <span class="value">
+                        ${item.enrollment_count}
+                        Enrollments
+                    </span>
+
+                `;
+
+
+                enrollmentContainer.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+        // =========================================
+        // Research Authorship Trends
+        // =========================================
+
+        publicationContainer.innerHTML = "";
+
+
+        data.publication_trends.forEach(
+            item => {
+
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                row.className =
+                    "trend-row";
+
+
+                row.innerHTML = `
+
+                    <span class="period">
+                        ${item.year}
+                    </span>
+
+                    <span class="value">
+                        ${item.publication_count}
+                        Authorship Records
+                    </span>
+
+                `;
+
+
+                publicationContainer.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+        // =========================================
+        // Highest Research Activity
+        // =========================================
+
+        if (
+            data.publication_trends.length > 0
+        ) {
+
+            const highest =
+                data.publication_trends.reduce(
+                    (max, item) =>
+                        item.publication_count >
+                        max.publication_count
+                            ? item
+                            : max
+                );
+
+
+            highlight.style.display =
+                "block";
+
+
+            highlight.innerHTML = `
+
+                <strong>
+                    Peak Research Activity
+                </strong>
+
+                <br><br>
+
+                ${highest.year}
+                recorded the highest number
+                of authorship records:
+
+                <strong>
+                    ${highest.publication_count}
+                </strong>
+
+            `;
+
+        }
+
+    }
+
+    catch (error) {
+
+        enrollmentContainer.innerHTML = `
+            <div class="error">
+                ${error.message}
+            </div>
+        `;
+
+        publicationContainer.innerHTML = `
+            <div class="error">
+                ${error.message}
+            </div>
+        `;
+
+    }
+
+}
+
+
+loadTemporalInsights();
+
+
+</script>
+
+
+</body>
+
+</html>

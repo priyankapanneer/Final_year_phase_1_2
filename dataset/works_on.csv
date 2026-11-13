@@ -1,0 +1,501 @@
+student_id,project_id,role
+S0034,P0041,Researcher
+S0176,P0078,Analyst
+S0249,P0028,Analyst
+S0244,P0015,Developer
+S0143,P0059,Developer
+S0020,P0070,Team Lead
+S0080,P0061,Developer
+S0075,P0028,Developer
+S0164,P0073,Developer
+S0017,P0077,Analyst
+S0195,P0008,Team Lead
+S0186,P0056,Developer
+S0243,P0028,Researcher
+S0028,P0028,Team Lead
+S0012,P0055,Developer
+S0139,P0033,Analyst
+S0091,P0011,Analyst
+S0073,P0009,Researcher
+S0141,P0052,Researcher
+S0042,P0039,Researcher
+S0232,P0054,Team Lead
+S0269,P0028,Analyst
+S0133,P0024,Analyst
+S0028,P0012,Team Lead
+S0220,P0044,Researcher
+S0153,P0022,Researcher
+S0102,P0045,Researcher
+S0215,P0062,Analyst
+S0244,P0069,Researcher
+S0083,P0056,Developer
+S0182,P0074,Developer
+S0200,P0002,Developer
+S0288,P0077,Researcher
+S0102,P0010,Developer
+S0297,P0079,Researcher
+S0075,P0042,Developer
+S0163,P0002,Team Lead
+S0078,P0059,Analyst
+S0076,P0064,Developer
+S0163,P0015,Team Lead
+S0209,P0034,Researcher
+S0267,P0001,Analyst
+S0231,P0017,Researcher
+S0231,P0075,Researcher
+S0050,P0005,Analyst
+S0112,P0025,Team Lead
+S0216,P0070,Team Lead
+S0086,P0077,Researcher
+S0194,P0028,Developer
+S0179,P0027,Analyst
+S0098,P0074,Analyst
+S0008,P0048,Analyst
+S0187,P0003,Developer
+S0155,P0040,Developer
+S0258,P0016,Researcher
+S0256,P0059,Team Lead
+S0212,P0053,Developer
+S0181,P0046,Developer
+S0278,P0055,Analyst
+S0268,P0043,Researcher
+S0059,P0023,Developer
+S0235,P0055,Team Lead
+S0192,P0023,Developer
+S0284,P0077,Researcher
+S0084,P0070,Team Lead
+S0224,P0049,Team Lead
+S0146,P0056,Analyst
+S0146,P0080,Team Lead
+S0051,P0012,Developer
+S0054,P0012,Researcher
+S0009,P0079,Team Lead
+S0211,P0014,Developer
+S0255,P0080,Researcher
+S0279,P0013,Team Lead
+S0228,P0065,Analyst
+S0298,P0005,Developer
+S0149,P0054,Developer
+S0109,P0029,Analyst
+S0233,P0071,Team Lead
+S0196,P0015,Developer
+S0101,P0061,Developer
+S0064,P0045,Team Lead
+S0238,P0053,Analyst
+S0203,P0001,Team Lead
+S0192,P0029,Researcher
+S0260,P0037,Team Lead
+S0138,P0034,Developer
+S0158,P0054,Researcher
+S0124,P0001,Researcher
+S0213,P0005,Team Lead
+S0008,P0004,Developer
+S0079,P0048,Researcher
+S0266,P0077,Analyst
+S0163,P0043,Developer
+S0088,P0074,Developer
+S0221,P0031,Team Lead
+S0285,P0051,Developer
+S0099,P0079,Analyst
+S0202,P0007,Developer
+S0296,P0055,Analyst
+S0066,P0050,Researcher
+S0089,P0052,Team Lead
+S0163,P0067,Developer
+S0082,P0056,Developer
+S0119,P0013,Developer
+S0065,P0065,Analyst
+S0061,P0074,Researcher
+S0201,P0034,Team Lead
+S0284,P0021,Analyst
+S0166,P0027,Analyst
+S0048,P0012,Team Lead
+S0014,P0056,Researcher
+S0006,P0076,Developer
+S0079,P0004,Developer
+S0279,P0011,Developer
+S0293,P0049,Researcher
+S0013,P0017,Analyst
+S0233,P0046,Developer
+S0096,P0031,Analyst
+S0114,P0039,Developer
+S0100,P0069,Analyst
+S0126,P0049,Analyst
+S0134,P0007,Researcher
+S0141,P0011,Analyst
+S0074,P0003,Analyst
+S0297,P0014,Researcher
+S0057,P0059,Developer
+S0063,P0014,Analyst
+S0073,P0037,Developer
+S0135,P0024,Team Lead
+S0048,P0010,Team Lead
+S0254,P0047,Researcher
+S0107,P0051,Team Lead
+S0052,P0063,Analyst
+S0012,P0053,Developer
+S0038,P0063,Researcher
+S0040,P0027,Researcher
+S0215,P0049,Developer
+S0161,P0058,Developer
+S0083,P0024,Researcher
+S0153,P0002,Analyst
+S0092,P0073,Developer
+S0017,P0016,Developer
+S0176,P0045,Researcher
+S0248,P0079,Developer
+S0280,P0001,Developer
+S0082,P0067,Developer
+S0131,P0016,Researcher
+S0099,P0078,Analyst
+S0016,P0069,Researcher
+S0012,P0067,Team Lead
+S0263,P0020,Developer
+S0111,P0047,Team Lead
+S0059,P0028,Team Lead
+S0016,P0042,Researcher
+S0071,P0029,Team Lead
+S0043,P0017,Researcher
+S0138,P0036,Analyst
+S0247,P0026,Analyst
+S0048,P0045,Developer
+S0283,P0038,Developer
+S0240,P0064,Developer
+S0224,P0066,Team Lead
+S0205,P0025,Researcher
+S0129,P0023,Analyst
+S0102,P0036,Team Lead
+S0202,P0014,Researcher
+S0299,P0076,Analyst
+S0160,P0022,Team Lead
+S0106,P0063,Team Lead
+S0222,P0058,Team Lead
+S0217,P0077,Researcher
+S0140,P0041,Team Lead
+S0056,P0078,Team Lead
+S0197,P0055,Developer
+S0103,P0073,Developer
+S0181,P0048,Team Lead
+S0033,P0058,Analyst
+S0086,P0005,Analyst
+S0262,P0033,Team Lead
+S0210,P0038,Developer
+S0272,P0046,Researcher
+S0204,P0004,Researcher
+S0059,P0024,Researcher
+S0166,P0055,Team Lead
+S0096,P0046,Researcher
+S0126,P0010,Developer
+S0111,P0048,Team Lead
+S0191,P0019,Researcher
+S0161,P0016,Developer
+S0005,P0041,Researcher
+S0006,P0043,Analyst
+S0110,P0060,Analyst
+S0291,P0042,Developer
+S0120,P0072,Developer
+S0034,P0050,Analyst
+S0146,P0078,Developer
+S0109,P0068,Team Lead
+S0112,P0014,Team Lead
+S0288,P0036,Analyst
+S0039,P0074,Team Lead
+S0216,P0056,Developer
+S0163,P0041,Developer
+S0102,P0026,Team Lead
+S0026,P0064,Analyst
+S0256,P0006,Analyst
+S0141,P0054,Developer
+S0062,P0016,Analyst
+S0232,P0022,Analyst
+S0168,P0076,Analyst
+S0197,P0031,Developer
+S0296,P0003,Researcher
+S0146,P0003,Researcher
+S0295,P0001,Analyst
+S0237,P0037,Researcher
+S0068,P0052,Analyst
+S0019,P0069,Developer
+S0271,P0006,Team Lead
+S0173,P0003,Developer
+S0036,P0061,Team Lead
+S0049,P0054,Developer
+S0155,P0036,Team Lead
+S0163,P0045,Team Lead
+S0205,P0011,Researcher
+S0285,P0041,Developer
+S0253,P0079,Team Lead
+S0025,P0051,Analyst
+S0153,P0059,Analyst
+S0253,P0016,Developer
+S0192,P0080,Developer
+S0053,P0004,Analyst
+S0115,P0007,Team Lead
+S0006,P0018,Analyst
+S0054,P0042,Analyst
+S0224,P0029,Team Lead
+S0088,P0012,Researcher
+S0098,P0048,Analyst
+S0276,P0001,Analyst
+S0027,P0034,Researcher
+S0023,P0015,Researcher
+S0025,P0039,Developer
+S0039,P0034,Team Lead
+S0169,P0079,Team Lead
+S0195,P0035,Developer
+S0088,P0018,Researcher
+S0299,P0059,Team Lead
+S0062,P0017,Team Lead
+S0164,P0019,Analyst
+S0300,P0053,Developer
+S0229,P0016,Team Lead
+S0268,P0068,Team Lead
+S0124,P0074,Team Lead
+S0245,P0063,Team Lead
+S0144,P0042,Developer
+S0248,P0029,Developer
+S0048,P0034,Team Lead
+S0152,P0011,Team Lead
+S0181,P0072,Team Lead
+S0125,P0027,Researcher
+S0040,P0010,Analyst
+S0254,P0008,Analyst
+S0109,P0002,Developer
+S0111,P0060,Analyst
+S0198,P0025,Developer
+S0250,P0014,Analyst
+S0175,P0027,Developer
+S0271,P0066,Team Lead
+S0161,P0040,Analyst
+S0233,P0020,Researcher
+S0259,P0014,Analyst
+S0067,P0029,Developer
+S0187,P0050,Developer
+S0232,P0080,Team Lead
+S0263,P0026,Team Lead
+S0036,P0036,Developer
+S0217,P0022,Analyst
+S0158,P0074,Researcher
+S0053,P0019,Team Lead
+S0237,P0014,Team Lead
+S0057,P0031,Team Lead
+S0009,P0059,Analyst
+S0096,P0035,Researcher
+S0015,P0061,Researcher
+S0272,P0058,Researcher
+S0181,P0034,Researcher
+S0061,P0071,Developer
+S0044,P0046,Researcher
+S0221,P0028,Developer
+S0078,P0051,Developer
+S0258,P0056,Researcher
+S0261,P0043,Analyst
+S0028,P0057,Team Lead
+S0140,P0048,Developer
+S0051,P0007,Researcher
+S0196,P0055,Developer
+S0100,P0038,Team Lead
+S0097,P0052,Team Lead
+S0091,P0077,Developer
+S0142,P0068,Team Lead
+S0253,P0067,Developer
+S0222,P0014,Researcher
+S0026,P0032,Team Lead
+S0057,P0029,Developer
+S0059,P0007,Developer
+S0019,P0074,Analyst
+S0137,P0031,Developer
+S0034,P0069,Developer
+S0052,P0036,Researcher
+S0116,P0080,Researcher
+S0208,P0051,Team Lead
+S0202,P0013,Team Lead
+S0113,P0035,Analyst
+S0254,P0027,Developer
+S0088,P0027,Analyst
+S0178,P0037,Team Lead
+S0148,P0001,Researcher
+S0049,P0024,Developer
+S0258,P0080,Team Lead
+S0245,P0040,Team Lead
+S0123,P0022,Team Lead
+S0162,P0009,Analyst
+S0086,P0024,Team Lead
+S0171,P0059,Analyst
+S0073,P0002,Team Lead
+S0243,P0055,Developer
+S0172,P0003,Researcher
+S0091,P0034,Team Lead
+S0040,P0022,Developer
+S0005,P0077,Team Lead
+S0181,P0061,Researcher
+S0299,P0001,Developer
+S0251,P0032,Developer
+S0242,P0015,Researcher
+S0024,P0003,Team Lead
+S0291,P0038,Team Lead
+S0117,P0068,Researcher
+S0258,P0022,Analyst
+S0076,P0013,Developer
+S0052,P0039,Researcher
+S0172,P0058,Analyst
+S0252,P0045,Developer
+S0280,P0033,Developer
+S0250,P0033,Researcher
+S0187,P0059,Analyst
+S0007,P0046,Developer
+S0155,P0043,Developer
+S0248,P0015,Analyst
+S0139,P0067,Analyst
+S0011,P0019,Team Lead
+S0211,P0029,Team Lead
+S0073,P0046,Researcher
+S0255,P0004,Team Lead
+S0126,P0074,Researcher
+S0221,P0047,Team Lead
+S0106,P0012,Researcher
+S0100,P0049,Team Lead
+S0056,P0036,Researcher
+S0279,P0058,Analyst
+S0270,P0023,Team Lead
+S0136,P0045,Developer
+S0170,P0051,Researcher
+S0214,P0036,Analyst
+S0159,P0025,Analyst
+S0022,P0075,Team Lead
+S0267,P0044,Developer
+S0063,P0056,Team Lead
+S0233,P0073,Developer
+S0057,P0002,Team Lead
+S0256,P0019,Analyst
+S0239,P0020,Researcher
+S0268,P0038,Analyst
+S0286,P0021,Analyst
+S0156,P0063,Researcher
+S0148,P0009,Researcher
+S0151,P0002,Researcher
+S0233,P0006,Analyst
+S0112,P0037,Researcher
+S0064,P0007,Team Lead
+S0251,P0040,Team Lead
+S0003,P0056,Team Lead
+S0181,P0001,Team Lead
+S0026,P0033,Developer
+S0071,P0045,Developer
+S0146,P0065,Analyst
+S0288,P0020,Analyst
+S0045,P0035,Researcher
+S0074,P0026,Analyst
+S0222,P0075,Researcher
+S0042,P0038,Researcher
+S0113,P0005,Analyst
+S0243,P0046,Developer
+S0128,P0050,Researcher
+S0217,P0052,Developer
+S0051,P0034,Analyst
+S0155,P0077,Team Lead
+S0160,P0023,Analyst
+S0289,P0056,Developer
+S0166,P0075,Researcher
+S0072,P0026,Developer
+S0129,P0018,Analyst
+S0214,P0071,Developer
+S0103,P0039,Researcher
+S0157,P0011,Developer
+S0153,P0073,Researcher
+S0237,P0070,Analyst
+S0094,P0049,Analyst
+S0224,P0013,Team Lead
+S0071,P0068,Researcher
+S0227,P0041,Analyst
+S0258,P0046,Researcher
+S0240,P0046,Team Lead
+S0219,P0060,Developer
+S0216,P0053,Team Lead
+S0237,P0004,Team Lead
+S0287,P0004,Developer
+S0216,P0012,Developer
+S0072,P0079,Developer
+S0155,P0032,Team Lead
+S0298,P0066,Analyst
+S0192,P0017,Analyst
+S0279,P0073,Analyst
+S0151,P0007,Analyst
+S0202,P0017,Team Lead
+S0207,P0001,Analyst
+S0237,P0067,Researcher
+S0236,P0007,Researcher
+S0044,P0008,Developer
+S0139,P0014,Researcher
+S0171,P0077,Developer
+S0050,P0038,Team Lead
+S0290,P0062,Analyst
+S0170,P0008,Analyst
+S0063,P0075,Team Lead
+S0262,P0007,Analyst
+S0105,P0067,Researcher
+S0074,P0072,Team Lead
+S0254,P0018,Developer
+S0115,P0020,Researcher
+S0004,P0063,Team Lead
+S0103,P0015,Analyst
+S0035,P0001,Team Lead
+S0079,P0078,Developer
+S0062,P0067,Analyst
+S0050,P0032,Team Lead
+S0105,P0014,Team Lead
+S0243,P0004,Analyst
+S0259,P0057,Team Lead
+S0201,P0008,Researcher
+S0063,P0039,Researcher
+S0208,P0062,Developer
+S0095,P0031,Researcher
+S0280,P0034,Analyst
+S0225,P0079,Team Lead
+S0064,P0056,Team Lead
+S0075,P0003,Developer
+S0095,P0019,Team Lead
+S0124,P0022,Team Lead
+S0262,P0070,Researcher
+S0103,P0061,Developer
+S0246,P0038,Team Lead
+S0149,P0013,Team Lead
+S0253,P0048,Analyst
+S0141,P0051,Analyst
+S0198,P0014,Researcher
+S0238,P0054,Researcher
+S0218,P0019,Team Lead
+S0015,P0037,Team Lead
+S0235,P0016,Developer
+S0289,P0050,Researcher
+S0006,P0075,Team Lead
+S0156,P0005,Researcher
+S0228,P0006,Developer
+S0182,P0018,Researcher
+S0240,P0059,Researcher
+S0142,P0002,Developer
+S0082,P0046,Developer
+S0257,P0065,Researcher
+S0108,P0045,Developer
+S0269,P0050,Analyst
+S0263,P0009,Developer
+S0090,P0020,Team Lead
+S0181,P0073,Researcher
+S0174,P0059,Team Lead
+S0072,P0036,Analyst
+S0156,P0051,Analyst
+S0035,P0062,Researcher
+S0193,P0061,Analyst
+S0093,P0074,Team Lead
+S0260,P0068,Developer
+S0133,P0017,Developer
+S0166,P0076,Analyst
+S0298,P0045,Analyst
+S0300,P0080,Analyst
+S0207,P0009,Team Lead
+S0024,P0004,Developer
+S0082,P0030,Researcher
+S0050,P0014,Team Lead
+S0256,P0061,Developer
+S0166,P0030,Team Lead
+S0122,P0014,Developer

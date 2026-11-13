@@ -1,0 +1,301 @@
+student_id,student_name,department,year,section,email
+S0001,Riya Kumar,Computer Science,3,A,student0001@university.edu
+S0002,Diya Patel,Computer Science,1,C,student0002@university.edu
+S0003,Meera Sharma,Computer Science,1,A,student0003@university.edu
+S0004,Diya Rao,Electronics,1,C,student0004@university.edu
+S0005,Diya Rao,Data Science,2,B,student0005@university.edu
+S0006,Rahul Iyer,Computer Science,2,C,student0006@university.edu
+S0007,Meera Reddy,Artificial Intelligence,2,A,student0007@university.edu
+S0008,Sneha Reddy,Computer Science,1,B,student0008@university.edu
+S0009,Ananya Reddy,Artificial Intelligence,3,A,student0009@university.edu
+S0010,Rohan Gupta,Electronics,1,B,student0010@university.edu
+S0011,Ananya Rao,Artificial Intelligence,3,C,student0011@university.edu
+S0012,Diya Kumar,Computer Science,2,B,student0012@university.edu
+S0013,Ananya Singh,Computer Science,4,B,student0013@university.edu
+S0014,Nikhil Reddy,Information Technology,3,B,student0014@university.edu
+S0015,Diya Iyer,Computer Science,2,C,student0015@university.edu
+S0016,Rohan Singh,Information Technology,4,B,student0016@university.edu
+S0017,Ishaan Rao,Information Technology,3,A,student0017@university.edu
+S0018,Diya Sharma,Artificial Intelligence,4,B,student0018@university.edu
+S0019,Ananya Singh,Electronics,3,A,student0019@university.edu
+S0020,Riya Gupta,Data Science,4,A,student0020@university.edu
+S0021,Ishaan Patel,Information Technology,3,C,student0021@university.edu
+S0022,Rahul Nair,Electronics,4,B,student0022@university.edu
+S0023,Diya Patel,Electronics,4,A,student0023@university.edu
+S0024,Sneha Sharma,Computer Science,2,C,student0024@university.edu
+S0025,Arjun Nair,Electronics,1,B,student0025@university.edu
+S0026,Meera Gupta,Electronics,3,C,student0026@university.edu
+S0027,Varun Sharma,Computer Science,3,C,student0027@university.edu
+S0028,Kavya Kumar,Artificial Intelligence,4,A,student0028@university.edu
+S0029,Nikhil Sharma,Artificial Intelligence,2,C,student0029@university.edu
+S0030,Neha Kumar,Artificial Intelligence,2,A,student0030@university.edu
+S0031,Kavya Patel,Electronics,1,C,student0031@university.edu
+S0032,Kavya Gupta,Computer Science,1,B,student0032@university.edu
+S0033,Neha Iyer,Information Technology,1,A,student0033@university.edu
+S0034,Neha Kumar,Computer Science,4,A,student0034@university.edu
+S0035,Sneha Rao,Information Technology,2,C,student0035@university.edu
+S0036,Nikhil Rao,Information Technology,3,C,student0036@university.edu
+S0037,Varun Nair,Information Technology,2,C,student0037@university.edu
+S0038,Ishaan Nair,Artificial Intelligence,4,C,student0038@university.edu
+S0039,Nikhil Kumar,Information Technology,2,A,student0039@university.edu
+S0040,Kavya Sharma,Electronics,2,C,student0040@university.edu
+S0041,Diya Sharma,Computer Science,1,A,student0041@university.edu
+S0042,Ananya Sharma,Artificial Intelligence,1,C,student0042@university.edu
+S0043,Diya Iyer,Data Science,2,C,student0043@university.edu
+S0044,Arjun Gupta,Information Technology,4,B,student0044@university.edu
+S0045,Diya Kumar,Computer Science,4,B,student0045@university.edu
+S0046,Meera Nair,Data Science,1,C,student0046@university.edu
+S0047,Riya Kumar,Computer Science,4,C,student0047@university.edu
+S0048,Kavya Kumar,Information Technology,2,A,student0048@university.edu
+S0049,Priya Gupta,Information Technology,4,A,student0049@university.edu
+S0050,Ishaan Gupta,Information Technology,1,B,student0050@university.edu
+S0051,Sneha Rao,Computer Science,1,C,student0051@university.edu
+S0052,Priya Sharma,Computer Science,2,A,student0052@university.edu
+S0053,Meera Gupta,Data Science,2,B,student0053@university.edu
+S0054,Neha Sharma,Information Technology,4,A,student0054@university.edu
+S0055,Meera Iyer,Data Science,3,B,student0055@university.edu
+S0056,Rohan Rao,Data Science,2,A,student0056@university.edu
+S0057,Ishaan Singh,Computer Science,1,C,student0057@university.edu
+S0058,Kavya Sharma,Computer Science,4,C,student0058@university.edu
+S0059,Neha Rao,Information Technology,1,C,student0059@university.edu
+S0060,Ananya Patel,Computer Science,1,C,student0060@university.edu
+S0061,Varun Singh,Data Science,1,C,student0061@university.edu
+S0062,Diya Sharma,Electronics,1,B,student0062@university.edu
+S0063,Riya Rao,Artificial Intelligence,3,A,student0063@university.edu
+S0064,Riya Reddy,Information Technology,3,B,student0064@university.edu
+S0065,Arjun Iyer,Data Science,3,A,student0065@university.edu
+S0066,Aarav Gupta,Electronics,1,A,student0066@university.edu
+S0067,Priya Singh,Electronics,3,A,student0067@university.edu
+S0068,Neha Reddy,Computer Science,2,B,student0068@university.edu
+S0069,Ishaan Patel,Data Science,3,C,student0069@university.edu
+S0070,Sneha Rao,Computer Science,3,C,student0070@university.edu
+S0071,Ananya Patel,Artificial Intelligence,1,A,student0071@university.edu
+S0072,Rohan Rao,Information Technology,3,B,student0072@university.edu
+S0073,Rahul Singh,Artificial Intelligence,2,C,student0073@university.edu
+S0074,Riya Iyer,Electronics,4,B,student0074@university.edu
+S0075,Neha Sharma,Computer Science,4,B,student0075@university.edu
+S0076,Aarav Sharma,Artificial Intelligence,2,C,student0076@university.edu
+S0077,Ishaan Patel,Data Science,4,C,student0077@university.edu
+S0078,Aarav Kumar,Computer Science,2,C,student0078@university.edu
+S0079,Aarav Reddy,Electronics,2,B,student0079@university.edu
+S0080,Arjun Sharma,Artificial Intelligence,3,A,student0080@university.edu
+S0081,Neha Reddy,Information Technology,2,C,student0081@university.edu
+S0082,Ananya Reddy,Electronics,4,C,student0082@university.edu
+S0083,Rohan Patel,Information Technology,2,A,student0083@university.edu
+S0084,Neha Nair,Computer Science,2,C,student0084@university.edu
+S0085,Neha Reddy,Data Science,2,B,student0085@university.edu
+S0086,Arjun Kumar,Data Science,1,B,student0086@university.edu
+S0087,Diya Singh,Data Science,3,B,student0087@university.edu
+S0088,Varun Singh,Information Technology,1,C,student0088@university.edu
+S0089,Diya Nair,Artificial Intelligence,3,A,student0089@university.edu
+S0090,Sneha Iyer,Artificial Intelligence,4,C,student0090@university.edu
+S0091,Varun Rao,Artificial Intelligence,1,A,student0091@university.edu
+S0092,Neha Iyer,Information Technology,3,A,student0092@university.edu
+S0093,Ananya Nair,Artificial Intelligence,3,B,student0093@university.edu
+S0094,Rahul Rao,Computer Science,4,C,student0094@university.edu
+S0095,Diya Iyer,Computer Science,4,A,student0095@university.edu
+S0096,Priya Rao,Information Technology,3,B,student0096@university.edu
+S0097,Ananya Reddy,Electronics,3,C,student0097@university.edu
+S0098,Varun Kumar,Artificial Intelligence,3,C,student0098@university.edu
+S0099,Meera Reddy,Data Science,3,C,student0099@university.edu
+S0100,Arjun Singh,Data Science,4,C,student0100@university.edu
+S0101,Rohan Patel,Electronics,3,B,student0101@university.edu
+S0102,Priya Sharma,Artificial Intelligence,3,A,student0102@university.edu
+S0103,Meera Reddy,Data Science,4,B,student0103@university.edu
+S0104,Riya Singh,Electronics,4,C,student0104@university.edu
+S0105,Arjun Kumar,Artificial Intelligence,3,A,student0105@university.edu
+S0106,Varun Singh,Artificial Intelligence,2,A,student0106@university.edu
+S0107,Arjun Sharma,Computer Science,2,B,student0107@university.edu
+S0108,Rahul Kumar,Data Science,4,C,student0108@university.edu
+S0109,Rahul Singh,Data Science,4,B,student0109@university.edu
+S0110,Diya Patel,Computer Science,1,B,student0110@university.edu
+S0111,Diya Patel,Electronics,4,A,student0111@university.edu
+S0112,Priya Singh,Computer Science,4,A,student0112@university.edu
+S0113,Sneha Gupta,Electronics,3,B,student0113@university.edu
+S0114,Rahul Rao,Data Science,4,A,student0114@university.edu
+S0115,Rohan Gupta,Data Science,3,A,student0115@university.edu
+S0116,Varun Iyer,Electronics,4,C,student0116@university.edu
+S0117,Diya Iyer,Data Science,1,C,student0117@university.edu
+S0118,Ishaan Singh,Artificial Intelligence,3,B,student0118@university.edu
+S0119,Neha Rao,Computer Science,2,A,student0119@university.edu
+S0120,Diya Nair,Information Technology,2,A,student0120@university.edu
+S0121,Meera Nair,Artificial Intelligence,4,B,student0121@university.edu
+S0122,Aarav Singh,Data Science,4,C,student0122@university.edu
+S0123,Rohan Sharma,Electronics,4,B,student0123@university.edu
+S0124,Aarav Reddy,Artificial Intelligence,4,B,student0124@university.edu
+S0125,Priya Rao,Electronics,2,B,student0125@university.edu
+S0126,Diya Iyer,Data Science,4,A,student0126@university.edu
+S0127,Meera Reddy,Data Science,2,B,student0127@university.edu
+S0128,Neha Patel,Electronics,1,B,student0128@university.edu
+S0129,Rahul Sharma,Computer Science,4,A,student0129@university.edu
+S0130,Varun Gupta,Information Technology,1,B,student0130@university.edu
+S0131,Meera Reddy,Information Technology,4,B,student0131@university.edu
+S0132,Kavya Nair,Artificial Intelligence,4,B,student0132@university.edu
+S0133,Varun Kumar,Data Science,1,C,student0133@university.edu
+S0134,Priya Sharma,Artificial Intelligence,2,C,student0134@university.edu
+S0135,Ananya Sharma,Computer Science,2,A,student0135@university.edu
+S0136,Varun Sharma,Electronics,2,A,student0136@university.edu
+S0137,Arjun Gupta,Computer Science,2,B,student0137@university.edu
+S0138,Rohan Iyer,Artificial Intelligence,2,C,student0138@university.edu
+S0139,Rahul Kumar,Information Technology,3,A,student0139@university.edu
+S0140,Rahul Sharma,Artificial Intelligence,4,B,student0140@university.edu
+S0141,Rohan Singh,Computer Science,2,A,student0141@university.edu
+S0142,Rohan Iyer,Electronics,1,C,student0142@university.edu
+S0143,Sneha Sharma,Artificial Intelligence,4,C,student0143@university.edu
+S0144,Kavya Kumar,Electronics,3,A,student0144@university.edu
+S0145,Varun Nair,Data Science,1,B,student0145@university.edu
+S0146,Kavya Gupta,Information Technology,4,A,student0146@university.edu
+S0147,Rohan Rao,Artificial Intelligence,4,B,student0147@university.edu
+S0148,Meera Iyer,Artificial Intelligence,2,A,student0148@university.edu
+S0149,Ishaan Gupta,Information Technology,4,C,student0149@university.edu
+S0150,Rahul Nair,Artificial Intelligence,1,B,student0150@university.edu
+S0151,Varun Reddy,Information Technology,4,A,student0151@university.edu
+S0152,Kavya Iyer,Artificial Intelligence,3,C,student0152@university.edu
+S0153,Rohan Iyer,Electronics,1,C,student0153@university.edu
+S0154,Diya Kumar,Information Technology,4,B,student0154@university.edu
+S0155,Priya Singh,Data Science,4,B,student0155@university.edu
+S0156,Sneha Sharma,Computer Science,3,A,student0156@university.edu
+S0157,Meera Singh,Artificial Intelligence,3,B,student0157@university.edu
+S0158,Priya Rao,Artificial Intelligence,4,C,student0158@university.edu
+S0159,Priya Reddy,Artificial Intelligence,4,B,student0159@university.edu
+S0160,Ishaan Iyer,Information Technology,1,C,student0160@university.edu
+S0161,Diya Reddy,Computer Science,2,A,student0161@university.edu
+S0162,Diya Gupta,Artificial Intelligence,3,A,student0162@university.edu
+S0163,Varun Singh,Artificial Intelligence,2,B,student0163@university.edu
+S0164,Arjun Iyer,Computer Science,2,B,student0164@university.edu
+S0165,Aarav Sharma,Electronics,3,C,student0165@university.edu
+S0166,Arjun Gupta,Computer Science,1,C,student0166@university.edu
+S0167,Ishaan Gupta,Data Science,4,B,student0167@university.edu
+S0168,Arjun Sharma,Artificial Intelligence,4,A,student0168@university.edu
+S0169,Varun Kumar,Data Science,4,A,student0169@university.edu
+S0170,Rahul Sharma,Information Technology,2,C,student0170@university.edu
+S0171,Ishaan Kumar,Information Technology,1,C,student0171@university.edu
+S0172,Sneha Nair,Electronics,2,C,student0172@university.edu
+S0173,Meera Gupta,Data Science,3,C,student0173@university.edu
+S0174,Meera Iyer,Electronics,1,C,student0174@university.edu
+S0175,Rohan Kumar,Information Technology,2,B,student0175@university.edu
+S0176,Riya Kumar,Information Technology,2,A,student0176@university.edu
+S0177,Priya Kumar,Information Technology,1,B,student0177@university.edu
+S0178,Nikhil Gupta,Artificial Intelligence,1,A,student0178@university.edu
+S0179,Ishaan Iyer,Data Science,1,C,student0179@university.edu
+S0180,Diya Iyer,Electronics,2,B,student0180@university.edu
+S0181,Ananya Rao,Information Technology,2,B,student0181@university.edu
+S0182,Varun Patel,Computer Science,1,A,student0182@university.edu
+S0183,Sneha Iyer,Electronics,3,B,student0183@university.edu
+S0184,Ananya Gupta,Artificial Intelligence,4,B,student0184@university.edu
+S0185,Priya Rao,Data Science,4,A,student0185@university.edu
+S0186,Rahul Sharma,Data Science,3,C,student0186@university.edu
+S0187,Ishaan Sharma,Computer Science,2,C,student0187@university.edu
+S0188,Varun Sharma,Artificial Intelligence,1,A,student0188@university.edu
+S0189,Nikhil Rao,Data Science,3,A,student0189@university.edu
+S0190,Rahul Nair,Data Science,1,B,student0190@university.edu
+S0191,Kavya Nair,Artificial Intelligence,3,C,student0191@university.edu
+S0192,Ananya Patel,Artificial Intelligence,4,C,student0192@university.edu
+S0193,Nikhil Iyer,Data Science,1,B,student0193@university.edu
+S0194,Ananya Reddy,Artificial Intelligence,3,A,student0194@university.edu
+S0195,Sneha Nair,Electronics,1,C,student0195@university.edu
+S0196,Varun Rao,Data Science,4,A,student0196@university.edu
+S0197,Diya Rao,Artificial Intelligence,4,C,student0197@university.edu
+S0198,Nikhil Sharma,Information Technology,3,C,student0198@university.edu
+S0199,Arjun Iyer,Data Science,4,A,student0199@university.edu
+S0200,Aarav Singh,Information Technology,3,C,student0200@university.edu
+S0201,Aarav Rao,Data Science,1,A,student0201@university.edu
+S0202,Varun Kumar,Data Science,1,C,student0202@university.edu
+S0203,Varun Patel,Data Science,3,C,student0203@university.edu
+S0204,Rohan Iyer,Data Science,4,B,student0204@university.edu
+S0205,Diya Gupta,Electronics,2,B,student0205@university.edu
+S0206,Diya Rao,Information Technology,1,B,student0206@university.edu
+S0207,Sneha Nair,Artificial Intelligence,3,A,student0207@university.edu
+S0208,Ishaan Iyer,Electronics,4,A,student0208@university.edu
+S0209,Nikhil Rao,Data Science,3,B,student0209@university.edu
+S0210,Priya Rao,Data Science,4,B,student0210@university.edu
+S0211,Varun Singh,Information Technology,4,A,student0211@university.edu
+S0212,Varun Nair,Computer Science,3,C,student0212@university.edu
+S0213,Nikhil Nair,Data Science,2,B,student0213@university.edu
+S0214,Aarav Patel,Electronics,3,A,student0214@university.edu
+S0215,Varun Gupta,Computer Science,4,A,student0215@university.edu
+S0216,Rohan Patel,Data Science,2,A,student0216@university.edu
+S0217,Nikhil Iyer,Artificial Intelligence,4,C,student0217@university.edu
+S0218,Ananya Reddy,Electronics,4,B,student0218@university.edu
+S0219,Riya Gupta,Electronics,1,C,student0219@university.edu
+S0220,Ananya Singh,Artificial Intelligence,2,C,student0220@university.edu
+S0221,Ananya Nair,Computer Science,1,B,student0221@university.edu
+S0222,Arjun Iyer,Computer Science,1,B,student0222@university.edu
+S0223,Sneha Sharma,Artificial Intelligence,3,B,student0223@university.edu
+S0224,Meera Patel,Information Technology,4,C,student0224@university.edu
+S0225,Riya Patel,Information Technology,2,A,student0225@university.edu
+S0226,Rahul Nair,Electronics,2,B,student0226@university.edu
+S0227,Neha Patel,Information Technology,4,C,student0227@university.edu
+S0228,Ishaan Gupta,Artificial Intelligence,1,B,student0228@university.edu
+S0229,Neha Iyer,Electronics,2,A,student0229@university.edu
+S0230,Nikhil Reddy,Electronics,3,C,student0230@university.edu
+S0231,Meera Iyer,Data Science,3,A,student0231@university.edu
+S0232,Meera Gupta,Computer Science,2,B,student0232@university.edu
+S0233,Rahul Reddy,Electronics,3,C,student0233@university.edu
+S0234,Ishaan Sharma,Data Science,3,A,student0234@university.edu
+S0235,Rahul Sharma,Electronics,4,B,student0235@university.edu
+S0236,Sneha Singh,Electronics,3,A,student0236@university.edu
+S0237,Riya Singh,Electronics,3,C,student0237@university.edu
+S0238,Sneha Patel,Computer Science,1,B,student0238@university.edu
+S0239,Sneha Gupta,Computer Science,3,C,student0239@university.edu
+S0240,Arjun Kumar,Artificial Intelligence,3,C,student0240@university.edu
+S0241,Meera Patel,Information Technology,2,C,student0241@university.edu
+S0242,Neha Reddy,Electronics,3,A,student0242@university.edu
+S0243,Ishaan Gupta,Artificial Intelligence,3,A,student0243@university.edu
+S0244,Nikhil Kumar,Information Technology,2,C,student0244@university.edu
+S0245,Rohan Nair,Electronics,3,A,student0245@university.edu
+S0246,Sneha Nair,Computer Science,3,C,student0246@university.edu
+S0247,Ananya Gupta,Artificial Intelligence,3,C,student0247@university.edu
+S0248,Meera Reddy,Computer Science,2,B,student0248@university.edu
+S0249,Aarav Rao,Artificial Intelligence,2,C,student0249@university.edu
+S0250,Ananya Gupta,Artificial Intelligence,4,A,student0250@university.edu
+S0251,Arjun Sharma,Computer Science,3,B,student0251@university.edu
+S0252,Ananya Kumar,Information Technology,2,B,student0252@university.edu
+S0253,Nikhil Reddy,Electronics,4,C,student0253@university.edu
+S0254,Rohan Patel,Data Science,1,B,student0254@university.edu
+S0255,Rahul Nair,Artificial Intelligence,1,C,student0255@university.edu
+S0256,Kavya Singh,Data Science,4,A,student0256@university.edu
+S0257,Varun Reddy,Computer Science,3,C,student0257@university.edu
+S0258,Neha Reddy,Computer Science,4,B,student0258@university.edu
+S0259,Diya Kumar,Data Science,1,C,student0259@university.edu
+S0260,Diya Sharma,Computer Science,3,A,student0260@university.edu
+S0261,Arjun Singh,Computer Science,2,C,student0261@university.edu
+S0262,Diya Singh,Artificial Intelligence,2,C,student0262@university.edu
+S0263,Aarav Iyer,Information Technology,2,C,student0263@university.edu
+S0264,Ishaan Patel,Computer Science,1,A,student0264@university.edu
+S0265,Aarav Reddy,Information Technology,3,A,student0265@university.edu
+S0266,Arjun Iyer,Computer Science,2,C,student0266@university.edu
+S0267,Meera Rao,Computer Science,1,B,student0267@university.edu
+S0268,Nikhil Reddy,Electronics,1,B,student0268@university.edu
+S0269,Priya Singh,Electronics,1,C,student0269@university.edu
+S0270,Sneha Rao,Artificial Intelligence,4,C,student0270@university.edu
+S0271,Aarav Sharma,Data Science,4,B,student0271@university.edu
+S0272,Riya Kumar,Data Science,4,A,student0272@university.edu
+S0273,Neha Kumar,Artificial Intelligence,2,A,student0273@university.edu
+S0274,Arjun Iyer,Electronics,3,B,student0274@university.edu
+S0275,Rahul Rao,Artificial Intelligence,4,C,student0275@university.edu
+S0276,Rahul Nair,Computer Science,1,C,student0276@university.edu
+S0277,Riya Rao,Information Technology,4,B,student0277@university.edu
+S0278,Neha Singh,Data Science,3,B,student0278@university.edu
+S0279,Meera Nair,Computer Science,3,B,student0279@university.edu
+S0280,Kavya Iyer,Artificial Intelligence,2,C,student0280@university.edu
+S0281,Neha Gupta,Computer Science,1,A,student0281@university.edu
+S0282,Ananya Nair,Computer Science,3,A,student0282@university.edu
+S0283,Priya Sharma,Electronics,3,C,student0283@university.edu
+S0284,Ananya Nair,Artificial Intelligence,4,C,student0284@university.edu
+S0285,Aarav Iyer,Electronics,3,B,student0285@university.edu
+S0286,Ananya Rao,Information Technology,2,C,student0286@university.edu
+S0287,Nikhil Singh,Computer Science,3,C,student0287@university.edu
+S0288,Kavya Kumar,Artificial Intelligence,2,B,student0288@university.edu
+S0289,Varun Rao,Electronics,1,C,student0289@university.edu
+S0290,Neha Iyer,Computer Science,2,B,student0290@university.edu
+S0291,Rohan Iyer,Artificial Intelligence,3,A,student0291@university.edu
+S0292,Arjun Patel,Electronics,4,A,student0292@university.edu
+S0293,Arjun Sharma,Computer Science,2,B,student0293@university.edu
+S0294,Meera Gupta,Artificial Intelligence,2,B,student0294@university.edu
+S0295,Ishaan Reddy,Electronics,1,A,student0295@university.edu
+S0296,Arjun Patel,Electronics,1,C,student0296@university.edu
+S0297,Ananya Iyer,Data Science,4,B,student0297@university.edu
+S0298,Rahul Gupta,Data Science,3,A,student0298@university.edu
+S0299,Sneha Rao,Computer Science,3,B,student0299@university.edu
+S0300,Ananya Iyer,Electronics,4,C,student0300@university.edu

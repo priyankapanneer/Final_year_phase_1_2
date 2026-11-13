@@ -1,0 +1,31 @@
+skill_id,skill_name,category
+SK001,Python,Cloud
+SK002,Java,Programming
+SK003,C++,Cloud
+SK004,SQL,Database
+SK005,JavaScript,Research
+SK006,React,Research
+SK007,FastAPI,AI/ML
+SK008,TensorFlow,Cloud
+SK009,PyTorch,Data
+SK010,Scikit-learn,Database
+SK011,Pandas,Research
+SK012,NumPy,Cloud
+SK013,Machine Learning,AI/ML
+SK014,Deep Learning,Data
+SK015,NLP,AI/ML
+SK016,Computer Vision,Database
+SK017,Neo4j,Cloud
+SK018,Cypher,AI/ML
+SK019,Transformers,Database
+SK020,BERT,Research
+SK021,Knowledge Graphs,Data
+SK022,Data Visualization,Cloud
+SK023,AWS,Cloud
+SK024,Docker,Database
+SK025,Git,Cloud
+SK026,Linux,Data
+SK027,MongoDB,Data
+SK028,Spark,Cloud
+SK029,OpenCV,AI/ML
+SK030,Statistics,AI/ML

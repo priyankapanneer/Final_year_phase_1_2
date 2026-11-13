@@ -1,0 +1,41 @@
+course_id,course_name,department,credits
+C001,Python Programming,Artificial Intelligence,3
+C002,Data Structures,Information Technology,4
+C003,Database Management Systems,Electronics,3
+C004,Machine Learning,Computer Science,3
+C005,Deep Learning,Artificial Intelligence,3
+C006,Artificial Intelligence,Information Technology,4
+C007,Natural Language Processing,Artificial Intelligence,4
+C008,Cloud Computing,Computer Science,3
+C009,Cyber Security,Data Science,4
+C010,Web Development,Information Technology,3
+C011,Data Mining,Data Science,3
+C012,Computer Vision,Electronics,4
+C013,Research Methodology,Computer Science,4
+C014,Big Data Analytics,Computer Science,4
+C015,Python Programming,Computer Science,4
+C016,Data Structures,Computer Science,4
+C017,Database Management Systems,Electronics,4
+C018,Machine Learning,Electronics,4
+C019,Deep Learning,Data Science,4
+C020,Artificial Intelligence,Computer Science,4
+C021,Natural Language Processing,Computer Science,4
+C022,Cloud Computing,Information Technology,4
+C023,Cyber Security,Artificial Intelligence,3
+C024,Web Development,Data Science,3
+C025,Data Mining,Information Technology,4
+C026,Computer Vision,Electronics,4
+C027,Research Methodology,Electronics,3
+C028,Big Data Analytics,Data Science,4
+C029,Python Programming,Artificial Intelligence,3
+C030,Data Structures,Artificial Intelligence,3
+C031,Database Management Systems,Computer Science,3
+C032,Machine Learning,Electronics,3
+C033,Deep Learning,Artificial Intelligence,4
+C034,Artificial Intelligence,Information Technology,3
+C035,Natural Language Processing,Computer Science,3
+C036,Cloud Computing,Artificial Intelligence,3
+C037,Cyber Security,Information Technology,3
+C038,Web Development,Computer Science,3
+C039,Data Mining,Data Science,4
+C040,Computer Vision,Electronics,4
