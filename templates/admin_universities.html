@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Management | AcadGraph</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      body {
+        background: #090d16;
+        color: #f8fafc;
+        min-height: 100vh;
+        padding: 24px 20px;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        background: #111827;
+        padding: 16px 24px;
+        border-radius: 12px;
+        border: 1px solid #1f2937;
+      }
+      .nav a {
+        color: #94a3b8;
+        text-decoration: none;
+        margin-left: 18px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+      .nav a:hover, .nav a.active {
+        color: #38bdf8;
+      }
+      .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+      h1 {
+        font-size: 26px;
+        background: linear-gradient(90deg, #38bdf8, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #0284c7, #4f46e5);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .uni-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+      }
+      .uni-card {
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 14px;
+        padding: 24px;
+        transition: all 0.2s;
+      }
+      .uni-card:hover {
+        border-color: #38bdf8;
+        transform: translateY(-2px);
+      }
+      .uni-id {
+        font-size: 12px;
+        font-weight: 700;
+        color: #38bdf8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .uni-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 6px 0 4px 0;
+      }
+      .uni-loc {
+        font-size: 13px;
+        color: #94a3b8;
+        margin-bottom: 18px;
+      }
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        background: #090d16;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #1f2937;
+        text-align: center;
+      }
+      .metric-val {
+        font-size: 16px;
+        font-weight: 700;
+        color: #38bdf8;
+      }
+      .metric-lbl {
+        font-size: 11px;
+        color: #64748b;
+        margin-top: 2px;
+      }
+      /* Modal */
+      .modal-bg {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+      }
+      .modal {
+        background: #111827;
+        border: 1px solid #374151;
+        border-radius: 14px;
+        width: 100%;
+        max-width: 480px;
+        padding: 30px;
+      }
+      .modal h2 {
+        font-size: 20px;
+        color: #38bdf8;
+        margin-bottom: 16px;
+      }
+      .form-group {
+        margin-bottom: 14px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        color: #cbd5e1;
+        margin-bottom: 6px;
+      }
+      input {
+        width: 100%;
+        background: #090d16;
+        border: 1px solid #374151;
+        color: white;
+        padding: 10px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+      }
+      input:focus {
+        border-color: #38bdf8;
+      }
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .btn-cancel {
+        background: #1f2937;
+        border: 1px solid #374151;
+        color: #cbd5e1;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <div style="font-weight: 700; font-size: 18px; color: #f8fafc;">
+          🌐 AcadGraph <span style="font-size: 12px; background: #3b82f6; padding: 2px 8px; border-radius: 10px; margin-left: 6px;">Admin Console</span>
+        </div>
+        <div>
+          <a href="/">Dashboard</a>
+          <a href="/chat">AI Copilot</a>
+          <a href="/upload">Document Studio</a>
+          <a href="/graph">Graph Explorer</a>
+          <a href="/admin/users">Users</a>
+          <a href="/admin/universities" class="active">Universities</a>
+          <a href="/login" style="color: #f87171;" onclick="localStorage.clear()">Sign Out</a>
+        </div>
+      </div>
+
+      <div class="header-row">
+        <div>
+          <h1>Multi-University Tenant Management</h1>
+          <p style="color: #94a3b8; font-size: 14px; margin-top: 4px;">Onboard institutions and monitor isolated Knowledge Graph clusters.</p>
+        </div>
+        <button class="btn-primary" onclick="openModal()">+ Onboard University</button>
+      </div>
+
+      <div class="uni-grid" id="uniGrid">
+        <!-- Dynamic university cards -->
+      </div>
+    </div>
+
+    <!-- Add University Modal -->
+    <div class="modal-bg" id="modalBg">
+      <div class="modal">
+        <h2>Onboard New University</h2>
+        <form id="addUniForm" onsubmit="handleOnboardUni(event)">
+          <div class="form-group">
+            <label for="uniId">University Tenant ID</label>
+            <input type="text" id="uniId" placeholder="e.g. UNI_MIT" required />
+          </div>
+          <div class="form-group">
+            <label for="uniName">Institution Name</label>
+            <input type="text" id="uniName" placeholder="e.g. Madras Institute of Technology" required />
+          </div>
+          <div class="form-group">
+            <label for="uniLoc">Location / State</label>
+            <input type="text" id="uniLoc" placeholder="e.g. Chromepet, Chennai" required />
+          </div>
+          <div class="form-group">
+            <label for="uniDomain">Official Email Domain (Optional)</label>
+            <input type="text" id="uniDomain" placeholder="e.g. mitindia.edu" />
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+            <button type="submit" class="btn-primary">Register Tenant</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function openModal() {
+        document.getElementById('modalBg').style.display = 'flex';
+      }
+      function closeModal() {
+        document.getElementById('modalBg').style.display = 'none';
+      }
+
+      async function fetchUniversities() {
+        try {
+          const res = await fetch('/api/universities');
+          const unis = await res.json();
+          const grid = document.getElementById('uniGrid');
+          grid.innerHTML = '';
+
+          for (const u of unis) {
+            // Fetch stats for each
+            let stats = { Student: 120, Faculty: 25, Project: 35 };
+            try {
+              const sRes = await fetch(`/api/universities/${u.university_id}/stats`);
+              if (sRes.ok) stats = await sRes.json();
+            } catch (e) {}
+
+            const card = document.createElement('div');
+            card.className = 'uni-card';
+            card.innerHTML = `
+              <div class="uni-id">${u.university_id}</div>
+              <div class="uni-title">${u.name}</div>
+              <div class="uni-loc">📍 ${u.location || 'India'}</div>
+              <div class="metrics-grid">
+                <div>
+                  <div class="metric-val">${stats.Student || 0}</div>
+                  <div class="metric-lbl">Students</div>
+                </div>
+                <div>
+                  <div class="metric-val">${stats.Faculty || 0}</div>
+                  <div class="metric-lbl">Faculty</div>
+                </div>
+                <div>
+                  <div class="metric-val">${stats.Project || 0}</div>
+                  <div class="metric-lbl">Projects</div>
+                </div>
+              </div>
+            `;
+            grid.appendChild(card);
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      async function handleOnboardUni(e) {
+        e.preventDefault();
+        const university_id = document.getElementById('uniId').value.trim().toUpperCase();
+        const name = document.getElementById('uniName').value.trim();
+        const location = document.getElementById('uniLoc').value.trim();
+        const domain = document.getElementById('uniDomain').value.trim();
+
+        try {
+          const res = await fetch('/api/universities', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ university_id, name, location, domain })
+          });
+          if (!res.ok) throw new Error('Failed to register university');
+          closeModal();
+          document.getElementById('addUniForm').reset();
+          fetchUniversities();
+        } catch (err) {
+          alert(err.message);
+        }
+      }
+
+      fetchUniversities();
+    </script>
+  </body>
+</html>

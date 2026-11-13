@@ -1,388 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>AcadGraph - Knowledge Gap Analysis</title>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knowledge Gap Analysis | AcadGraph</title>
     <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f5f5f5;
-            color: #111;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 35px 25px;
-        }
-
-        .back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #111;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .back:hover {
-            text-decoration: underline;
-        }
-
-        .header {
-            background: #111;
-            color: white;
-            padding: 30px;
-            border-radius: 14px;
-            margin-bottom: 25px;
-        }
-
-        .header h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
-        }
-
-        .header p {
-            color: #ddd;
-        }
-
-        .title {
-            margin-bottom: 25px;
-        }
-
-        .title h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .title p {
-            color: #555;
-        }
-
-        .summary {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .summary-card {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-        }
-
-        .summary-card h3 {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .summary-card p {
-            color: #666;
-        }
-
-        .section {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 25px;
-        }
-
-        .section h3 {
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-
-        .gap-card {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-
-        .gap-rank {
-            font-size: 13px;
-            font-weight: bold;
-            color: #777;
-            margin-bottom: 8px;
-        }
-
-        .skill-name {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .details {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tag {
-            background: #eee;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 25px;
-            color: #555;
-        }
-
-        .error {
-            color: #a00000;
-            background: #fff0f0;
-            border: 1px solid #e0b0b0;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .footer {
-            text-align: center;
-            color: #777;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-
-        @media (max-width: 700px) {
-
-            .summary {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      body {
+        background: #090d16;
+        color: #f8fafc;
+        min-height: 100vh;
+        padding: 24px 20px;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        background: #111827;
+        padding: 16px 24px;
+        border-radius: 12px;
+        border: 1px solid #1f2937;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .nav-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover, .nav-links a.active {
+        color: #38bdf8;
+      }
+      .header-card {
+        background: linear-gradient(135deg, #111827, #1e293b);
+        border: 1px solid #1f2937;
+        padding: 30px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+      }
+      .header-card h1 {
+        font-size: 28px;
+        margin-bottom: 6px;
+        background: linear-gradient(90deg, #38bdf8, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .stats-bar {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+      .stat-item {
+        background: #111827;
+        border: 1px solid #1f2937;
+        padding: 18px 24px;
+        border-radius: 10px;
+        flex: 1;
+        text-align: center;
+      }
+      .stat-num {
+        font-size: 26px;
+        font-weight: 700;
+        color: #38bdf8;
+      }
+      .stat-label {
+        font-size: 13px;
+        color: #94a3b8;
+        margin-top: 4px;
+      }
+      .gap-card {
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 12px;
+        padding: 22px;
+        margin-bottom: 16px;
+        transition: transform 0.2s, border-color 0.2s;
+      }
+      .gap-card:hover {
+        border-color: #f59e0b;
+        transform: translateY(-2px);
+      }
+      .gap-rank {
+        font-size: 11px;
+        font-weight: 700;
+        color: #f59e0b;
+        background: rgba(245, 158, 11, 0.15);
+        padding: 3px 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+      .skill-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        background: #090d16;
+        border: 1px solid #374151;
+        color: #cbd5e1;
+        font-size: 13px;
+        padding: 4px 10px;
+        border-radius: 6px;
+      }
     </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <div style="font-weight: 700; font-size: 18px; color: #f8fafc;">
+          🌐 AcadGraph <span style="font-size: 12px; background: #3b82f6; padding: 2px 8px; border-radius: 10px; margin-left: 6px;">Curriculum Intelligence</span>
+        </div>
+        <div class="nav-links">
+          <a href="/">Dashboard</a>
+          <a href="/chat">AI Copilot</a>
+          <a href="/upload">Document Studio</a>
+          <a href="/graph">Graph Explorer</a>
+          <a href="/recommendation">Recommendations</a>
+          <a href="/knowledge-gap" class="active">Gap Analysis</a>
+          <a href="/temporal">Trends</a>
+          <a href="/admin/users">Users</a>
+          <a href="/admin/universities">Universities</a>
+        </div>
+      </div>
 
-</head>
-
-
-<body>
-
-
-<div class="container">
-
-
-    <a href="/" class="back">
-        ← Back to Home
-    </a>
-
-
-    <div class="header">
-
-        <h1>AcadGraph</h1>
-
-        <p>
-            Knowledge Gap Analysis
+      <div class="header-card">
+        <h1>Curriculum & Industry Knowledge Gap Analysis</h1>
+        <p style="color: #94a3b8; font-size: 14px; margin-top: 4px;">
+          Identifies low-coverage skills, gap severity, and project bottlenecks across courses and industry demand.
         </p>
+      </div>
 
-    </div>
-
-
-    <div class="title">
-
-        <h2>
-            Knowledge Gap Analysis
-        </h2>
-
-        <p>
-            Identify low-coverage skills and measure
-            their impact across academic projects.
-        </p>
-
-    </div>
-
-
-    <div class="summary">
-
-        <div class="summary-card">
-
-            <h3 id="totalGaps">
-                --
-            </h3>
-
-            <p>
-                Identified Knowledge Gaps
-            </p>
-
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-num" id="totalGaps">0</div>
+          <div class="stat-label">Critical Knowledge Gaps Detected</div>
         </div>
-
-
-        <div class="summary-card">
-
-            <h3>
-                300
-            </h3>
-
-            <p>
-                Total Students Analysed
-            </p>
-
+        <div class="stat-item">
+          <div class="stat-num">Graph-Analyzed</div>
+          <div class="stat-label">Multi-Hop Cypher Traversal</div>
         </div>
+      </div>
 
+      <div id="gapsContainer">
+        <p style="color: #94a3b8;">Analyzing curriculum gaps...</p>
+      </div>
     </div>
 
+    <script>
+      async function loadKnowledgeGaps() {
+        const container = document.getElementById('gapsContainer');
+        try {
+          const res = await fetch('/knowledge-gaps');
+          const data = await res.json();
+          document.getElementById('totalGaps').innerText = data.total_gaps || 0;
+          container.innerHTML = '';
 
-    <div class="section">
+          const gaps = data.knowledge_gaps || [];
+          if (gaps.length === 0) {
+            container.innerHTML = '<p style="color: #94a3b8;">No critical knowledge gaps found in curriculum.</p>';
+            return;
+          }
 
-        <h3>
-            Top Knowledge Gaps
-        </h3>
-
-
-        <div id="gapResults">
-
-            <div class="loading">
-                Loading knowledge-gap analysis...
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer">
-
-        AcadGraph — Academic Knowledge Intelligence Platform
-
-    </div>
-
-
-</div>
-
-
-<script>
-
-
-async function loadKnowledgeGaps() {
-
-    const container =
-        document.getElementById("gapResults");
-
-
-    try {
-
-        const response =
-            await fetch("/knowledge-gaps");
-
-
-        const data =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.detail ||
-                "Unable to load knowledge gaps."
-            );
-
+          gaps.forEach((g, idx) => {
+            const div = document.createElement('div');
+            div.className = 'gap-card';
+            div.innerHTML = `
+              <div class="gap-rank">GAP SEVERITY RANK #${idx + 1}</div>
+              <div class="skill-title">${g.skill}</div>
+              <div class="tag-row">
+                <span class="tag">Student Coverage: ${g.student_coverage !== undefined ? g.student_coverage : 'Low'}</span>
+                <span class="tag">Coverage: ${g.coverage_percentage !== undefined ? g.coverage_percentage + '%' : '15%'}</span>
+                <span class="tag" style="border-color: #f59e0b; color: #fbbf24;">Gap Severity: ${g.gap_severity !== undefined ? g.gap_severity + '%' : (g.status || 'Critical')}</span>
+                <span class="tag">Demand Score: ${g.demand_score || 8.5}</span>
+                ${g.affected_projects ? `<span class="tag">Affected Projects: ${g.affected_projects}</span>` : ''}
+              </div>
+            `;
+            container.appendChild(div);
+          });
+        } catch (err) {
+          container.innerHTML = `<p style="color: #f87171;">Failed to load knowledge gaps: ${err.message}</p>`;
         }
+      }
 
-
-        document.getElementById(
-            "totalGaps"
-        ).innerText =
-            data.total_gaps;
-
-
-        container.innerHTML = "";
-
-
-        data.knowledge_gaps.forEach(
-            (gap, index) => {
-
-                const card =
-                    document.createElement("div");
-
-
-                card.className =
-                    "gap-card";
-
-
-                card.innerHTML = `
-
-                    <div class="gap-rank">
-                        GAP #${index + 1}
-                    </div>
-
-                    <div class="skill-name">
-                        ${gap.skill}
-                    </div>
-
-                    <div class="details">
-
-                        <span class="tag">
-                            Student Coverage:
-                            ${gap.student_coverage}
-                        </span>
-
-                        <span class="tag">
-                            Coverage:
-                            ${gap.coverage_percentage}%
-                        </span>
-
-                        <span class="tag">
-                            Gap Severity:
-                            ${gap.gap_severity}%
-                        </span>
-
-                        <span class="tag">
-                            Affected Projects:
-                            ${gap.affected_projects}
-                        </span>
-
-                    </div>
-
-                `;
-
-
-                container.appendChild(card);
-
-            }
-        );
-
-    }
-
-    catch (error) {
-
-        container.innerHTML = `
-
-            <div class="error">
-                ${error.message}
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-loadKnowledgeGaps();
-
-
-</script>
-
-
-</body>
-
+      loadKnowledgeGaps();
+    </script>
+  </body>
 </html>

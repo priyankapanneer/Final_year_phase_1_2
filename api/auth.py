@@ -4,7 +4,7 @@ import datetime
 import jwt
 from fastapi import HTTPException, Security, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 
 SECRET_KEY = os.getenv("JWT_SECRET_KEY", "acadgraph_super_secret_jwt_key_2026")
@@ -24,7 +24,7 @@ def hash_password(plain_password: str) -> str:
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return hash_password(plain_password) == hashed_password
 
-# Seeded demo accounts for quick testing
+# Persistent in-memory user registry with pre-seeded demo personas
 DEMO_USERS_DB = {
     "superadmin@acadgraph.io": {
         "username": "superadmin@acadgraph.io",
@@ -77,6 +77,22 @@ class UserResponse(BaseModel):
     name: str
     role: str
     university_id: str
+    student_id: Optional[str] = None
+
+class CreateUserRequest(BaseModel):
+    name: str
+    username: str
+    password: str
+    role: str
+    university_id: str
+    student_id: Optional[str] = None
+
+class RegisterRequest(BaseModel):
+    name: str
+    username: str
+    password: str
+    role: str = "STUDENT"
+    university_id: str = "UNI_ANNA"
     student_id: Optional[str] = None
 
 class LoginRequest(BaseModel):
@@ -138,13 +154,45 @@ def require_roles(allowed_roles: List[str]):
         return current_user
     return role_checker
 
-def enforce_tenant_isolation(current_user: UserResponse, requested_uni_id: Optional[str] = None) -> str:
-    if current_user.role == "SUPER_ADMIN":
-        return requested_uni_id or "UNI_ANNA"
+def add_user_record(req: CreateUserRequest) -> UserResponse:
+    if req.username in DEMO_USERS_DB:
+        raise HTTPException(status_code=400, detail="User with this email already exists")
     
-    if requested_uni_id and requested_uni_id != current_user.university_id:
-        raise HTTPException(
-            status_code=403, 
-            detail=f"Cross-tenant access forbidden. You are restricted to '{current_user.university_id}'."
-        )
-    return current_user.university_id
+    DEMO_USERS_DB[req.username] = {
+        "username": req.username,
+        "name": req.name,
+        "hashed_password": hash_password(req.password),
+        "role": req.role,
+        "university_id": req.university_id,
+        "student_id": req.student_id
+    }
+    
+    return UserResponse(
+        username=req.username,
+        name=req.name,
+        role=req.role,
+        university_id=req.university_id,
+        student_id=req.student_id
+    )
+
+def list_all_users(filter_uni: Optional[str] = None) -> List[UserResponse]:
+    users = []
+    for u in DEMO_USERS_DB.values():
+        if filter_uni and filter_uni != "ALL" and u["university_id"] != filter_uni and u["university_id"] != "ALL":
+            continue
+        users.append(UserResponse(
+            username=u["username"],
+            name=u["name"],
+            role=u["role"],
+            university_id=u["university_id"],
+            student_id=u.get("student_id")
+        ))
+    return users
+
+def delete_user_record(username: str) -> bool:
+    if username not in DEMO_USERS_DB:
+        raise HTTPException(status_code=404, detail="User not found")
+    if username == "superadmin@acadgraph.io":
+        raise HTTPException(status_code=400, detail="Cannot delete default Super Admin")
+    del DEMO_USERS_DB[username]
+    return True

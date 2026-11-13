@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | AcadGraph Platform</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      body {
+        background: radial-gradient(circle at 50% 20%, #1e293b, #090d16 80%);
+        color: #f8fafc;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .login-card {
+        background: #111827;
+        border: 1px solid #374151;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 460px;
+        padding: 40px 32px;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+      }
+      .brand-title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 6px;
+        background: linear-gradient(90deg, #38bdf8, #818cf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .brand-subtitle {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #cbd5e1;
+        margin-bottom: 6px;
+      }
+      input {
+        width: 100%;
+        background: #0b0f19;
+        border: 1px solid #374151;
+        color: white;
+        padding: 12px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      input:focus {
+        border-color: #38bdf8;
+      }
+      .btn-submit {
+        width: 100%;
+        background: linear-gradient(135deg, #0284c7, #4f46e5);
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.1s;
+        margin-top: 10px;
+      }
+      .btn-submit:hover {
+        opacity: 0.95;
+      }
+      .btn-submit:active {
+        transform: scale(0.99);
+      }
+      .error-box {
+        display: none;
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid #ef4444;
+        color: #fca5a5;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        margin-bottom: 18px;
+      }
+      .quick-demo-section {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #1f2937;
+      }
+      .quick-demo-title {
+        font-size: 12px;
+        color: #94a3b8;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-align: center;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .demo-btn {
+        background: #1f2937;
+        border: 1px solid #374151;
+        color: #cbd5e1;
+        padding: 8px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.2s;
+      }
+      .demo-btn:hover {
+        border-color: #38bdf8;
+        color: #38bdf8;
+        background: #111827;
+      }
+      .demo-role {
+        font-size: 10px;
+        font-weight: 700;
+        display: block;
+        color: #38bdf8;
+      }
+      .footer-links {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: #94a3b8;
+      }
+      .footer-links a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-card">
+      <div class="brand-title">AcadGraph</div>
+      <div class="brand-subtitle">Academic Knowledge Graph SaaS Platform</div>
+
+      <div id="errorBox" class="error-box"></div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="username">Email / Academic ID</label>
+          <input type="text" id="username" placeholder="e.g. faculty.kumar@annauniv.edu" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
+      </form>
+
+      <div class="quick-demo-section">
+        <div class="quick-demo-title">1-Click Quick Demo Sign-In</div>
+        <div class="demo-grid">
+          <button class="demo-btn" onclick="fillLogin('faculty.kumar@annauniv.edu', 'kumar123')">
+            <span class="demo-role">FACULTY</span>
+            Dr. Kumar (Anna Univ)
+          </button>
+          <button class="demo-btn" onclick="fillLogin('student.ravi@annauniv.edu', 'ravi123')">
+            <span class="demo-role">STUDENT</span>
+            Ravi S (Anna Univ)
+          </button>
+          <button class="demo-btn" onclick="fillLogin('admin@annauniv.edu', 'anna123')">
+            <span class="demo-role">UNI ADMIN</span>
+            Dean (Anna Univ)
+          </button>
+          <button class="demo-btn" onclick="fillLogin('superadmin@acadgraph.io', 'admin123')">
+            <span class="demo-role">SUPER ADMIN</span>
+            Platform Owner
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        New to AcadGraph? <a href="/register">Create an account</a>
+      </div>
+    </div>
+
+    <script>
+      function fillLogin(user, pass) {
+        document.getElementById('username').value = user;
+        document.getElementById('password').value = pass;
+        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+      }
+
+      async function handleLogin(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errBox = document.getElementById('errorBox');
+        const btn = document.getElementById('submitBtn');
+
+        errBox.style.display = 'none';
+        btn.innerText = 'Signing in...';
+        btn.disabled = true;
+
+        try {
+          const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+          });
+
+          const data = await res.json();
+          if (!res.ok) {
+            throw new Error(data.detail || 'Invalid username or password');
+          }
+
+          // Save auth details
+          localStorage.setItem('acadgraph_token', data.access_token);
+          localStorage.setItem('acadgraph_user', JSON.stringify(data.user));
+
+          // Redirect to Home
+          window.location.href = '/';
+        } catch (err) {
+          errBox.innerText = err.message;
+          errBox.style.display = 'block';
+        } finally {
+          btn.innerText = 'Sign In';
+          btn.disabled = false;
+        }
+      }
+    </script>
+  </body>
+</html>

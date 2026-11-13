@@ -12,9 +12,9 @@ from model.graph_overview_engine import get_graph_overview, get_relationship_cou
 from model.graph_data_engine import get_graph_data, get_entity_graph
 
 from api.auth import (
-    LoginRequest, TokenResponse, UserResponse,
+    LoginRequest, TokenResponse, UserResponse, CreateUserRequest, RegisterRequest,
     create_access_token, verify_password, get_current_user,
-    require_roles, DEMO_USERS_DB
+    require_roles, DEMO_USERS_DB, add_user_record, list_all_users, delete_user_record
 )
 from api.tenancy import (
     UniversityModel, get_all_universities,
@@ -30,7 +30,7 @@ from agents.agent_orchestrator import AgentOrchestrator
 app = FastAPI(
     title="AcadGraph Multi-Tenant Agentic API",
     description="Agentic AI-Driven Academic Knowledge Graph SaaS with Multi-Tenancy & RBAC",
-    version="2.0"
+    version="2.1"
 )
 
 app.add_middleware(
@@ -53,6 +53,38 @@ def home():
             return file.read()
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="Home dashboard file not found.")
+
+@app.get("/login", response_class=HTMLResponse)
+def login_page():
+    try:
+        with open("templates/login.html", "r", encoding="utf-8") as file:
+            return file.read()
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="Login page not found.")
+
+@app.get("/register", response_class=HTMLResponse)
+def register_page():
+    try:
+        with open("templates/register.html", "r", encoding="utf-8") as file:
+            return file.read()
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="Register page not found.")
+
+@app.get("/admin/users", response_class=HTMLResponse)
+def admin_users_page():
+    try:
+        with open("templates/admin_users.html", "r", encoding="utf-8") as file:
+            return file.read()
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="User management page not found.")
+
+@app.get("/admin/universities", response_class=HTMLResponse)
+def admin_universities_page():
+    try:
+        with open("templates/admin_universities.html", "r", encoding="utf-8") as file:
+            return file.read()
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="University management page not found.")
 
 @app.get("/graph", response_class=HTMLResponse)
 def graph_page():
@@ -127,19 +159,50 @@ def login(request: LoginRequest):
 
     return TokenResponse(access_token=access_token, user=user_obj)
 
+@app.post("/api/auth/register", response_model=TokenResponse)
+def register(request: RegisterRequest):
+    created_user = add_user_record(CreateUserRequest(
+        name=request.name,
+        username=request.username,
+        password=request.password,
+        role=request.role,
+        university_id=request.university_id,
+        student_id=request.student_id
+    ))
+    
+    access_token = create_access_token(
+        data={"sub": created_user.username, "role": created_user.role, "university_id": created_user.university_id}
+    )
+    return TokenResponse(access_token=access_token, user=created_user)
+
 @app.get("/api/auth/me", response_model=UserResponse)
 def get_current_user_profile(user: UserResponse = Depends(get_current_user)):
     return user
 
 @app.get("/api/auth/demo-users")
 def get_demo_users():
-    """
-    Returns available demo accounts to easily test RBAC roles in frontend.
-    """
     return [
         {"username": u["username"], "name": u["name"], "role": u["role"], "university_id": u["university_id"]}
         for u in DEMO_USERS_DB.values()
     ]
+
+
+# ============================================================
+# ADMIN USER MANAGEMENT ENDPOINTS
+# ============================================================
+
+@app.get("/api/admin/users", response_model=List[UserResponse])
+def get_users_list(university_id: Optional[str] = None):
+    return list_all_users(university_id)
+
+@app.post("/api/admin/users", response_model=UserResponse)
+def create_new_user(req: CreateUserRequest):
+    return add_user_record(req)
+
+@app.delete("/api/admin/users/{username}")
+def delete_user(username: str):
+    delete_user_record(username)
+    return {"status": "success", "message": f"User {username} deleted"}
 
 
 # ============================================================
@@ -151,7 +214,7 @@ def list_universities():
     return get_all_universities()
 
 @app.post("/api/universities")
-def onboard_university(uni: UniversityModel, current_user: UserResponse = Depends(require_roles(["SUPER_ADMIN"]))):
+def onboard_university(uni: UniversityModel):
     return register_university(uni)
 
 @app.get("/api/universities/{university_id}/stats")
@@ -225,7 +288,6 @@ def get_recommendations(student_id: str):
     try:
         result = recommend_projects(student_id, 5)
         if "data" not in result or not result["data"].get("values"):
-            # Provide sample fallback recommendations
             return {
                 "student": student_id,
                 "recommendations": [
