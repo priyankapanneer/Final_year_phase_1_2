@@ -288,14 +288,15 @@
             </div>
 
             <div class="form-group">
-              <label for="fileInput">Choose .txt / .csv File (Optional):</label>
-              <input type="file" id="fileInput" accept=".txt,.csv,.md" onchange="handleFileSelected(event)" />
+              <label for="fileInput">Upload Document (.pdf, .docx, .txt, .csv, .md):</label>
+              <input type="file" id="fileInput" accept=".pdf,.docx,.doc,.txt,.csv,.md" onchange="handleFileSelected(event)" />
+              <div id="fileStatusBadge" style="display: none; margin-top: 6px; font-size: 12px; color: #a3a3a3;"></div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="docText">Document Content / Syllabus Proposals:</label>
-            <textarea id="docText" placeholder="Paste academic proposal, syllabus text, or student research outline here..."></textarea>
+            <label for="docText">Extracted Document Content / Syllabus Proposals:</label>
+            <textarea id="docText" placeholder="Upload a PDF/Word file above, or paste academic proposal, syllabus text, or student research outline here..."></textarea>
             <div>
               <span style="font-size: 12px; color: #737373;">Load Sample Text:</span>
               <span class="badge-sample" onclick="loadSample(1)">Sample 1: Student Project</span>
@@ -348,14 +349,52 @@
         document.getElementById('docText').value = samples[num];
       }
 
-      function handleFileSelected(event) {
+      async function handleFileSelected(event) {
         const file = event.target.files[0];
         if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById('docText').value = e.target.result;
-        };
-        reader.readAsText(file);
+
+        const badge = document.getElementById('fileStatusBadge');
+        badge.style.display = 'block';
+        badge.innerHTML = `<span style="color: #a3a3a3;">⏳ Parsing document [${file.name}]...</span>`;
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+          const res = await fetch('/api/parse-document-file', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (!res.ok) {
+            const errData = await res.json();
+            throw new Error(errData.detail || 'Could not parse document file');
+          }
+
+          const data = await res.json();
+          document.getElementById('docText').value = data.extracted_text;
+
+          let extraInfo = '';
+          if (data.metadata) {
+            if (data.metadata.pages) extraInfo = `(${data.metadata.pages} pages, ${data.word_count} words)`;
+            else if (data.metadata.paragraphs) extraInfo = `(${data.metadata.paragraphs} paragraphs, ${data.word_count} words)`;
+            else extraInfo = `(${data.word_count} words)`;
+          }
+
+          badge.innerHTML = `<span style="color: #ffffff; font-weight: 600;">✓ Extracted from ${file.name}</span> <span style="color: #737373;">${extraInfo}</span>`;
+        } catch (err) {
+          // Local fallback for plain text files
+          if (file.name.endsWith('.txt') || file.name.endsWith('.csv') || file.name.endsWith('.md')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              document.getElementById('docText').value = e.target.result;
+              badge.innerHTML = `<span style="color: #ffffff;">✓ Loaded plain text file ${file.name}</span>`;
+            };
+            reader.readAsText(file);
+          } else {
+            badge.innerHTML = `<span style="color: #ef4444;">✗ Parsing failed: ${err.message}</span>`;
+          }
+        }
       }
 
       async function handleProcess(e) {

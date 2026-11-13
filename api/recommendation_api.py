@@ -21,6 +21,7 @@ from api.tenancy import (
     UniversityModel, get_all_universities,
     register_university, get_university_stats, get_university_details
 )
+from core.document_parser import parse_document_file
 from agents.agent_orchestrator import AgentOrchestrator
 
 
@@ -270,6 +271,72 @@ def upload_document(req: DocumentUploadRequest):
             detail=result.get("error", "Document processing failed")
         )
 
+    return result
+
+@app.post("/api/parse-document-file")
+async def parse_document_file_endpoint(file: UploadFile = File(...)):
+    """
+    Parses binary PDF (.pdf), Word (.docx), or text files and returns the extracted clean text.
+    """
+    try:
+        content_bytes = await file.read()
+        extracted_text, metadata = parse_document_file(file.filename, content_bytes)
+        return {
+            "success": True,
+            "filename": file.filename,
+            "extracted_text": extracted_text,
+            "metadata": metadata,
+            "character_count": len(extracted_text),
+            "word_count": len(extracted_text.split())
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to parse document: {str(e)}")
+
+@app.post("/api/upload-file")
+async def upload_file_and_ingest(
+    file: UploadFile = File(...),
+    university_id: Optional[str] = Form("UNI_ANNA"),
+    username: Optional[str] = Form("faculty.kumar@annauniv.edu")
+):
+    """
+    Direct multi-format binary file ingestion:
+    Extracts text from PDF/Word/Text and immediately runs the end-to-end extraction agent.
+    """
+    try:
+        content_bytes = await file.read()
+        extracted_text, metadata = parse_document_file(file.filename, content_bytes)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"File parsing failed: {str(e)}")
+
+    user_record = get_user_from_db(username) or DEMO_USERS_DB.get(username) or {
+        "username": username,
+        "name": "Faculty Member",
+        "role": "FACULTY",
+        "university_id": university_id
+    }
+    user = UserResponse(
+        username=user_record["username"],
+        name=user_record["name"],
+        role=user_record["role"],
+        university_id=user_record["university_id"],
+        student_id=user_record.get("student_id")
+    )
+
+    result = AgentOrchestrator.process_uploaded_document(
+        text=extracted_text,
+        user=user,
+        target_university_id=university_id
+    )
+
+    if not result.get("success"):
+        raise HTTPException(
+            status_code=result.get("status_code", 400),
+            detail=result.get("error", "Document processing failed")
+        )
+
+    result["filename"] = file.filename
+    result["file_metadata"] = metadata
+    result["extracted_text_preview"] = extracted_text[:300] + ("..." if len(extracted_text) > 300 else "")
     return result
 
 
