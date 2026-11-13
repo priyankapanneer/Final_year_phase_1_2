@@ -407,48 +407,30 @@ def graph_overview():
 @app.get("/graph-data")
 def graph_data():
     try:
-        data = get_graph_data(50)
-        if not data.get("nodes"):
-            return {
-                "nodes": [
-                    {"id": "S0001", "label": "Student", "name": "Student S0001"},
-                    {"id": "P001", "label": "Project", "name": "Smart Campus AI"},
-                    {"id": "F001", "label": "Faculty", "name": "Dr. Kumar"},
-                    {"id": "SK01", "label": "Skill", "name": "Python"},
-                    {"id": "SK02", "label": "Skill", "name": "Neo4j"}
-                ],
-                "relationships": [
-                    {"source": "S0001", "target": "P001", "type": "WORKS_ON"},
-                    {"source": "F001", "target": "P001", "type": "SUPERVISES"},
-                    {"source": "P001", "target": "SK01", "type": "REQUIRES_SKILL"},
-                    {"source": "P001", "target": "SK02", "type": "REQUIRES_SKILL"}
-                ]
-            }
-        return data
-    except Exception:
-        return {
-            "nodes": [
-                {"id": "S0001", "label": "Student", "name": "Student S0001"},
-                {"id": "P001", "label": "Project", "name": "Smart Campus AI"},
-                {"id": "F001", "label": "Faculty", "name": "Dr. Kumar"},
-                {"id": "SK01", "label": "Skill", "name": "Python"},
-                {"id": "SK02", "label": "Skill", "name": "Neo4j"}
-            ],
-            "relationships": [
-                {"source": "S0001", "target": "P001", "type": "WORKS_ON"},
-                {"source": "F001", "target": "P001", "type": "SUPERVISES"},
-                {"source": "P001", "target": "SK01", "type": "REQUIRES_SKILL"},
-                {"source": "P001", "target": "SK02", "type": "REQUIRES_SKILL"}
-            ]
-        }
+        data = get_graph_data(100)
+        if data and data.get("nodes"):
+            return data
+    except Exception as e:
+        print(f"[Graph Data Fetch Error]: {e}")
+    
+    # Resilient fallback graph
+    return get_graph_data(100)
 
 @app.get("/graph-data/entity/{entity_id}")
 def entity_graph_data(entity_id: str):
     try:
         data = get_entity_graph(entity_id, 100)
+        if not data.get("nodes") or len(data.get("nodes")) == 0:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No connections or entity found for '{entity_id}' in Knowledge Graph."
+            )
         return data
-    except Exception:
-        return {
-            "nodes": [{"id": entity_id, "label": "Entity", "name": entity_id}],
-            "relationships": []
-        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"[Entity Graph Search Error]: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error retrieving subgraph for '{entity_id}': {str(e)}"
+        )

@@ -219,6 +219,23 @@
         color: #ffffff;
         border-color: #ffffff;
       }
+      .badge-sample {
+        display: inline-block;
+        background: #141414;
+        border: 1px solid #262626;
+        color: #a3a3a3;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        cursor: pointer;
+        margin-left: 6px;
+        margin-top: 4px;
+        transition: all 0.15s;
+      }
+      .badge-sample:hover {
+        border-color: #ffffff;
+        color: #ffffff;
+      }
       .graph-controls {
         display: flex;
         gap: 8px;
@@ -364,10 +381,20 @@
             type="text"
             id="searchInput"
             class="search-input"
-            placeholder="Search S0001, Dr. Ramesh, Deep Learning, P0001..."
+            placeholder="Search S0001, Dr. Kumar, Python, P001, Drone..."
             onkeydown="handleSearchKey(event)"
           />
           <button class="btn-primary" onclick="searchNode()">Search Graph</button>
+        </div>
+
+        <div style="margin-top: -4px; margin-bottom: 14px; font-size: 12px; color: #737373;">
+          <span>Quick Search:</span>
+          <span class="badge-sample" onclick="setSearchTerm('S0001')">S0001 (Student)</span>
+          <span class="badge-sample" onclick="setSearchTerm('Dr. Kumar')">Dr. Kumar (Faculty)</span>
+          <span class="badge-sample" onclick="setSearchTerm('P001')">P001 (Project)</span>
+          <span class="badge-sample" onclick="setSearchTerm('Drone')">Drone (Research)</span>
+          <span class="badge-sample" onclick="setSearchTerm('Python')">Python (Skill)</span>
+          <span class="badge-sample" onclick="setSearchTerm('CS101')">CS101 (Course)</span>
         </div>
 
         <div class="graph-controls">
@@ -659,6 +686,11 @@
         document.getElementById("nodeBusinessId").innerText = "-";
         document.getElementById("nodeId").innerText = "-";
         document.getElementById("connectionList").innerHTML = "";
+      }
+
+      function setSearchTerm(term) {
+        document.getElementById("searchInput").value = term;
+        searchNode();
       }
 
       function handleSearchKey(e) {
