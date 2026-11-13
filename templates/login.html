@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In | AcadGraph Platform</title>
+    <title>Sign In | AcadGraph</title>
     <style>
       * {
         box-sizing: border-box;
@@ -12,36 +12,34 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
       body {
-        background: radial-gradient(circle at 50% 20%, #1e293b, #090d16 80%);
-        color: #f8fafc;
+        background: #000000;
+        color: #ffffff;
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 24px;
       }
       .login-card {
-        background: #111827;
-        border: 1px solid #374151;
-        border-radius: 16px;
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 12px;
         width: 100%;
-        max-width: 460px;
+        max-width: 440px;
         padding: 40px 32px;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
       }
       .brand-title {
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
         text-align: center;
-        font-size: 30px;
-        font-weight: 800;
         margin-bottom: 6px;
-        background: linear-gradient(90deg, #38bdf8, #818cf8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
       }
       .brand-subtitle {
         text-align: center;
-        color: #94a3b8;
-        font-size: 14px;
+        color: #737373;
+        font-size: 13px;
         margin-bottom: 30px;
       }
       .form-group {
@@ -50,63 +48,61 @@
       label {
         display: block;
         font-size: 13px;
-        font-weight: 600;
-        color: #cbd5e1;
-        margin-bottom: 6px;
+        font-weight: 500;
+        color: #a3a3a3;
+        margin-bottom: 8px;
       }
       input {
         width: 100%;
-        background: #0b0f19;
-        border: 1px solid #374151;
-        color: white;
+        background: #141414;
+        border: 1px solid #262626;
+        color: #ffffff;
         padding: 12px 14px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-size: 14px;
         outline: none;
-        transition: border-color 0.2s;
+        transition: border-color 0.15s;
       }
       input:focus {
-        border-color: #38bdf8;
+        border-color: #ffffff;
       }
       .btn-submit {
         width: 100%;
-        background: linear-gradient(135deg, #0284c7, #4f46e5);
-        color: white;
+        background: #ffffff;
+        color: #000000;
         border: none;
-        padding: 14px;
-        border-radius: 8px;
-        font-size: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 14px;
         font-weight: 600;
         cursor: pointer;
-        transition: opacity 0.2s, transform 0.1s;
+        transition: opacity 0.15s;
         margin-top: 10px;
       }
       .btn-submit:hover {
-        opacity: 0.95;
-      }
-      .btn-submit:active {
-        transform: scale(0.99);
+        opacity: 0.9;
       }
       .error-box {
         display: none;
-        background: rgba(239, 68, 68, 0.15);
-        border: 1px solid #ef4444;
-        color: #fca5a5;
+        background: #171717;
+        border: 1px solid #525252;
+        color: #ffffff;
         padding: 10px 14px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-size: 13px;
         margin-bottom: 18px;
       }
       .quick-demo-section {
-        margin-top: 25px;
+        margin-top: 30px;
         padding-top: 20px;
-        border-top: 1px solid #1f2937;
+        border-top: 1px solid #262626;
       }
       .quick-demo-title {
-        font-size: 12px;
-        color: #94a3b8;
+        font-size: 11px;
+        color: #737373;
         text-transform: uppercase;
-        font-weight: 700;
+        letter-spacing: 0.5px;
+        font-weight: 600;
         margin-bottom: 12px;
         text-align: center;
       }
@@ -116,51 +112,52 @@
         gap: 8px;
       }
       .demo-btn {
-        background: #1f2937;
-        border: 1px solid #374151;
-        color: #cbd5e1;
-        padding: 8px 10px;
+        background: #121212;
+        border: 1px solid #262626;
+        color: #a3a3a3;
+        padding: 10px;
         border-radius: 6px;
         font-size: 12px;
         cursor: pointer;
         text-align: left;
-        transition: all 0.2s;
+        transition: all 0.15s;
       }
       .demo-btn:hover {
-        border-color: #38bdf8;
-        color: #38bdf8;
-        background: #111827;
+        border-color: #ffffff;
+        color: #ffffff;
+        background: #1a1a1a;
       }
       .demo-role {
         font-size: 10px;
         font-weight: 700;
         display: block;
-        color: #38bdf8;
+        color: #ffffff;
+        margin-bottom: 2px;
       }
       .footer-links {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 24px;
         font-size: 13px;
-        color: #94a3b8;
+        color: #737373;
       }
       .footer-links a {
-        color: #38bdf8;
-        text-decoration: none;
-        font-weight: 600;
+        color: #ffffff;
+        text-decoration: underline;
+        font-weight: 500;
       }
     </style>
   </head>
   <body>
     <div class="login-card">
       <div class="brand-title">AcadGraph</div>
-      <div class="brand-subtitle">Academic Knowledge Graph SaaS Platform</div>
+      <div class="brand-subtitle">Academic Knowledge Graph Intelligence</div>
 
       <div id="errorBox" class="error-box"></div>
 
       <form id="loginForm" onsubmit="handleLogin(event)">
         <div class="form-group">
-          <label for="username">Email / Academic ID</label>
-          <input type="text" id="username" placeholder="e.g. faculty.kumar@annauniv.edu" required />
+          <label for="username">Academic Email</label>
+          <input type="text" id="username" placeholder="faculty.kumar@annauniv.edu" required />
         </div>
 
         <div class="form-group">
@@ -172,19 +169,19 @@
       </form>
 
       <div class="quick-demo-section">
-        <div class="quick-demo-title">1-Click Quick Demo Sign-In</div>
+        <div class="quick-demo-title">1-Click Demo Accounts</div>
         <div class="demo-grid">
           <button class="demo-btn" onclick="fillLogin('faculty.kumar@annauniv.edu', 'kumar123')">
             <span class="demo-role">FACULTY</span>
-            Dr. Kumar (Anna Univ)
+            Dr. Kumar
           </button>
           <button class="demo-btn" onclick="fillLogin('student.ravi@annauniv.edu', 'ravi123')">
             <span class="demo-role">STUDENT</span>
-            Ravi S (Anna Univ)
+            Ravi S
           </button>
           <button class="demo-btn" onclick="fillLogin('admin@annauniv.edu', 'anna123')">
-            <span class="demo-role">UNI ADMIN</span>
-            Dean (Anna Univ)
+            <span class="demo-role">DEAN / ADMIN</span>
+            Anna Univ
           </button>
           <button class="demo-btn" onclick="fillLogin('superadmin@acadgraph.io', 'admin123')">
             <span class="demo-role">SUPER ADMIN</span>
@@ -194,7 +191,7 @@
       </div>
 
       <div class="footer-links">
-        New to AcadGraph? <a href="/register">Create an account</a>
+        Need an account? <a href="/register">Register</a>
       </div>
     </div>
 
@@ -225,14 +222,11 @@
 
           const data = await res.json();
           if (!res.ok) {
-            throw new Error(data.detail || 'Invalid username or password');
+            throw new Error(data.detail || 'Invalid credentials');
           }
 
-          // Save auth details
           localStorage.setItem('acadgraph_token', data.access_token);
           localStorage.setItem('acadgraph_user', JSON.stringify(data.user));
-
-          // Redirect to Home
           window.location.href = '/';
         } catch (err) {
           errBox.innerText = err.message;

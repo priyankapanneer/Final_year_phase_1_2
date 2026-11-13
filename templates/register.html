@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Account | AcadGraph</title>
+    <title>Register | AcadGraph</title>
     <style>
       * {
         box-sizing: border-box;
@@ -12,36 +12,34 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
       body {
-        background: radial-gradient(circle at 50% 20%, #1e293b, #090d16 80%);
-        color: #f8fafc;
+        background: #000000;
+        color: #ffffff;
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 30px 20px;
+        padding: 24px;
       }
       .card {
-        background: #111827;
-        border: 1px solid #374151;
-        border-radius: 16px;
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 12px;
         width: 100%;
-        max-width: 500px;
+        max-width: 460px;
         padding: 40px 32px;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
       }
       .brand-title {
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
         text-align: center;
-        font-size: 28px;
-        font-weight: 800;
         margin-bottom: 6px;
-        background: linear-gradient(90deg, #38bdf8, #818cf8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
       }
       .brand-subtitle {
         text-align: center;
-        color: #94a3b8;
-        font-size: 14px;
+        color: #737373;
+        font-size: 13px;
         margin-bottom: 25px;
       }
       .form-group {
@@ -50,45 +48,45 @@
       label {
         display: block;
         font-size: 13px;
-        font-weight: 600;
-        color: #cbd5e1;
+        font-weight: 500;
+        color: #a3a3a3;
         margin-bottom: 6px;
       }
       input, select {
         width: 100%;
-        background: #0b0f19;
-        border: 1px solid #374151;
-        color: white;
+        background: #141414;
+        border: 1px solid #262626;
+        color: #ffffff;
         padding: 12px 14px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-size: 14px;
         outline: none;
       }
       input:focus, select:focus {
-        border-color: #38bdf8;
+        border-color: #ffffff;
       }
       .btn-submit {
         width: 100%;
-        background: linear-gradient(135deg, #0284c7, #4f46e5);
-        color: white;
+        background: #ffffff;
+        color: #000000;
         border: none;
-        padding: 14px;
-        border-radius: 8px;
-        font-size: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 14px;
         font-weight: 600;
         cursor: pointer;
         margin-top: 15px;
       }
       .btn-submit:hover {
-        opacity: 0.95;
+        opacity: 0.9;
       }
       .error-box {
         display: none;
-        background: rgba(239, 68, 68, 0.15);
-        border: 1px solid #ef4444;
-        color: #fca5a5;
+        background: #171717;
+        border: 1px solid #525252;
+        color: #ffffff;
         padding: 10px 14px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-size: 13px;
         margin-bottom: 18px;
       }
@@ -96,31 +94,30 @@
         text-align: center;
         margin-top: 20px;
         font-size: 13px;
-        color: #94a3b8;
+        color: #737373;
       }
       .footer-links a {
-        color: #38bdf8;
-        text-decoration: none;
-        font-weight: 600;
+        color: #ffffff;
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div class="card">
-      <div class="brand-title">Create AcadGraph Account</div>
-      <div class="brand-subtitle">Join your university's Academic Knowledge Graph</div>
+      <div class="brand-title">Create Account</div>
+      <div class="brand-subtitle">Join your university's knowledge network</div>
 
       <div id="errorBox" class="error-box"></div>
 
       <form id="regForm" onsubmit="handleRegister(event)">
         <div class="form-group">
           <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="e.g. S. Meenakshi" required />
+          <input type="text" id="name" placeholder="Dr. S. Meenakshi" required />
         </div>
 
         <div class="form-group">
           <label for="username">Academic Email</label>
-          <input type="email" id="username" placeholder="e.g. meenakshi@annauniv.edu" required />
+          <input type="email" id="username" placeholder="meenakshi@annauniv.edu" required />
         </div>
 
         <div class="form-group">
@@ -128,12 +125,12 @@
           <input type="password" id="password" placeholder="••••••••" required />
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="form-group">
             <label for="role">Role</label>
             <select id="role">
               <option value="STUDENT">Student</option>
-              <option value="FACULTY">Faculty / Professor</option>
+              <option value="FACULTY">Faculty</option>
             </select>
           </div>
 
@@ -143,6 +140,7 @@
               <option value="UNI_ANNA">Anna University</option>
               <option value="UNI_IITM">IIT Madras</option>
               <option value="UNI_SRM">SRM Institute</option>
+              <option value="UNI_MIT">MIT Campus</option>
             </select>
           </div>
         </div>

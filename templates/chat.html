@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Academic Copilot (Agentic Chatbot) | AcadGraph</title>
+    <title>AI Copilot | AcadGraph</title>
     <style>
       * {
         box-sizing: border-box;
@@ -12,270 +12,295 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
       body {
-        background: #0f172a;
-        color: #f8fafc;
+        background: #000000;
+        color: #ffffff;
+        display: flex;
         height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Minimalist Sidebar */
+      .sidebar {
+        width: 250px;
+        background: #0a0a0a;
+        border-right: 1px solid #262626;
         display: flex;
         flex-direction: column;
+        padding: 24px 16px;
+        flex-shrink: 0;
       }
-      .nav {
+      .brand {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        padding: 0 12px 24px;
+        border-bottom: 1px solid #262626;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .badge-tenant {
+        font-size: 10px;
+        padding: 2px 6px;
+        border: 1px solid #404040;
+        border-radius: 4px;
+        color: #a3a3a3;
+      }
+      .nav-sections {
+        flex: 1;
+        overflow-y: auto;
+        padding: 18px 0;
+      }
+      .nav-group-title {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #737373;
+        padding: 12px 12px 6px;
+      }
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 9px 12px;
+        border-radius: 6px;
+        color: #a3a3a3;
+        text-decoration: none;
+        font-size: 13px;
+        margin-bottom: 2px;
+        transition: all 0.15s;
+      }
+      .nav-link:hover {
+        background: #171717;
+        color: #ffffff;
+      }
+      .nav-link.active {
+        background: #ffffff;
+        color: #000000;
+        font-weight: 600;
+      }
+
+      /* Chat Workspace */
+      .chat-workspace {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: #000000;
+      }
+      .chat-header {
+        padding: 18px 32px;
+        border-bottom: 1px solid #262626;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #1e293b;
-        padding: 14px 24px;
-        border-bottom: 1px solid #334155;
       }
-      .nav a {
-        color: #94a3b8;
-        text-decoration: none;
-        margin-left: 18px;
-        font-weight: 500;
-        font-size: 14px;
+      .chat-title {
+        font-size: 16px;
+        font-weight: 600;
       }
-      .nav a:hover, .nav a.active {
-        color: #38bdf8;
-      }
-      .chat-wrapper {
-        display: flex;
-        flex: 1;
-        overflow: hidden;
-      }
-      .sidebar {
-        width: 320px;
-        background: #1e293b;
-        border-right: 1px solid #334155;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-      }
-      .chat-main {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        background: #0f172a;
+      .role-selector {
+        background: #121212;
+        border: 1px solid #262626;
+        color: #ffffff;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        outline: none;
       }
       .messages-container {
         flex: 1;
-        padding: 24px;
+        padding: 32px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         gap: 16px;
       }
       .message {
-        max-width: 80%;
+        max-width: 75%;
         padding: 14px 18px;
-        border-radius: 12px;
-        font-size: 15px;
-        line-height: 1.5;
+        border-radius: 8px;
+        font-size: 14px;
+        line-height: 1.6;
         word-break: break-word;
       }
       .msg-user {
         align-self: flex-end;
-        background: linear-gradient(135deg, #0284c7, #2563eb);
-        color: white;
+        background: #ffffff;
+        color: #000000;
         border-bottom-right-radius: 2px;
+        font-weight: 500;
       }
       .msg-bot {
         align-self: flex-start;
-        background: #1e293b;
-        color: #f1f5f9;
-        border: 1px solid #334155;
+        background: #0a0a0a;
+        color: #ffffff;
+        border: 1px solid #262626;
         border-bottom-left-radius: 2px;
       }
       .badge-action {
         display: inline-block;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 700;
         text-transform: uppercase;
-        padding: 2px 8px;
+        letter-spacing: 0.5px;
+        padding: 2px 6px;
         border-radius: 4px;
+        border: 1px solid #404040;
         margin-bottom: 8px;
-      }
-      .badge-retrieval {
-        background: #0369a1;
-        color: #bae6fd;
+        color: #a3a3a3;
       }
       .badge-mutated {
-        background: #065f46;
-        color: #a7f3d0;
+        background: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
       }
       .badge-blocked {
-        background: #991b1b;
-        color: #fecaca;
+        border-color: #737373;
+        color: #a3a3a3;
       }
+
+      /* Input Bar */
       .input-bar {
-        padding: 18px 24px;
-        background: #1e293b;
-        border-top: 1px solid #334155;
+        padding: 20px 32px;
+        border-top: 1px solid #262626;
+        background: #0a0a0a;
         display: flex;
         gap: 12px;
       }
       .input-bar input {
         flex: 1;
-        background: #0f172a;
-        border: 1px solid #475569;
-        color: white;
+        background: #141414;
+        border: 1px solid #262626;
+        color: #ffffff;
         padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 15px;
+        border-radius: 6px;
+        font-size: 14px;
         outline: none;
       }
       .input-bar input:focus {
-        border-color: #38bdf8;
+        border-color: #ffffff;
       }
       .btn-send {
-        background: linear-gradient(135deg, #0284c7, #4f46e5);
-        color: white;
+        background: #ffffff;
+        color: #000000;
         border: none;
         padding: 12px 24px;
-        border-radius: 8px;
+        border-radius: 6px;
+        font-size: 14px;
         font-weight: 600;
         cursor: pointer;
       }
       .btn-send:hover {
-        opacity: 0.95;
+        opacity: 0.9;
       }
-      .quick-btn {
-        background: #0f172a;
-        border: 1px solid #334155;
-        color: #94a3b8;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 13px;
-        text-align: left;
+      .quick-prompts {
+        padding: 0 32px 14px;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        background: #0a0a0a;
+      }
+      .prompt-chip {
+        background: #121212;
+        border: 1px solid #262626;
+        color: #a3a3a3;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        white-space: nowrap;
         cursor: pointer;
-        transition: all 0.2s;
+        transition: all 0.15s;
       }
-      .quick-btn:hover {
-        border-color: #38bdf8;
-        color: #38bdf8;
-      }
-      .user-role-card {
-        background: #0f172a;
-        padding: 14px;
-        border-radius: 8px;
-        border: 1px solid #334155;
-      }
-      select {
-        width: 100%;
-        background: #0f172a;
-        border: 1px solid #475569;
-        color: white;
-        padding: 8px 10px;
-        border-radius: 6px;
-        font-size: 13px;
-        outline: none;
-        margin-top: 6px;
+      .prompt-chip:hover {
+        border-color: #ffffff;
+        color: #ffffff;
       }
     </style>
   </head>
   <body>
-    <div class="nav">
-      <div style="font-weight: 700; font-size: 18px; color: #f8fafc;">
-        🤖 AcadGraph <span style="font-size: 12px; background: #3b82f6; padding: 2px 8px; border-radius: 10px; margin-left: 6px;">Agentic Copilot</span>
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span>AcadGraph</span>
+        <span class="badge-tenant">AI STUDIO</span>
       </div>
-      <div>
-          <a href="/">Dashboard</a>
-          <a href="/chat" class="active">AI Copilot</a>
-          <a href="/upload">Document Studio</a>
-          <a href="/graph">Graph Explorer</a>
-          <a href="/recommendation">Recommendations</a>
-          <a href="/knowledge-gap">Gap Analysis</a>
-          <a href="/temporal">Trends</a>
-          <a href="/admin/users">Users</a>
-          <a href="/admin/universities">Universities</a>
-        </div>
-    </div>
 
-    <div class="chat-wrapper">
-      <!-- Sidebar / Role selector -->
-      <div class="sidebar">
-        <div>
-          <h3 style="font-size: 14px; color: #cbd5e1; margin-bottom: 8px;">Active RBAC Session:</h3>
-          <div class="user-role-card">
-            <label style="font-size: 12px; color: #94a3b8;">Switch Role (Demo Persona):</label>
-            <select id="roleSwitcher" onchange="switchPersona()">
-              <option value="faculty.kumar@annauniv.edu">Dr. Kumar (Faculty - Anna Univ)</option>
-              <option value="student.ravi@annauniv.edu">Ravi S (Student - Anna Univ)</option>
-              <option value="admin@annauniv.edu">Dean (Admin - Anna Univ)</option>
-              <option value="admin@iitm.ac.in">HOD CSE (Admin - IIT Madras)</option>
-              <option value="student.priya@iitm.ac.in">Priya R (Student - IIT Madras)</option>
-              <option value="superadmin@acadgraph.io">Platform Super Admin</option>
-            </select>
-            <div id="personaDetails" style="margin-top: 8px; font-size: 12px; color: #38bdf8;">
-              Role: FACULTY | Tenant: UNI_ANNA
-            </div>
-          </div>
-        </div>
+      <div class="nav-sections">
+        <div class="nav-group-title">Analytics</div>
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/graph" class="nav-link">Knowledge Graph</a>
+        <a href="/recommendation" class="nav-link">Recommendations</a>
+        <a href="/knowledge-gap" class="nav-link">Gap Analysis</a>
+        <a href="/temporal" class="nav-link">Temporal Trends</a>
 
-        <div>
-          <h3 style="font-size: 14px; color: #cbd5e1; margin-bottom: 8px;">Suggested Queries:</h3>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <button class="quick-btn" onclick="sendPrompt('Which faculty teaches Machine Learning courses?')">
-              👨‍🏫 Faculty directory
-            </button>
-            <button class="quick-btn" onclick="sendPrompt('What projects are currently active in our university?')">
-              🔬 Active projects
-            </button>
-            <button class="quick-btn" onclick="sendPrompt('What skills are most in-demand for current projects?')">
-              💡 Top required skills
-            </button>
-            <button class="quick-btn" onclick="sendPrompt('Add project: Autonomous Robotics Platform supervised by Dr. Kumar requiring ROS and Python.')">
-              ⚡ Conversational KG Ingest
-            </button>
-          </div>
-        </div>
+        <div class="nav-group-title">AI Studio</div>
+        <a href="/chat" class="nav-link active">AI Copilot</a>
+        <a href="/upload" class="nav-link">Document Ingestion</a>
 
-        <div style="margin-top: auto; font-size: 12px; color: #64748b; line-height: 1.4;">
-          Powered by <strong>LangGraph / Multi-Agent Swarm</strong>. Natural Language queries execute Cypher directly against Neo4j with strict tenant boundaries.
+        <div class="nav-group-title">Administration</div>
+        <a href="/admin/users" class="nav-link">User Access</a>
+        <a href="/admin/universities" class="nav-link">Universities</a>
+      </div>
+
+      <div style="padding-top: 16px; border-top: 1px solid #262626;">
+        <a href="/login" style="display: block; text-align: center; color: #737373; font-size: 12px; text-decoration: none;" onclick="localStorage.clear()">Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Chat Main Workspace -->
+    <main class="chat-workspace">
+      <div class="chat-header">
+        <div class="chat-title">Academic Copilot (GraphRAG Agent)</div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 12px; color: #737373;">Active Persona:</span>
+          <select id="roleSwitcher" class="role-selector" onchange="switchPersona()">
+            <option value="faculty.kumar@annauniv.edu">Dr. Kumar (Faculty - Anna Univ)</option>
+            <option value="student.ravi@annauniv.edu">Ravi S (Student - Anna Univ)</option>
+            <option value="admin@annauniv.edu">Dean (Admin - Anna Univ)</option>
+            <option value="admin@iitm.ac.in">HOD CSE (Admin - IIT Madras)</option>
+            <option value="student.priya@iitm.ac.in">Priya R (Student - IIT Madras)</option>
+            <option value="superadmin@acadgraph.io">Platform Super Admin</option>
+          </select>
         </div>
       </div>
 
-      <!-- Main Chat Area -->
-      <div class="chat-main">
-        <div class="messages-container" id="messagesContainer">
-          <div class="message msg-bot">
-            <span class="badge-action badge-retrieval">AGENTIC COPILOT ONLINE</span>
-            <div>
-              Hello! I am your <strong>AcadGraph Academic Copilot</strong>. I am directly connected to your university's Neo4j Knowledge Graph.
-              <br/><br/>
-              Ask me any question about courses, faculty, and projects, or paste academic text to update the knowledge graph in real-time!
-            </div>
+      <!-- Messages Stream -->
+      <div class="messages-container" id="messagesContainer">
+        <div class="message msg-bot">
+          <span class="badge-action">Agent Online</span>
+          <div>
+            Hello! I am your <strong>AcadGraph Academic Copilot</strong>, connected directly to your university's Neo4j Knowledge Graph.
+            <br/><br/>
+            You can ask me questions about courses, faculty, and skills, or type new academic projects to update the Knowledge Graph conversationally!
           </div>
         </div>
-
-        <div class="input-bar">
-          <input 
-            type="text" 
-            id="chatInput" 
-            placeholder="Ask a question or type new academic data to update the graph..." 
-            onkeydown="if(event.key==='Enter') sendMessage()"
-          />
-          <button class="btn-send" onclick="sendMessage()" id="sendBtn">Send</button>
-        </div>
       </div>
-    </div>
+
+      <!-- Quick Suggested Prompts -->
+      <div class="quick-prompts">
+        <button class="prompt-chip" onclick="sendPrompt('Which faculty teaches Machine Learning courses?')">Faculty directory</button>
+        <button class="prompt-chip" onclick="sendPrompt('What projects are currently active in our university?')">Active projects</button>
+        <button class="prompt-chip" onclick="sendPrompt('What skills are most in-demand for current projects?')">Top required skills</button>
+        <button class="prompt-chip" onclick="sendPrompt('Add project: Autonomous Robotics Platform supervised by Dr. Kumar requiring ROS and Python.')">+ Add Project (Conversational Ingest)</button>
+      </div>
+
+      <!-- Input Bar -->
+      <div class="input-bar">
+        <input 
+          type="text" 
+          id="chatInput" 
+          placeholder="Ask a question or type new academic data..." 
+          onkeydown="if(event.key==='Enter') sendMessage()"
+        />
+        <button class="btn-send" id="sendBtn" onclick="sendMessage()">Send</button>
+      </div>
+    </main>
 
     <script>
       let currentUsername = "faculty.kumar@annauniv.edu";
 
-      const personaMap = {
-        "faculty.kumar@annauniv.edu": { role: "FACULTY", uni: "UNI_ANNA" },
-        "student.ravi@annauniv.edu": { role: "STUDENT", uni: "UNI_ANNA" },
-        "admin@annauniv.edu": { role: "UNIVERSITY_ADMIN", uni: "UNI_ANNA" },
-        "admin@iitm.ac.in": { role: "UNIVERSITY_ADMIN", uni: "UNI_IITM" },
-        "student.priya@iitm.ac.in": { role: "STUDENT", uni: "UNI_IITM" },
-        "superadmin@acadgraph.io": { role: "SUPER_ADMIN", uni: "ALL" }
-      };
-
       function switchPersona() {
-        const sel = document.getElementById('roleSwitcher').value;
-        currentUsername = sel;
-        const info = personaMap[sel];
-        document.getElementById('personaDetails').innerText = `Role: ${info.role} | Tenant: ${info.uni}`;
+        currentUsername = document.getElementById('roleSwitcher').value;
       }
 
       function sendPrompt(text) {
@@ -298,27 +323,24 @@
           const res = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              message: text,
-              username: currentUsername
-            })
+            body: JSON.stringify({ message: text, username: currentUsername })
           });
 
           const data = await res.json();
-          let badgeClass = 'badge-retrieval';
+          let badgeClass = 'badge-action';
           let actionLabel = data.action_taken || 'QUERY';
 
           if (data.action_taken === 'GRAPH_MUTATED') {
-            badgeClass = 'badge-mutated';
-            actionLabel = 'NEO4J GRAPH UPDATED';
+            badgeClass = 'badge-action badge-mutated';
+            actionLabel = 'Graph Mutated';
           } else if (data.action_taken === 'BLOCKED_RBAC') {
-            badgeClass = 'badge-blocked';
-            actionLabel = 'RBAC GUARDRAIL TRIGGERED';
+            badgeClass = 'badge-action badge-blocked';
+            actionLabel = 'RBAC Blocked';
           }
 
           appendBotMessage(data.reply, badgeClass, actionLabel);
         } catch (err) {
-          appendBotMessage('Failed to communicate with AI agent: ' + err.message, 'badge-blocked', 'ERROR');
+          appendBotMessage('Failed to communicate with AI agent: ' + err.message, 'badge-action badge-blocked', 'Error');
         } finally {
           sendBtn.disabled = false;
         }
@@ -337,13 +359,11 @@
         const c = document.getElementById('messagesContainer');
         const div = document.createElement('div');
         div.className = 'message msg-bot';
-        
-        // Simple markdown line break & bold formatting
         let formatted = text
           .replace(/\n/g, '<br/>')
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-        div.innerHTML = `<span class="badge-action ${badgeClass}">${actionLabel}</span><div>${formatted}</div>`;
+        div.innerHTML = `<span class="${badgeClass}">${actionLabel}</span><div>${formatted}</div>`;
         c.appendChild(div);
         c.scrollTop = c.scrollHeight;
       }

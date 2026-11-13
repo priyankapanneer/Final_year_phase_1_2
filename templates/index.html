@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcadGraph — Multi-Tenant Academic Knowledge Graph SaaS</title>
-
+    <title>Dashboard | AcadGraph</title>
     <style>
       * {
         box-sizing: border-box;
@@ -12,391 +11,346 @@
         padding: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
-
       body {
-        background: #090d16;
-        color: #f8fafc;
+        background: #000000;
+        color: #ffffff;
+        display: flex;
         min-height: 100vh;
-        padding: 24px 20px;
       }
 
-      .container {
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      /* Global Unified Navbar */
-      .nav {
+      /* Minimalist Black & White Sidebar */
+      .sidebar {
+        width: 250px;
+        background: #0a0a0a;
+        border-right: 1px solid #262626;
         display: flex;
+        flex-direction: column;
+        padding: 24px 16px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+      }
+      .brand {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        padding: 0 12px 24px;
+        border-bottom: 1px solid #262626;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
-        align-items: center;
-        margin-bottom: 25px;
-        background: #111827;
-        padding: 16px 24px;
-        border-radius: 12px;
-        border: 1px solid #1f2937;
       }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 18px;
+      .badge-tenant {
+        font-size: 10px;
+        padding: 2px 6px;
+        border: 1px solid #404040;
+        border-radius: 4px;
+        color: #a3a3a3;
       }
-
-      .nav-links a {
-        color: #94a3b8;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 14px;
-        transition: color 0.2s;
+      .nav-sections {
+        flex: 1;
+        overflow-y: auto;
+        padding: 18px 0;
       }
-
-      .nav-links a:hover, .nav-links a.active {
-        color: #38bdf8;
-      }
-
-      .user-pill {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: #090d16;
-        border: 1px solid #374151;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        color: #cbd5e1;
-      }
-
-      .role-tag {
+      .nav-group-title {
         font-size: 10px;
         font-weight: 700;
-        background: #0284c7;
-        color: white;
-        padding: 2px 6px;
-        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #737373;
+        padding: 12px 12px 6px;
       }
-
-      .btn-auth {
-        background: linear-gradient(135deg, #0284c7, #4f46e5);
-        color: white;
-        padding: 6px 14px;
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 9px 12px;
         border-radius: 6px;
+        color: #a3a3a3;
         text-decoration: none;
         font-size: 13px;
+        margin-bottom: 2px;
+        transition: all 0.15s;
+      }
+      .nav-link:hover {
+        background: #171717;
+        color: #ffffff;
+      }
+      .nav-link.active {
+        background: #ffffff;
+        color: #000000;
         font-weight: 600;
       }
-
-      /* Header Hero */
-      .header {
-        background: linear-gradient(135deg, #111827, #1e293b);
-        border: 1px solid #1f2937;
-        color: white;
-        padding: 40px;
-        border-radius: 16px;
-        margin-bottom: 30px;
-        position: relative;
+      .user-footer {
+        padding-top: 16px;
+        border-top: 1px solid #262626;
       }
-
-      .header h1 {
-        font-size: 38px;
-        margin-bottom: 10px;
-        background: linear-gradient(90deg, #38bdf8, #818cf8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      .user-card {
+        padding: 8px 12px;
+        background: #121212;
+        border: 1px solid #262626;
+        border-radius: 6px;
+        margin-bottom: 8px;
       }
-
-      .header p {
-        font-size: 16px;
-        color: #94a3b8;
-        max-width: 780px;
-        line-height: 1.6;
-      }
-
-      .tenant-badge {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        background: #090d16;
-        border: 1px solid #38bdf8;
-        padding: 6px 14px;
-        border-radius: 20px;
+      .user-name {
         font-size: 13px;
-        color: #38bdf8;
         font-weight: 600;
+        color: #ffffff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .user-role {
+        font-size: 10px;
+        color: #737373;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+      .btn-logout {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: transparent;
+        border: 1px solid #333333;
+        color: #a3a3a3;
+        padding: 6px;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn-logout:hover {
+        background: #ffffff;
+        color: #000000;
       }
 
-      /* Statistics */
-      .stats {
+      /* Main Canvas Area */
+      .main-wrapper {
+        margin-left: 250px;
+        flex: 1;
+        padding: 40px 48px;
+        max-width: 1200px;
+      }
+      .page-header {
+        margin-bottom: 32px;
+      }
+      .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin-bottom: 6px;
+      }
+      .page-desc {
+        color: #737373;
+        font-size: 14px;
+      }
+
+      /* KPI Metrics Bar */
+      .stats-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        margin-bottom: 35px;
+        gap: 16px;
+        margin-bottom: 32px;
       }
-
       .stat-card {
-        background: #111827;
-        border: 1px solid #1f2937;
-        border-radius: 12px;
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 8px;
         padding: 20px;
-        text-align: center;
+      }
+      .stat-val {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .stat-lbl {
+        font-size: 12px;
+        color: #737373;
       }
 
-      .stat-card h3 {
-        font-size: 26px;
-        margin-bottom: 5px;
-        color: #38bdf8;
-      }
-
-      .stat-card p {
-        color: #94a3b8;
-        font-size: 13px;
-      }
-
-      /* Feature Cards */
-      .features {
+      /* Module Grid */
+      .modules-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
       }
-
-      .feature-card {
-        background: #111827;
-        border: 1px solid #1f2937;
-        border-radius: 14px;
-        padding: 28px;
-        min-height: 220px;
-        transition: all 0.2s;
-        cursor: pointer;
+      .module-card {
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 8px;
+        padding: 24px;
         text-decoration: none;
         color: inherit;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        min-height: 190px;
+        transition: border-color 0.15s, transform 0.1s;
       }
-
-      .feature-card:hover {
-        transform: translateY(-4px);
-        border-color: #38bdf8;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      .module-card:hover {
+        border-color: #ffffff;
+        transform: translateY(-2px);
       }
-
-      .feature-card.highlight {
-        border-color: #38bdf8;
-        background: linear-gradient(180deg, #111827, #0e1e38);
-      }
-
-      .feature-number {
-        font-size: 12px;
-        font-weight: bold;
-        color: #38bdf8;
+      .module-meta {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
         letter-spacing: 0.5px;
-        margin-bottom: 12px;
-      }
-
-      .feature-card h2 {
-        font-size: 20px;
+        color: #737373;
         margin-bottom: 10px;
-        color: #f8fafc;
       }
-
-      .feature-card p {
-        color: #94a3b8;
-        line-height: 1.5;
-        font-size: 14px;
-      }
-
-      .explore {
-        margin-top: 20px;
+      .module-title {
+        font-size: 18px;
         font-weight: 600;
-        font-size: 14px;
-        color: #38bdf8;
+        margin-bottom: 8px;
       }
-
-      /* Footer */
-      .footer {
-        text-align: center;
-        color: #64748b;
-        margin-top: 50px;
+      .module-desc {
         font-size: 13px;
+        color: #a3a3a3;
+        line-height: 1.5;
+      }
+      .module-arrow {
+        margin-top: 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffffff;
       }
 
       @media (max-width: 900px) {
-        .features {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .stats {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 600px) {
-        .features {
-          grid-template-columns: 1fr;
-        }
-        .stats {
-          grid-template-columns: 1fr;
-        }
-        .tenant-badge {
-          position: static;
-          display: inline-block;
-          margin-top: 15px;
-        }
+        .modules-grid { grid-template-columns: 1fr; }
+        .stats-grid { grid-template-columns: repeat(2, 1fr); }
       }
     </style>
   </head>
-
   <body>
-    <div class="container">
-      <!-- Universal Top Nav -->
-      <div class="nav">
-        <div style="font-weight: 700; font-size: 18px; color: #f8fafc;">
-          🌐 AcadGraph <span style="font-size: 12px; background: #3b82f6; padding: 2px 8px; border-radius: 10px; margin-left: 6px;">Multi-Tenant KG</span>
-        </div>
-        <div class="nav-links">
-          <a href="/" class="active">Dashboard</a>
-          <a href="/chat">AI Copilot</a>
-          <a href="/upload">Document Studio</a>
-          <a href="/graph">Graph Explorer</a>
-          <a href="/recommendation">Recommendations</a>
-          <a href="/knowledge-gap">Gap Analysis</a>
-          <a href="/temporal">Trends</a>
-          <a href="/admin/users">Users</a>
-          <a href="/admin/universities">Universities</a>
-          <div id="authPill">
-            <a href="/login" class="btn-auth">Sign In</a>
-          </div>
-        </div>
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span>AcadGraph</span>
+        <span class="badge-tenant" id="tenantPill">UNI_ANNA</span>
       </div>
 
-      <!-- Header Hero -->
-      <div class="header">
-        <span class="tenant-badge" id="tenantBadge">Anna University (UNI_ANNA)</span>
-        <h1>AcadGraph Platform</h1>
-        <p>
-          Agentic AI-driven Knowledge Graph intelligence for universities. Process raw academic documents, run autonomous GraphRAG queries in Neo4j, analyze curriculum gaps, and manage students with Role-Based Access Control.
-        </p>
+      <div class="nav-sections">
+        <div class="nav-group-title">Analytics</div>
+        <a href="/" class="nav-link active">Dashboard</a>
+        <a href="/graph" class="nav-link">Knowledge Graph</a>
+        <a href="/recommendation" class="nav-link">Recommendations</a>
+        <a href="/knowledge-gap" class="nav-link">Gap Analysis</a>
+        <a href="/temporal" class="nav-link">Temporal Trends</a>
+
+        <div class="nav-group-title">AI Studio</div>
+        <a href="/chat" class="nav-link">AI Copilot</a>
+        <a href="/upload" class="nav-link">Document Ingestion</a>
+
+        <div class="nav-group-title">Administration</div>
+        <a href="/admin/users" class="nav-link">User Access</a>
+        <a href="/admin/universities" class="nav-link">Universities</a>
       </div>
 
-      <!-- Statistics -->
-      <div class="stats">
+      <div class="user-footer" id="userFooter">
+        <div class="user-card">
+          <div class="user-name" id="userName">Dr. K. Kumar</div>
+          <div class="user-role" id="userRole">Faculty</div>
+        </div>
+        <a href="/login" class="btn-logout" onclick="localStorage.clear()">Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Main Content Canvas -->
+    <main class="main-wrapper">
+      <div class="page-header">
+        <h1 class="page-title">Academic Knowledge Graph Intelligence</h1>
+        <p class="page-desc">Agentic knowledge discovery, curriculum gap tracking, and research recommendations across universities.</p>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-grid">
         <div class="stat-card">
-          <h3>Neo4j</h3>
-          <p>Graph Knowledge Base</p>
+          <div class="stat-val">Neo4j</div>
+          <div class="stat-lbl">Graph Knowledge Base</div>
         </div>
         <div class="stat-card">
-          <h3>Multi-Tenant</h3>
-          <p>Isolated Per University</p>
+          <div class="stat-val">Multi-Tenant</div>
+          <div class="stat-lbl">Strict Isolation Per University</div>
         </div>
         <div class="stat-card">
-          <h3>SciBERT</h3>
-          <p>Academic NER & Relations</p>
+          <div class="stat-val">SciBERT</div>
+          <div class="stat-lbl">Academic Entity & Relation Extraction</div>
         </div>
         <div class="stat-card">
-          <h3>4 Roles</h3>
-          <p>Granular RBAC Security</p>
+          <div class="stat-val">RBAC</div>
+          <div class="stat-lbl">4-Tier Permission Boundaries</div>
         </div>
       </div>
 
-      <!-- Main Features -->
-      <div class="features">
-        <!-- AI Copilot Chatbot -->
-        <a class="feature-card highlight" href="/chat">
+      <!-- Modules Grid -->
+      <div class="modules-grid">
+        <a href="/chat" class="module-card">
           <div>
-            <div class="feature-number">MODULE 01 • AGENTIC AI</div>
-            <h2>Academic Copilot</h2>
-            <p>
-              Natural language academic chatbot with GraphRAG. Answers queries directly from Neo4j and accepts live text updates to ingest new knowledge!
-            </p>
+            <div class="module-meta">Module 01 • Agentic AI</div>
+            <div class="module-title">AI Copilot Chatbot</div>
+            <div class="module-desc">Natural language GraphRAG queries over Neo4j with real-time conversational graph ingestion.</div>
           </div>
-          <div class="explore">Launch Copilot →</div>
+          <div class="module-arrow">Launch Copilot →</div>
         </a>
 
-        <!-- Document Studio -->
-        <a class="feature-card highlight" href="/upload">
+        <a href="/upload" class="module-card">
           <div>
-            <div class="feature-number">MODULE 02 • AUTO-INGESTION</div>
-            <h2>Document Studio</h2>
-            <p>
-              Upload course syllabi or text files. The SciBERT pipeline automatically extracts entities & relations and merges them into Neo4j.
-            </p>
+            <div class="module-meta">Module 02 • Auto-Ingestion</div>
+            <div class="module-title">Document Studio</div>
+            <div class="module-desc">Upload course syllabi, proposals, or text files for automatic entity and relationship extraction.</div>
           </div>
-          <div class="explore">Open Studio →</div>
+          <div class="module-arrow">Open Studio →</div>
         </a>
 
-        <!-- Knowledge Graph -->
-        <a class="feature-card" href="/graph">
+        <a href="/graph" class="module-card">
           <div>
-            <div class="feature-number">MODULE 03 • VISUALIZATION</div>
-            <h2>Knowledge Graph Explorer</h2>
-            <p>
-              Interactive visual explorer for academic nodes, skills, projects, and faculty relationships across universities.
-            </p>
+            <div class="module-meta">Module 03 • Visualization</div>
+            <div class="module-title">Knowledge Graph Explorer</div>
+            <div class="module-desc">Interactive network visualization of interconnected students, faculty, projects, and skills.</div>
           </div>
-          <div class="explore">Explore Graph →</div>
+          <div class="module-arrow">Explore Network →</div>
         </a>
 
-        <!-- Recommendation -->
-        <a class="feature-card" href="/recommendation">
+        <a href="/recommendation" class="module-card">
           <div>
-            <div class="feature-number">MODULE 04 • RECOMMENDER</div>
-            <h2>Project Recommendation</h2>
-            <p>
-              Identify matching capstone projects for students using skill overlaps, graph topology, and academic evidence.
-            </p>
+            <div class="module-meta">Module 04 • Recommender</div>
+            <div class="module-title">Project Recommendations</div>
+            <div class="module-desc">Match students with high-impact research projects based on academic skill overlaps.</div>
           </div>
-          <div class="explore">View Recommendations →</div>
+          <div class="module-arrow">View Matches →</div>
         </a>
 
-        <!-- Knowledge Gap -->
-        <a class="feature-card" href="/knowledge-gap">
+        <a href="/knowledge-gap" class="module-card">
           <div>
-            <div class="feature-number">MODULE 05 • GAP ANALYSIS</div>
-            <h2>Curriculum Gap Analysis</h2>
-            <p>
-              Detect missing modern industry skills in syllabi and quantify skill gap severity across academic programs.
-            </p>
+            <div class="module-meta">Module 05 • Analytics</div>
+            <div class="module-title">Knowledge Gap Analysis</div>
+            <div class="module-desc">Quantify low-coverage skills and missing curriculum topics against modern project demand.</div>
           </div>
-          <div class="explore">Analyze Gaps →</div>
+          <div class="module-arrow">Analyze Gaps →</div>
         </a>
 
-        <!-- Temporal -->
-        <a class="feature-card" href="/temporal">
+        <a href="/temporal" class="module-card">
           <div>
-            <div class="feature-number">MODULE 06 • TRENDS</div>
-            <h2>Temporal Trends</h2>
-            <p>
-              Analyze research output, enrollment shifts, and topic evolution across academic terms and years.
-            </p>
+            <div class="module-meta">Module 06 • Longitudinal</div>
+            <div class="module-title">Temporal Trends</div>
+            <div class="module-desc">Analyze historical student enrollment trajectories and faculty research publication shifts.</div>
           </div>
-          <div class="explore">View Trends →</div>
+          <div class="module-arrow">View Shifts →</div>
         </a>
       </div>
-
-      <div class="footer">
-        AcadGraph SaaS — Multi-University Knowledge Graph Intelligence & RBAC
-      </div>
-    </div>
+    </main>
 
     <script>
-      // Session Management
       const userStr = localStorage.getItem('acadgraph_user');
       if (userStr) {
         try {
-          const user = JSON.parse(userStr);
-          document.getElementById('tenantBadge').innerText = `Tenant: ${user.university_id}`;
-          document.getElementById('authPill').innerHTML = `
-            <div class="user-pill">
-              <span>👤 ${user.name}</span>
-              <span class="role-tag">${user.role}</span>
-              <a href="#" onclick="logout()" style="color: #f87171; text-decoration: none; margin-left: 6px;">Sign Out</a>
-            </div>
-          `;
+          const u = JSON.parse(userStr);
+          document.getElementById('tenantPill').innerText = u.university_id;
+          document.getElementById('userName').innerText = u.name;
+          document.getElementById('userRole').innerText = u.role;
         } catch (e) {}
-      }
-
-      function logout() {
-        localStorage.clear();
-        window.location.href = '/login';
       }
     </script>
   </body>

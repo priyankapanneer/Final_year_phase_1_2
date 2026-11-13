@@ -12,60 +12,103 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
       body {
-        background: #090d16;
-        color: #f8fafc;
+        background: #000000;
+        color: #ffffff;
+        display: flex;
         min-height: 100vh;
-        padding: 24px 20px;
       }
-      .container {
-        max-width: 1200px;
-        margin: auto;
-      }
-      .nav {
+
+      /* Sidebar */
+      .sidebar {
+        width: 250px;
+        background: #0a0a0a;
+        border-right: 1px solid #262626;
         display: flex;
+        flex-direction: column;
+        padding: 24px 16px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      }
+      .brand {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        padding: 0 12px 24px;
+        border-bottom: 1px solid #262626;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
-        align-items: center;
-        margin-bottom: 25px;
-        background: #111827;
-        padding: 16px 24px;
-        border-radius: 12px;
-        border: 1px solid #1f2937;
       }
-      .nav-links {
+      .badge-tenant {
+        font-size: 10px;
+        padding: 2px 6px;
+        border: 1px solid #404040;
+        border-radius: 4px;
+        color: #a3a3a3;
+      }
+      .nav-sections {
+        flex: 1;
+        overflow-y: auto;
+        padding: 18px 0;
+      }
+      .nav-group-title {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #737373;
+        padding: 12px 12px 6px;
+      }
+      .nav-link {
         display: flex;
         align-items: center;
-        gap: 18px;
-      }
-      .nav-links a {
-        color: #94a3b8;
+        padding: 9px 12px;
+        border-radius: 6px;
+        color: #a3a3a3;
         text-decoration: none;
-        font-weight: 500;
-        font-size: 14px;
-        transition: color 0.2s;
+        font-size: 13px;
+        margin-bottom: 2px;
+        transition: all 0.15s;
       }
-      .nav-links a:hover, .nav-links a.active {
-        color: #38bdf8;
+      .nav-link:hover {
+        background: #171717;
+        color: #ffffff;
       }
-      .header-card {
-        background: linear-gradient(135deg, #111827, #1e293b);
-        border: 1px solid #1f2937;
-        padding: 30px;
-        border-radius: 14px;
-        margin-bottom: 25px;
+      .nav-link.active {
+        background: #ffffff;
+        color: #000000;
+        font-weight: 600;
       }
-      .header-card h1 {
-        font-size: 28px;
+
+      /* Main Canvas */
+      .main-wrapper {
+        margin-left: 250px;
+        flex: 1;
+        padding: 40px 48px;
+        max-width: 1100px;
+      }
+      .page-header {
+        margin-bottom: 28px;
+      }
+      .page-title {
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
         margin-bottom: 6px;
-        background: linear-gradient(90deg, #38bdf8, #818cf8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
       }
-      .search-card {
-        background: #111827;
-        border: 1px solid #1f2937;
-        border-radius: 12px;
+      .page-desc {
+        color: #737373;
+        font-size: 14px;
+      }
+
+      .card {
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 8px;
         padding: 24px;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
       }
       .search-row {
         display: flex;
@@ -74,64 +117,77 @@
       }
       input {
         flex: 1;
-        background: #090d16;
-        border: 1px solid #374151;
-        color: white;
+        background: #141414;
+        border: 1px solid #262626;
+        color: #ffffff;
         padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 15px;
+        border-radius: 6px;
+        font-size: 14px;
         outline: none;
       }
       input:focus {
-        border-color: #38bdf8;
+        border-color: #ffffff;
       }
-      .btn {
-        background: linear-gradient(135deg, #0284c7, #4f46e5);
-        color: white;
-        border: none;
+      .btn-primary {
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #ffffff;
         padding: 12px 24px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-weight: 600;
+        font-size: 14px;
         cursor: pointer;
+        transition: opacity 0.15s;
+      }
+      .btn-primary:hover {
+        opacity: 0.9;
       }
       .quick-tags {
-        margin-top: 12px;
-        font-size: 13px;
-        color: #94a3b8;
+        margin-top: 14px;
+        font-size: 12px;
+        color: #737373;
       }
       .quick-tag {
         display: inline-block;
-        background: #1f2937;
-        color: #38bdf8;
+        background: #141414;
+        border: 1px solid #262626;
+        color: #a3a3a3;
         padding: 3px 8px;
         border-radius: 4px;
         cursor: pointer;
         margin-left: 6px;
+        transition: all 0.15s;
       }
+      .quick-tag:hover {
+        border-color: #ffffff;
+        color: #ffffff;
+      }
+
+      /* Recommendation Cards */
       .card-rec {
-        background: #111827;
-        border: 1px solid #1f2937;
-        border-radius: 12px;
-        padding: 22px;
-        margin-bottom: 18px;
-        transition: transform 0.2s, border-color 0.2s;
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 16px;
+        transition: border-color 0.15s;
       }
       .card-rec:hover {
-        border-color: #38bdf8;
-        transform: translateY(-2px);
+        border-color: #555555;
       }
       .rank-pill {
         display: inline-block;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 700;
-        color: #38bdf8;
-        background: rgba(56, 189, 248, 0.15);
-        padding: 3px 8px;
+        color: #000000;
+        background: #ffffff;
+        padding: 2px 8px;
         border-radius: 4px;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
       }
       .p-title {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 700;
         margin-bottom: 10px;
       }
@@ -139,60 +195,71 @@
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
       }
       .tag-item {
-        background: #090d16;
-        border: 1px solid #374151;
-        color: #cbd5e1;
+        background: #141414;
+        border: 1px solid #262626;
+        color: #a3a3a3;
         font-size: 12px;
         padding: 4px 10px;
-        border-radius: 6px;
+        border-radius: 4px;
       }
       .score-box {
-        font-size: 14px;
-        color: #38bdf8;
+        font-size: 13px;
+        color: #ffffff;
         font-weight: 600;
         margin-bottom: 6px;
       }
       .reason-box {
         font-size: 13px;
-        color: #94a3b8;
-        line-height: 1.5;
+        color: #737373;
+        line-height: 1.6;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="nav">
-        <div style="font-weight: 700; font-size: 18px; color: #f8fafc;">
-          🌐 AcadGraph <span style="font-size: 12px; background: #3b82f6; padding: 2px 8px; border-radius: 10px; margin-left: 6px;">Recommendations</span>
-        </div>
-        <div class="nav-links">
-          <a href="/">Dashboard</a>
-          <a href="/chat">AI Copilot</a>
-          <a href="/upload">Document Studio</a>
-          <a href="/graph">Graph Explorer</a>
-          <a href="/recommendation" class="active">Recommendations</a>
-          <a href="/knowledge-gap">Gap Analysis</a>
-          <a href="/temporal">Trends</a>
-          <a href="/admin/users">Users</a>
-          <a href="/admin/universities">Universities</a>
-        </div>
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span>AcadGraph</span>
+        <span class="badge-tenant">RECS</span>
       </div>
 
-      <div class="header-card">
-        <h1>Student Project Recommendation Engine</h1>
-        <p style="color: #94a3b8; font-size: 14px; margin-top: 4px;">
-          Graph-driven matching based on student skills, course enrollments, faculty supervision, and skill rarity.
-        </p>
+      <div class="nav-sections">
+        <div class="nav-group-title">Analytics</div>
+        <a href="/" class="nav-link">Dashboard</a>
+        <a href="/graph" class="nav-link">Knowledge Graph</a>
+        <a href="/recommendation" class="nav-link active">Recommendations</a>
+        <a href="/knowledge-gap" class="nav-link">Gap Analysis</a>
+        <a href="/temporal" class="nav-link">Temporal Trends</a>
+
+        <div class="nav-group-title">AI Studio</div>
+        <a href="/chat" class="nav-link">AI Copilot</a>
+        <a href="/upload" class="nav-link">Document Ingestion</a>
+
+        <div class="nav-group-title">Administration</div>
+        <a href="/admin/users" class="nav-link">User Access</a>
+        <a href="/admin/universities" class="nav-link">Universities</a>
       </div>
 
-      <div class="search-card">
-        <label for="studentInput" style="font-size: 14px; font-weight: 600; color: #cbd5e1;">Enter Student ID:</label>
+      <div style="padding-top: 16px; border-top: 1px solid #262626;">
+        <a href="/login" style="display: block; text-align: center; color: #737373; font-size: 12px; text-decoration: none;" onclick="localStorage.clear()">Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-wrapper">
+      <div class="page-header">
+        <h1 class="page-title">Student Project Recommendation Engine</h1>
+        <p class="page-desc">Graph-driven project matching utilizing student skills, course enrollments, faculty supervision, and skill rarity.</p>
+      </div>
+
+      <div class="card">
+        <label for="studentInput" style="font-size: 13px; font-weight: 600; color: #a3a3a3;">Enter Student ID:</label>
         <div class="search-row">
           <input type="text" id="studentInput" placeholder="e.g. S0001, S0002" value="S0001" />
-          <button class="btn" onclick="fetchRecs()">Find Recommendations</button>
+          <button class="btn-primary" onclick="fetchRecs()">Find Recommendations</button>
         </div>
         <div class="quick-tags">
           Sample Student IDs:
@@ -202,12 +269,12 @@
         </div>
       </div>
 
-      <div id="loading" style="display: none; color: #38bdf8; margin-bottom: 20px;">
-        Executing graph recommendation traversal...
+      <div id="loading" style="display: none; color: #737373; margin-bottom: 20px; font-size: 13px;">
+        Executing multi-tenant graph recommendation traversal...
       </div>
 
       <div id="resultsArea"></div>
-    </div>
+    </main>
 
     <script>
       function setStudent(id) {
@@ -230,7 +297,7 @@
           const recs = data.recommendations || [];
 
           if (recs.length === 0) {
-            area.innerHTML = '<p style="color: #94a3b8;">No recommendations found for this student ID.</p>';
+            area.innerHTML = '<p style="color: #737373;">No project recommendations found for this student ID.</p>';
             return;
           }
 
@@ -238,20 +305,20 @@
             const div = document.createElement('div');
             div.className = 'card-rec';
             div.innerHTML = `
-              <div class="rank-pill">RANK #${idx + 1} MATCH</div>
+              <div class="rank-pill">MATCH RANK #${idx + 1}</div>
               <div class="p-title">${p.project_name || p.project_id || 'Academic Research Project'}</div>
               <div class="p-tags">
                 <span class="tag-item">Project ID: ${p.project_id || p.project || 'P001'}</span>
                 <span class="tag-item">Match Score: ${(p.match_score ? (p.match_score * 100).toFixed(0) : (p.skill_match_score || 88))}%</span>
                 ${p.course_evidence_score ? `<span class="tag-item">Course Evidence: ${p.course_evidence_score}</span>` : ''}
               </div>
-              <div class="score-box">Match Confidence: ${p.match_score || p.recommendation_score || 0.92}</div>
+              <div class="score-box">Confidence Score: ${p.match_score || p.recommendation_score || 0.92}</div>
               <div class="reason-box">${p.recommendation_reason || 'Recommended based on high student skill overlap and faculty research affinity in Knowledge Graph.'}</div>
             `;
             area.appendChild(div);
           });
         } catch (err) {
-          area.innerHTML = `<p style="color: #f87171;">Failed to fetch recommendations: ${err.message}</p>`;
+          area.innerHTML = `<p style="color: #a3a3a3;">Failed to fetch recommendations: ${err.message}</p>`;
         } finally {
           load.style.display = 'none';
         }

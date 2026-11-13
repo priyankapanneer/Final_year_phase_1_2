@@ -14,7 +14,8 @@ from model.graph_data_engine import get_graph_data, get_entity_graph
 from api.auth import (
     LoginRequest, TokenResponse, UserResponse, CreateUserRequest, RegisterRequest,
     create_access_token, verify_password, get_current_user,
-    require_roles, DEMO_USERS_DB, add_user_record, list_all_users, delete_user_record
+    require_roles, DEMO_USERS_DB, add_user_record, list_all_users, delete_user_record,
+    get_user_from_db
 )
 from api.tenancy import (
     UniversityModel, get_all_universities,
@@ -141,8 +142,11 @@ def upload_page():
 
 @app.post("/api/auth/login", response_model=TokenResponse)
 def login(request: LoginRequest):
-    user_record = DEMO_USERS_DB.get(request.username)
-    if not user_record or not verify_password(request.password, user_record["hashed_password"]):
+    user_record = get_user_from_db(request.username)
+    if not user_record:
+        user_record = DEMO_USERS_DB.get(request.username)
+        
+    if not user_record or "hashed_password" not in user_record or not verify_password(request.password, user_record["hashed_password"]):
         raise HTTPException(status_code=401, detail="Invalid username or password")
 
     access_token = create_access_token(
@@ -233,7 +237,12 @@ class DocumentUploadRequest(BaseModel):
 
 @app.post("/api/upload-document")
 def upload_document(req: DocumentUploadRequest):
-    user_record = DEMO_USERS_DB.get(req.username, DEMO_USERS_DB["faculty.kumar@annauniv.edu"])
+    user_record = get_user_from_db(req.username) or DEMO_USERS_DB.get(req.username) or {
+        "username": req.username or "faculty.kumar@annauniv.edu",
+        "name": "Faculty Member",
+        "role": "FACULTY",
+        "university_id": req.university_id or "UNI_ANNA"
+    }
     user = UserResponse(
         username=user_record["username"],
         name=user_record["name"],
@@ -267,7 +276,12 @@ class ChatMessageRequest(BaseModel):
 
 @app.post("/api/chat")
 def chat_copilot(req: ChatMessageRequest):
-    user_record = DEMO_USERS_DB.get(req.username, DEMO_USERS_DB["faculty.kumar@annauniv.edu"])
+    user_record = get_user_from_db(req.username) or DEMO_USERS_DB.get(req.username) or {
+        "username": req.username or "faculty.kumar@annauniv.edu",
+        "name": "Faculty Member",
+        "role": "FACULTY",
+        "university_id": "UNI_ANNA"
+    }
     user = UserResponse(
         username=user_record["username"],
         name=user_record["name"],

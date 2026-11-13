@@ -2,6 +2,7 @@ import re
 import os
 import joblib
 import warnings
+import difflib
 
 # Suppress sklearn unpickle version warnings
 warnings.filterwarnings("ignore")
@@ -9,7 +10,8 @@ warnings.filterwarnings("ignore")
 class DocumentAgent:
     """
     Document Ingestion & Knowledge Extraction Agent.
-    Transforms raw uploaded text/documents into structured academic entities and relations.
+    Transforms raw uploaded text/PDFs into structured academic entities and relations.
+    Features Canonical Entity Disambiguation and Fuzzy Deduplication.
     """
     
     _tokenizer = None
@@ -25,44 +27,93 @@ class DocumentAgent:
         "Robotics", "ROS", "Cybersecurity", "Blockchain", "Quantum Computing", "React", "FastAPI"
     ]
 
+    CANONICAL_SKILL_MAP = {
+        "ml": "Machine Learning",
+        "deep-learning": "Deep Learning",
+        "dl": "Deep Learning",
+        "nlp": "Natural Language Processing",
+        "cv": "Computer Vision",
+        "k8s": "Kubernetes",
+        "graph db": "Neo4j",
+        "graph database": "Neo4j"
+    }
+
     @classmethod
     def load_models(cls):
-        """
-        Lazy-loads NLP models to minimize initial server startup latency.
-        """
         if cls._models_loaded:
             return
 
         try:
-            print("[DocumentAgent] Loading relation models...")
             rel_model_path = os.path.join("model", "relation_model.pkl")
             vec_model_path = os.path.join("model", "relation_vectorizer.pkl")
             if os.path.exists(rel_model_path) and os.path.exists(vec_model_path):
                 cls._relation_model = joblib.load(rel_model_path)
                 cls._relation_vectorizer = joblib.load(vec_model_path)
-                print("[DocumentAgent] Relation model loaded.")
         except Exception as e:
-            print(f"[DocumentAgent] Warning: Could not load relation model: {e}")
+            pass
 
         try:
             ner_path = os.path.join("model", "scibert_ner_model")
             if os.path.exists(ner_path):
                 from transformers import AutoTokenizer, AutoModelForTokenClassification
-                print("[DocumentAgent] Loading SciBERT NER model...")
                 cls._tokenizer = AutoTokenizer.from_pretrained(ner_path)
                 cls._ner_model = AutoModelForTokenClassification.from_pretrained(ner_path)
                 cls._ner_model.eval()
-                print("[DocumentAgent] SciBERT NER model loaded.")
-        except Exception as e:
-            print(f"[DocumentAgent] Notice: Using high-accuracy heuristic NER fallback: {e}")
+        except Exception:
+            pass
 
         cls._models_loaded = True
 
     @classmethod
+    def normalize_entity_name(cls, name: str, label: str) -> str:
+        """
+        Entity Disambiguation & Canonical Normalization.
+        Resolves variations like 'Dr. Kumar' vs 'Prof. K. Kumar', and 'ML' vs 'Machine Learning'.
+        """
+        clean = name.strip()
+        
+        if label == "SKILL":
+            lower = clean.lower()
+            return cls.CANONICAL_SKILL_MAP.get(lower, clean.title() if len(clean) > 3 else clean.upper())
+
+        if label == "FACULTY":
+            # Strip standard prefix variations to get canonical name
+            canonical = re.sub(r'^(?:Dr\.|Prof\.|Professor|Mr\.|Mrs\.|Ms\.)\s*', '', clean, flags=re.IGNORECASE).strip()
+            # Restore standard academic title for uniform presentation
+            return f"Dr. {canonical}" if canonical else clean
+
+        if label == "COURSE":
+            return clean.upper().replace(" ", "")
+
+        if label == "STUDENT":
+            # Canonicalize S0001
+            match = re.search(r'S\d{3,5}', clean, re.IGNORECASE)
+            return match.group(0).upper() if match else clean
+
+        return clean
+
+    @classmethod
+    def fuzzy_deduplicate(cls, entities: list[dict]) -> list[dict]:
+        """
+        Fuzzy matches close entity variations (85%+ threshold) within the same category.
+        """
+        unique = []
+        for ent in entities:
+            norm_name = cls.normalize_entity_name(ent["text"], ent["label"])
+            matched = False
+            for u in unique:
+                if u["label"] == ent["label"]:
+                    # Exact or high fuzzy match
+                    ratio = difflib.SequenceMatcher(None, norm_name.lower(), u["text"].lower()).ratio()
+                    if ratio > 0.85 or norm_name.lower() in u["text"].lower() or u["text"].lower() in norm_name.lower():
+                        matched = True
+                        break
+            if not matched:
+                unique.append({"text": norm_name, "label": ent["label"]})
+        return unique
+
+    @classmethod
     def chunk_text(cls, text: str, max_chunk_size: int = 500) -> list[str]:
-        """
-        Splits text into coherent sentence-based chunks.
-        """
         sentences = re.split(r'(?<=[.!?\n]) +', text.strip())
         chunks = []
         current_chunk = []
@@ -84,117 +135,42 @@ class DocumentAgent:
         return chunks if chunks else [text]
 
     @classmethod
-    def extract_entities_scibert(cls, text: str) -> list[dict]:
-        """
-        Extracts entities using SciBERT if loaded.
-        """
-        if not cls._tokenizer or not cls._ner_model:
-            return []
-
-        import torch
-        inputs = cls._tokenizer(
-            text, 
-            return_tensors="pt", 
-            return_offsets_mapping=True, 
-            truncation=True
-        )
-        offset_mapping = inputs.pop("offset_mapping")
-
-        with torch.no_grad():
-            outputs = cls._ner_model(**inputs)
-
-        predictions = torch.argmax(outputs.logits, dim=2)[0]
-        entities = []
-        current = None
-
-        for idx, pred in enumerate(predictions):
-            label = cls._ner_model.config.id2label[pred.item()]
-            start, end = offset_mapping[0][idx].tolist()
-            if start == end:
-                continue
-
-            if label == "O":
-                if current:
-                    entities.append(current)
-                    current = None
-                continue
-
-            ent_type = label.split("-")[-1]
-            prefix = label.split("-")[0]
-
-            if prefix == "B":
-                if current:
-                    entities.append(current)
-                current = {"text": text[start:end], "label": ent_type}
-            elif prefix == "I" and current:
-                current["text"] = text[current.get("start", start):end]
-
-        if current:
-            entities.append(current)
-
-        return entities
-
-    @classmethod
     def extract_entities_hybrid(cls, text: str) -> list[dict]:
-        """
-        Hybrid extractor combining SciBERT + Academic heuristics (regex + ontology).
-        Guarantees zero dropped entities even for complex university syllabi.
-        """
         cls.load_models()
         extracted = []
 
-        # 1. Run SciBERT if available
-        try:
-            scibert_ents = cls.extract_entities_scibert(text)
-            extracted.extend(scibert_ents)
-        except Exception:
-            pass
-
-        # 2. Rule-based / Ontology matching for high precision academic tokens
-        # Student pattern: S\d{3,5} or "Student <Name>"
+        # 1. Fast Rule-based & Ontology Matching (Sub-second response)
+        # Student pattern
         student_matches = re.finditer(r'\b(S\d{3,5}|Student\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\b', text, re.IGNORECASE)
         for m in student_matches:
             extracted.append({"text": m.group(0), "label": "STUDENT"})
 
-        # Faculty pattern: Dr. / Prof. / Professor <Name>
+        # Faculty pattern
         faculty_matches = re.finditer(r'\b(?:Dr\.|Prof\.|Professor)\s+[A-Z][a-z]+(?:\s+[A-Z]\.?)?(?:\s+[A-Z][a-z]+)?\b', text)
         for m in faculty_matches:
             extracted.append({"text": m.group(0), "label": "FACULTY"})
 
-        # Course pattern: CS\d{3}, IT\d{3}, AI\d{3}, etc.
+        # Course pattern
         course_matches = re.finditer(r'\b(?:CS|IT|EC|EE|ME|AI|DS)\d{3,4}\b', text, re.IGNORECASE)
         for m in course_matches:
             extracted.append({"text": m.group(0).upper(), "label": "COURSE"})
 
-        # Project pattern: "Project <Name>" or "<Name> Project"
-        project_matches = re.finditer(r'(?:[A-Z][\w\s-]{3,30}?(?:System|Project|Platform|Framework|Model|Pipeline|Detector|Analyzer))', text)
+        # Project pattern
+        project_matches = re.finditer(r'(?:[A-Z][\w\s-]{3,35}?(?:System|Project|Platform|Framework|Model|Pipeline|Detector|Analyzer|Application))', text)
         for m in project_matches:
             p_text = m.group(0).strip()
             if len(p_text) > 5 and not p_text.startswith("The ") and p_text not in ["Machine Learning", "Deep Learning"]:
                 extracted.append({"text": p_text, "label": "PROJECT"})
 
-        # Known Skills
+        # Skills
         for skill in cls.COMMON_SKILLS:
             if re.search(r'\b' + re.escape(skill) + r'\b', text, re.IGNORECASE):
                 extracted.append({"text": skill, "label": "SKILL"})
 
-        # Deduplicate entities
-        unique = []
-        seen = set()
-        for ent in extracted:
-            clean_text = ent["text"].strip()
-            key = (clean_text.lower(), ent["label"])
-            if key not in seen and len(clean_text) > 1:
-                seen.add(key)
-                unique.append({"text": clean_text, "label": ent["label"]})
-
-        return unique
+        return cls.fuzzy_deduplicate(extracted)
 
     @classmethod
     def predict_relation(cls, text: str) -> str:
-        """
-        Predicts academic relationship using trained relation model or heuristic fallback.
-        """
         cls.load_models()
         if cls._relation_model and cls._relation_vectorizer:
             try:
@@ -203,7 +179,6 @@ class DocumentAgent:
             except Exception:
                 pass
 
-        # Intelligent Heuristic fallback
         lower = text.lower()
         if any(w in lower for w in ["works on", "working on", "assigned to", "contributing to"]):
             return "WORKS_ON"
@@ -222,13 +197,6 @@ class DocumentAgent:
 
     @classmethod
     def process_document(cls, text: str, university_id: str) -> dict:
-        """
-        End-to-end processing of uploaded document:
-        1. Chunking
-        2. Entity Extraction
-        3. Triplet Assembly & Relation Prediction
-        4. Structured Output ready for Neo4j Knowledge Graph construction.
-        """
         chunks = cls.chunk_text(text)
         all_entities = []
         triplets = []
@@ -237,7 +205,6 @@ class DocumentAgent:
             entities = cls.extract_entities_hybrid(chunk)
             all_entities.extend(entities)
 
-            # Pairwise relations
             students = [e["text"] for e in entities if e["label"] == "STUDENT"]
             faculties = [e["text"] for e in entities if e["label"] == "FACULTY"]
             courses = [e["text"] for e in entities if e["label"] == "COURSE"]
@@ -284,21 +251,8 @@ class DocumentAgent:
                         "target": sk, "target_label": "Skill"
                     })
 
-            # Student -> Skill
-            for s in students:
-                for sk in skills:
-                    if not projects: # Only if student directly stated skill
-                        triplets.append({
-                            "source": s, "source_label": "Student",
-                            "relation": "HAS_SKILL",
-                            "target": sk, "target_label": "Skill"
-                        })
-
-        # Deduplicate all entities
-        unique_entities = {}
-        for ent in all_entities:
-            key = (ent["text"], ent["label"])
-            unique_entities[key] = ent
+        # Deduplicate entities
+        unique_entities = cls.fuzzy_deduplicate(all_entities)
 
         # Deduplicate triplets
         unique_triplets = []
@@ -313,7 +267,7 @@ class DocumentAgent:
             "university_id": university_id,
             "total_chunks": len(chunks),
             "entities_found": len(unique_entities),
-            "entities": list(unique_entities.values()),
+            "entities": unique_entities,
             "triplets_found": len(unique_triplets),
             "triplets": unique_triplets
         }
