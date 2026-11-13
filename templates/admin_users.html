@@ -30,6 +30,7 @@
         top: 0;
         bottom: 0;
         left: 0;
+        z-index: 50;
       }
       .brand {
         font-size: 18px;
@@ -87,13 +88,13 @@
         margin-left: 250px;
         flex: 1;
         padding: 40px 48px;
-        max-width: 1200px;
+        max-width: 1280px;
       }
       .header-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 28px;
+        margin-bottom: 24px;
       }
       .page-title {
         font-size: 26px;
@@ -104,6 +105,52 @@
       .page-desc {
         color: #737373;
         font-size: 14px;
+      }
+
+      /* Stats Overview Bar */
+      .stats-overview {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+      .stat-card {
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 8px;
+        padding: 16px 20px;
+      }
+      .stat-num {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .stat-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #737373;
+        margin-top: 4px;
+      }
+
+      /* Filter & Controls */
+      .filter-bar {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        align-items: center;
+      }
+      .filter-select {
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        color: #ffffff;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        outline: none;
+      }
+      .filter-select:focus {
+        border-color: #ffffff;
       }
 
       .btn-primary {
@@ -139,7 +186,7 @@
       th {
         text-align: left;
         color: #737373;
-        font-size: 12px;
+        font-size: 11px;
         padding: 12px 14px;
         border-bottom: 1px solid #262626;
         text-transform: uppercase;
@@ -168,6 +215,12 @@
         background: #ffffff;
         color: #000000;
         border: 1px solid #ffffff;
+      }
+      .role-admin {
+        background: #1a1a1a;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        font-weight: 700;
       }
       .btn-del {
         background: transparent;
@@ -286,9 +339,48 @@
       <div class="header-row">
         <div>
           <h1 class="page-title">User Access & Role Management</h1>
-          <p class="page-desc">Manage students, faculty members, and academic admins with RBAC control and SQLite persistence.</p>
+          <p class="page-desc">Every university maintains designated University Admins, faculty, and students with RBAC boundaries in SQLite.</p>
         </div>
         <button class="btn-primary" onclick="openModal()">+ Add New User</button>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-overview">
+        <div class="stat-card">
+          <div class="stat-num" id="statTotalUsers">0</div>
+          <div class="stat-label">Total Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statTotalAdmins">0</div>
+          <div class="stat-label">University Admins (1 per Uni)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statTotalFaculty">0</div>
+          <div class="stat-label">Faculty Members</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statTotalStudents">0</div>
+          <div class="stat-label">Enrolled Students</div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <span style="font-size: 12px; color: #737373; text-transform: uppercase;">Filter:</span>
+        <select id="filterUni" class="filter-select" onchange="renderFilteredUsers()">
+          <option value="ALL">All Universities</option>
+          <option value="UNI_ANNA">Anna University</option>
+          <option value="UNI_IITM">IIT Madras</option>
+          <option value="UNI_SRM">SRM Institute</option>
+          <option value="UNI_MIT">MIT Campus</option>
+        </select>
+        <select id="filterRole" class="filter-select" onchange="renderFilteredUsers()">
+          <option value="ALL">All Roles</option>
+          <option value="UNIVERSITY_ADMIN">University Admin</option>
+          <option value="FACULTY">Faculty</option>
+          <option value="STUDENT">Student</option>
+          <option value="SUPER_ADMIN">Super Admin</option>
+        </select>
       </div>
 
       <div class="card">
@@ -354,6 +446,8 @@
     </div>
 
     <script>
+      let allUsersCache = [];
+
       function openModal() {
         document.getElementById('modalBg').style.display = 'flex';
       }
@@ -364,28 +458,63 @@
       async function fetchUsers() {
         try {
           const res = await fetch('/api/admin/users');
-          const users = await res.json();
-          const tbody = document.getElementById('usersTbody');
-          tbody.innerHTML = '';
+          allUsersCache = await res.json();
 
-          users.forEach(u => {
-            const tr = document.createElement('tr');
-            const isSuper = u.role === 'SUPER_ADMIN';
+          // Compute Counts
+          const totalUsers = allUsersCache.length;
+          const adminsCount = allUsersCache.filter(u => u.role === 'UNIVERSITY_ADMIN').length;
+          const facultyCount = allUsersCache.filter(u => u.role === 'FACULTY').length;
+          const studentsCount = allUsersCache.filter(u => u.role === 'STUDENT').length;
 
-            tr.innerHTML = `
-              <td><strong>${u.name}</strong></td>
-              <td style="color: #a3a3a3;">${u.username}</td>
-              <td><span class="role-badge ${isSuper ? 'role-super' : ''}">${u.role}</span></td>
-              <td>${u.university_id}</td>
-              <td>
-                ${!isSuper ? `<button class="btn-del" onclick="deleteUser('${u.username}')">Remove</button>` : '<span style="color: #525252; font-size: 12px;">Protected</span>'}
-              </td>
-            `;
-            tbody.appendChild(tr);
-          });
+          document.getElementById('statTotalUsers').innerText = totalUsers;
+          document.getElementById('statTotalAdmins').innerText = adminsCount;
+          document.getElementById('statTotalFaculty').innerText = facultyCount;
+          document.getElementById('statTotalStudents').innerText = studentsCount;
+
+          renderFilteredUsers();
         } catch (err) {
           console.error(err);
         }
+      }
+
+      function renderFilteredUsers() {
+        const uniFilter = document.getElementById('filterUni').value;
+        const roleFilter = document.getElementById('filterRole').value;
+
+        const filtered = allUsersCache.filter(u => {
+          const matchUni = (uniFilter === 'ALL' || u.university_id === uniFilter);
+          const matchRole = (roleFilter === 'ALL' || u.role === roleFilter);
+          return matchUni && matchRole;
+        });
+
+        const tbody = document.getElementById('usersTbody');
+        tbody.innerHTML = '';
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #737373;">No users match the selected filters.</td></tr>';
+          return;
+        }
+
+        filtered.forEach(u => {
+          const tr = document.createElement('tr');
+          const isSuper = u.role === 'SUPER_ADMIN';
+          const isUniAdmin = u.role === 'UNIVERSITY_ADMIN';
+
+          let badgeClass = 'role-badge';
+          if (isSuper) badgeClass += ' role-super';
+          else if (isUniAdmin) badgeClass += ' role-admin';
+
+          tr.innerHTML = `
+            <td><strong>${u.name}</strong></td>
+            <td style="color: #a3a3a3;">${u.username}</td>
+            <td><span class="${badgeClass}">${u.role}</span></td>
+            <td>${u.university_id}</td>
+            <td>
+              ${!isSuper ? `<button class="btn-del" onclick="deleteUser('${u.username}')">Remove</button>` : '<span style="color: #525252; font-size: 12px;">Protected</span>'}
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
       }
 
       async function handleCreateUser(e) {

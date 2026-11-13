@@ -19,7 +19,7 @@ from api.auth import (
 )
 from api.tenancy import (
     UniversityModel, get_all_universities,
-    register_university, get_university_stats
+    register_university, get_university_stats, get_university_details
 )
 from agents.agent_orchestrator import AgentOrchestrator
 
@@ -224,6 +224,13 @@ def onboard_university(uni: UniversityModel):
 @app.get("/api/universities/{university_id}/stats")
 def university_stats(university_id: str):
     return get_university_stats(university_id)
+
+@app.get("/api/universities/{university_id}/details")
+def university_details(university_id: str):
+    details = get_university_details(university_id)
+    if "error" in details:
+        raise HTTPException(status_code=404, detail=details["error"])
+    return details
 
 
 # ============================================================

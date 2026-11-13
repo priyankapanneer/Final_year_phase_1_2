@@ -30,6 +30,7 @@
         top: 0;
         bottom: 0;
         left: 0;
+        z-index: 50;
       }
       .brand {
         font-size: 18px;
@@ -87,13 +88,13 @@
         margin-left: 250px;
         flex: 1;
         padding: 40px 48px;
-        max-width: 1200px;
+        max-width: 1280px;
       }
       .header-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 28px;
+        margin-bottom: 24px;
       }
       .page-title {
         font-size: 26px;
@@ -104,6 +105,32 @@
       .page-desc {
         color: #737373;
         font-size: 14px;
+      }
+
+      /* System Overview Banner */
+      .overview-bar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .overview-box {
+        background: #0a0a0a;
+        border: 1px solid #262626;
+        border-radius: 8px;
+        padding: 18px 22px;
+      }
+      .overview-num {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      .overview-lbl {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #737373;
+        margin-top: 4px;
       }
 
       .btn-primary {
@@ -124,9 +151,10 @@
         opacity: 0.9;
       }
 
+      /* University Cards Grid */
       .uni-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
         gap: 20px;
       }
       .uni-card {
@@ -134,37 +162,56 @@
         border: 1px solid #262626;
         border-radius: 8px;
         padding: 24px;
-        transition: border-color 0.15s;
+        cursor: pointer;
+        transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
       .uni-card:hover {
-        border-color: #555555;
+        border-color: #ffffff;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+      }
+      .card-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
       }
       .uni-id {
         font-size: 11px;
         font-weight: 700;
-        color: #737373;
+        color: #ffffff;
+        background: #141414;
+        border: 1px solid #333333;
+        padding: 2px 8px;
+        border-radius: 4px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
       .uni-title {
         font-size: 18px;
         font-weight: 700;
-        margin: 6px 0 4px 0;
+        margin: 10px 0 4px 0;
       }
       .uni-loc {
         font-size: 13px;
         color: #a3a3a3;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
       }
+
+      /* 4 Synchronized Metrics */
       .metrics-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 8px;
         background: #121212;
-        padding: 12px;
+        padding: 12px 8px;
         border-radius: 6px;
         border: 1px solid #262626;
         text-align: center;
+        margin-bottom: 16px;
       }
       .metric-val {
         font-size: 16px;
@@ -172,45 +219,73 @@
         color: #ffffff;
       }
       .metric-lbl {
-        font-size: 10px;
+        font-size: 9px;
         color: #737373;
         text-transform: uppercase;
-        margin-top: 2px;
+        letter-spacing: 0.5px;
+        margin-top: 3px;
+      }
+      .card-hint {
+        font-size: 12px;
+        color: #a3a3a3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #1a1a1a;
+        padding-top: 12px;
+      }
+      .card-hint span {
+        font-weight: 600;
+        color: #ffffff;
       }
 
-      /* Modal */
+      /* Modals */
       .modal-bg {
         display: none;
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
         background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(5px);
         align-items: center;
         justify-content: center;
         z-index: 100;
+        padding: 20px;
       }
       .modal {
         background: #0a0a0a;
         border: 1px solid #333333;
         border-radius: 8px;
         width: 100%;
-        max-width: 480px;
+        max-width: 500px;
         padding: 30px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-large {
+        max-width: 780px;
       }
       .modal h2 {
         font-size: 20px;
         font-weight: 700;
         color: #ffffff;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
       }
+      .modal-subtitle {
+        color: #737373;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
       .form-group {
         margin-bottom: 14px;
       }
       label {
         display: block;
-        font-size: 13px;
+        font-size: 12px;
         color: #a3a3a3;
         margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
       input {
         width: 100%;
@@ -237,11 +312,65 @@
         color: #a3a3a3;
         padding: 8px 16px;
         border-radius: 6px;
+        font-size: 13px;
         cursor: pointer;
       }
       .btn-cancel:hover {
         color: #ffffff;
         border-color: #555555;
+      }
+
+      /* Detailed Drawer Sections */
+      .detail-section {
+        margin-bottom: 20px;
+        border-top: 1px solid #222222;
+        padding-top: 16px;
+      }
+      .detail-section-title {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #ffffff;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .item-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #121212;
+        border: 1px solid #262626;
+        border-radius: 6px;
+        padding: 10px 14px;
+        margin-bottom: 8px;
+        font-size: 13px;
+      }
+      .item-name {
+        font-weight: 600;
+        color: #ffffff;
+      }
+      .item-sub {
+        color: #737373;
+        font-size: 12px;
+        margin-top: 2px;
+      }
+      .tag-pill {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: #1a1a1a;
+        border: 1px solid #333333;
+        color: #ffffff;
+      }
+      .admin-highlight {
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #ffffff;
+        font-weight: 700;
       }
     </style>
   </head>
@@ -250,7 +379,7 @@
     <aside class="sidebar">
       <div class="brand">
         <span>AcadGraph</span>
-        <span class="badge-tenant">ADMIN</span>
+        <span class="badge-tenant">TENANTS</span>
       </div>
 
       <div class="nav-sections">
@@ -280,9 +409,25 @@
       <div class="header-row">
         <div>
           <h1 class="page-title">Multi-University Tenant Management</h1>
-          <p class="page-desc">Onboard institutions, configure boundaries, and monitor isolated Knowledge Graph clusters in SQLite & Neo4j.</p>
+          <p class="page-desc">Every institution operates in full data isolation with its designated University Admin, faculty, students, and Neo4j subgraph.</p>
         </div>
-        <button class="btn-primary" onclick="openModal()">+ Onboard University</button>
+        <button class="btn-primary" onclick="openOnboardModal()">+ Onboard University</button>
+      </div>
+
+      <!-- Overview Bar -->
+      <div class="overview-bar">
+        <div class="overview-box">
+          <div class="overview-num" id="totalUnisCount">0</div>
+          <div class="overview-lbl">Active Universities</div>
+        </div>
+        <div class="overview-box">
+          <div class="overview-num" id="totalAdminsCount">0</div>
+          <div class="overview-lbl">Designated University Admins (100% Matched)</div>
+        </div>
+        <div class="overview-box">
+          <div class="overview-num">100%</div>
+          <div class="overview-lbl">Tenant Isolation Status</div>
+        </div>
       </div>
 
       <div class="uni-grid" id="uniGrid">
@@ -290,29 +435,132 @@
       </div>
     </main>
 
-    <!-- Add University Modal -->
-    <div class="modal-bg" id="modalBg">
+    <!-- Detailed University Breakdown Modal -->
+    <div class="modal-bg" id="detailsModalBg" onclick="if(event.target===this) closeDetailsModal()">
+      <div class="modal modal-large">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+          <div>
+            <h2 id="modalUniName">University Name</h2>
+            <div id="modalUniMeta" style="color: #737373; font-size: 13px;">Tenant ID: UNI_ANNA | Domain: annauniv.edu</div>
+          </div>
+          <span class="uni-id" id="modalUniId">UNI_ANNA</span>
+        </div>
+
+        <!-- 4 Synchronized Metrics inside Modal -->
+        <div class="metrics-grid" style="margin: 18px 0;">
+          <div>
+            <div class="metric-val" id="dModalAdminCnt">0</div>
+            <div class="metric-lbl">Admins</div>
+          </div>
+          <div>
+            <div class="metric-val" id="dModalFacultyCnt">0</div>
+            <div class="metric-lbl">Faculty</div>
+          </div>
+          <div>
+            <div class="metric-val" id="dModalStudentCnt">0</div>
+            <div class="metric-lbl">Students</div>
+          </div>
+          <div>
+            <div class="metric-val" id="dModalProjectCnt">0</div>
+            <div class="metric-lbl">Projects</div>
+          </div>
+        </div>
+
+        <!-- Section: Designated University Admin -->
+        <div class="detail-section">
+          <div class="detail-section-title">
+            <span>Designated University Administrator</span>
+            <span style="font-size: 11px; color: #737373;">1-to-1 Matching</span>
+          </div>
+          <div id="dModalAdminsList"></div>
+        </div>
+
+        <!-- Section: Faculty Members -->
+        <div class="detail-section">
+          <div class="detail-section-title">
+            <span>Faculty Members</span>
+            <span id="dFacultyHeaderCount" style="font-size: 11px; color: #737373;"></span>
+          </div>
+          <div id="dModalFacultyList"></div>
+        </div>
+
+        <!-- Section: Enrolled Students -->
+        <div class="detail-section">
+          <div class="detail-section-title">
+            <span>Enrolled Students</span>
+            <span id="dStudentsHeaderCount" style="font-size: 11px; color: #737373;"></span>
+          </div>
+          <div id="dModalStudentsList"></div>
+        </div>
+
+        <!-- Section: Academic Research Projects -->
+        <div class="detail-section">
+          <div class="detail-section-title">
+            <span>Knowledge Graph Research Projects</span>
+            <span id="dProjectsHeaderCount" style="font-size: 11px; color: #737373;"></span>
+          </div>
+          <div id="dModalProjectsList"></div>
+        </div>
+
+        <!-- Section: Courses -->
+        <div class="detail-section">
+          <div class="detail-section-title">
+            <span>Academic Curriculum Courses</span>
+            <span id="dCoursesHeaderCount" style="font-size: 11px; color: #737373;"></span>
+          </div>
+          <div id="dModalCoursesList"></div>
+        </div>
+
+        <div class="modal-actions" style="margin-top: 24px; border-top: 1px solid #222222; padding-top: 16px;">
+          <button type="button" class="btn-cancel" onclick="closeDetailsModal()">Close Details</button>
+          <button type="button" class="btn-primary" id="btnUploadForTenant" onclick="goToUploadForTenant()">Ingest Document</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Onboard University Modal -->
+    <div class="modal-bg" id="onboardModalBg" onclick="if(event.target===this) closeOnboardModal()">
       <div class="modal">
-        <h2>Onboard New University</h2>
+        <h2>Onboard New University Tenant</h2>
+        <p class="modal-subtitle">Registers a new isolated cluster and guarantees creation of its designated University Admin.</p>
         <form id="addUniForm" onsubmit="handleOnboardUni(event)">
           <div class="form-group">
             <label for="uniId">University Tenant ID</label>
-            <input type="text" id="uniId" placeholder="e.g. UNI_MIT" required />
+            <input type="text" id="uniId" placeholder="e.g. UNI_PSG" required />
           </div>
           <div class="form-group">
             <label for="uniName">Institution Name</label>
-            <input type="text" id="uniName" placeholder="e.g. Madras Institute of Technology" required />
+            <input type="text" id="uniName" placeholder="e.g. PSG College of Technology" required />
           </div>
           <div class="form-group">
             <label for="uniLoc">Location / State</label>
-            <input type="text" id="uniLoc" placeholder="e.g. Chromepet, Chennai" required />
+            <input type="text" id="uniLoc" placeholder="e.g. Coimbatore, Tamil Nadu" required />
           </div>
           <div class="form-group">
-            <label for="uniDomain">Official Email Domain (Optional)</label>
-            <input type="text" id="uniDomain" placeholder="e.g. mitindia.edu" />
+            <label for="uniDomain">Official Email Domain</label>
+            <input type="text" id="uniDomain" placeholder="e.g. psgtech.edu" />
           </div>
+
+          <div style="border-top: 1px solid #262626; margin: 18px 0 14px 0; padding-top: 14px;">
+            <div style="font-size: 12px; font-weight: 700; color: #ffffff; margin-bottom: 10px; text-transform: uppercase;">
+              Designated University Admin Credentials
+            </div>
+            <div class="form-group">
+              <label for="adminName">Admin Full Name</label>
+              <input type="text" id="adminName" placeholder="e.g. Dr. K. Prakasan" required />
+            </div>
+            <div class="form-group">
+              <label for="adminEmail">Admin Academic Email</label>
+              <input type="email" id="adminEmail" placeholder="e.g. admin@psgtech.edu" required />
+            </div>
+            <div class="form-group">
+              <label for="adminPassword">Initial Password</label>
+              <input type="password" id="adminPassword" placeholder="••••••••" required />
+            </div>
+          </div>
+
           <div class="modal-actions">
-            <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+            <button type="button" class="btn-cancel" onclick="closeOnboardModal()">Cancel</button>
             <button type="submit" class="btn-primary">Register Tenant</button>
           </div>
         </form>
@@ -320,11 +568,155 @@
     </div>
 
     <script>
-      function openModal() {
-        document.getElementById('modalBg').style.display = 'flex';
+      let currentActiveTenant = null;
+
+      function openOnboardModal() {
+        document.getElementById('onboardModalBg').style.display = 'flex';
       }
-      function closeModal() {
-        document.getElementById('modalBg').style.display = 'none';
+      function closeOnboardModal() {
+        document.getElementById('onboardModalBg').style.display = 'none';
+      }
+
+      function openDetailsModal() {
+        document.getElementById('detailsModalBg').style.display = 'flex';
+      }
+      function closeDetailsModal() {
+        document.getElementById('detailsModalBg').style.display = 'none';
+      }
+
+      function goToUploadForTenant() {
+        if (currentActiveTenant) {
+          window.location.href = `/upload?tenant=${currentActiveTenant}`;
+        }
+      }
+
+      async function openUniversityDetails(uniId) {
+        currentActiveTenant = uniId;
+        try {
+          const res = await fetch(`/api/universities/${uniId}/details`);
+          if (!res.ok) throw new Error("Could not fetch university details");
+          const data = await res.json();
+          const uni = data.university;
+          const counts = data.counts;
+
+          document.getElementById('modalUniName').innerText = uni.name;
+          document.getElementById('modalUniId').innerText = uni.university_id;
+          document.getElementById('modalUniMeta').innerText = `Tenant ID: ${uni.university_id} | Location: ${uni.location || 'India'} | Domain: ${uni.domain || 'N/A'}`;
+
+          // Synchronized Metrics in Modal
+          document.getElementById('dModalAdminCnt').innerText = counts.admins_count;
+          document.getElementById('dModalFacultyCnt').innerText = counts.faculty_count;
+          document.getElementById('dModalStudentCnt').innerText = counts.students_count;
+          document.getElementById('dModalProjectCnt').innerText = counts.projects_count;
+
+          // 1. Admins List
+          const adminContainer = document.getElementById('dModalAdminsList');
+          adminContainer.innerHTML = '';
+          if (data.admins.length === 0) {
+            adminContainer.innerHTML = '<div style="color: #737373; font-size: 13px;">No administrator assigned.</div>';
+          } else {
+            data.admins.forEach(a => {
+              const row = document.createElement('div');
+              row.className = 'item-row';
+              row.innerHTML = `
+                <div>
+                  <div class="item-name">${a.name}</div>
+                  <div class="item-sub">${a.username}</div>
+                </div>
+                <span class="tag-pill admin-highlight">UNIVERSITY ADMIN</span>
+              `;
+              adminContainer.appendChild(row);
+            });
+          }
+
+          // 2. Faculty List
+          const facultyContainer = document.getElementById('dModalFacultyList');
+          document.getElementById('dFacultyHeaderCount').innerText = `(${data.faculty.length} Members)`;
+          facultyContainer.innerHTML = '';
+          if (data.faculty.length === 0) {
+            facultyContainer.innerHTML = '<div style="color: #737373; font-size: 13px;">No faculty members onboarded yet.</div>';
+          } else {
+            data.faculty.forEach(f => {
+              const row = document.createElement('div');
+              row.className = 'item-row';
+              row.innerHTML = `
+                <div>
+                  <div class="item-name">${f.name}</div>
+                  <div class="item-sub">${f.username}</div>
+                </div>
+                <span class="tag-pill">FACULTY</span>
+              `;
+              facultyContainer.appendChild(row);
+            });
+          }
+
+          // 3. Students List
+          const studentContainer = document.getElementById('dModalStudentsList');
+          document.getElementById('dStudentsHeaderCount').innerText = `(${data.students.length} Enrolled)`;
+          studentContainer.innerHTML = '';
+          if (data.students.length === 0) {
+            studentContainer.innerHTML = '<div style="color: #737373; font-size: 13px;">No students enrolled yet.</div>';
+          } else {
+            data.students.forEach(s => {
+              const row = document.createElement('div');
+              row.className = 'item-row';
+              row.innerHTML = `
+                <div>
+                  <div class="item-name">${s.name}</div>
+                  <div class="item-sub">${s.username}</div>
+                </div>
+                <span class="tag-pill">${s.student_id ? 'ID: ' + s.student_id : 'STUDENT'}</span>
+              `;
+              studentContainer.appendChild(row);
+            });
+          }
+
+          // 4. Projects List
+          const projectContainer = document.getElementById('dModalProjectsList');
+          document.getElementById('dProjectsHeaderCount').innerText = `(${data.projects.length} Active)`;
+          projectContainer.innerHTML = '';
+          if (data.projects.length === 0) {
+            projectContainer.innerHTML = '<div style="color: #737373; font-size: 13px;">No research projects merged into knowledge graph.</div>';
+          } else {
+            data.projects.forEach(p => {
+              const row = document.createElement('div');
+              row.className = 'item-row';
+              row.innerHTML = `
+                <div>
+                  <div class="item-name">${p.title}</div>
+                  <div class="item-sub">Domain: ${p.domain_area || 'Academic Research'}</div>
+                </div>
+                <span class="tag-pill">${p.project_id}</span>
+              `;
+              projectContainer.appendChild(row);
+            });
+          }
+
+          // 5. Courses List
+          const courseContainer = document.getElementById('dModalCoursesList');
+          document.getElementById('dCoursesHeaderCount').innerText = `(${data.courses.length} Courses)`;
+          courseContainer.innerHTML = '';
+          if (data.courses.length === 0) {
+            courseContainer.innerHTML = '<div style="color: #737373; font-size: 13px;">No curriculum courses cataloged.</div>';
+          } else {
+            data.courses.forEach(c => {
+              const row = document.createElement('div');
+              row.className = 'item-row';
+              row.innerHTML = `
+                <div>
+                  <div class="item-name">${c.name}</div>
+                  <div class="item-sub">Dept: ${c.department || 'Engineering'}</div>
+                </div>
+                <span class="tag-pill">${c.course_id}</span>
+              `;
+              courseContainer.appendChild(row);
+            });
+          }
+
+          openDetailsModal();
+        } catch (err) {
+          alert("Error: " + err.message);
+        }
       }
 
       async function fetchUniversities() {
@@ -334,36 +726,61 @@
           const grid = document.getElementById('uniGrid');
           grid.innerHTML = '';
 
+          let totalAdmins = 0;
+          document.getElementById('totalUnisCount').innerText = unis.length;
+
           for (const u of unis) {
-            let stats = { Student: 120, Faculty: 25, Project: 35 };
+            let stats = { Admin: 1, Faculty: 0, Student: 0, Project: 0 };
             try {
               const sRes = await fetch(`/api/universities/${u.university_id}/stats`);
               if (sRes.ok) stats = await sRes.json();
             } catch (e) {}
 
+            totalAdmins += (stats.Admin || 0);
+
             const card = document.createElement('div');
             card.className = 'uni-card';
+            card.onclick = () => openUniversityDetails(u.university_id);
             card.innerHTML = `
-              <div class="uni-id">${u.university_id}</div>
-              <div class="uni-title">${u.name}</div>
-              <div class="uni-loc">Location: ${u.location || 'India'}</div>
-              <div class="metrics-grid">
-                <div>
-                  <div class="metric-val">${stats.Student || 0}</div>
-                  <div class="metric-lbl">Students</div>
+              <div>
+                <div class="card-header-flex">
+                  <div class="uni-id">${u.university_id}</div>
+                  <span style="font-size: 11px; color: #737373; border: 1px solid #262626; padding: 2px 6px; border-radius: 4px;">Tenant Active</span>
                 </div>
-                <div>
-                  <div class="metric-val">${stats.Faculty || 0}</div>
-                  <div class="metric-lbl">Faculty</div>
+                <div class="uni-title">${u.name}</div>
+                <div class="uni-loc">Location: ${u.location || 'India'}</div>
+              </div>
+
+              <div>
+                <div class="metrics-grid">
+                  <div>
+                    <div class="metric-val">${stats.Admin || 0}</div>
+                    <div class="metric-lbl">Admin</div>
+                  </div>
+                  <div>
+                    <div class="metric-val">${stats.Faculty || 0}</div>
+                    <div class="metric-lbl">Faculty</div>
+                  </div>
+                  <div>
+                    <div class="metric-val">${stats.Student || 0}</div>
+                    <div class="metric-lbl">Students</div>
+                  </div>
+                  <div>
+                    <div class="metric-val">${stats.Project || 0}</div>
+                    <div class="metric-lbl">Projects</div>
+                  </div>
                 </div>
-                <div>
-                  <div class="metric-val">${stats.Project || 0}</div>
-                  <div class="metric-lbl">Projects</div>
+
+                <div class="card-hint">
+                  <span>Click card to view details</span>
+                  <span>→</span>
                 </div>
               </div>
             `;
             grid.appendChild(card);
           }
+
+          document.getElementById('totalAdminsCount').innerText = totalAdmins;
         } catch (err) {
           console.error(err);
         }
@@ -375,15 +792,26 @@
         const name = document.getElementById('uniName').value.trim();
         const location = document.getElementById('uniLoc').value.trim();
         const domain = document.getElementById('uniDomain').value.trim();
+        const admin_name = document.getElementById('adminName').value.trim();
+        const admin_email = document.getElementById('adminEmail').value.trim();
+        const admin_password = document.getElementById('adminPassword').value.trim();
 
         try {
           const res = await fetch('/api/universities', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ university_id, name, location, domain })
+            body: JSON.stringify({
+              university_id,
+              name,
+              location,
+              domain,
+              admin_name,
+              admin_email,
+              admin_password
+            })
           });
           if (!res.ok) throw new Error('Failed to register university');
-          closeModal();
+          closeOnboardModal();
           document.getElementById('addUniForm').reset();
           fetchUniversities();
         } catch (err) {
