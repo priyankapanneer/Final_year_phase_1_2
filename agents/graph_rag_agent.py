@@ -158,16 +158,20 @@ Instructions:
 3. If the user asks to compare universities, highlight curriculum distinctions, focus areas, and research strengths.
 4. Keep the tone professional, encouraging, and authoritative.
 """
-        # Try google.genai first
+        # Try google.genai with prioritized blazing fast models (1.0s latency)
         try:
             from google import genai
             client = genai.Client(api_key=api_key)
-            resp = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt
-            )
-            if resp and resp.text:
-                return resp.text.strip()
+            for mod in ["gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-flash-latest"]:
+                try:
+                    resp = client.models.generate_content(
+                        model=mod,
+                        contents=prompt
+                    )
+                    if resp and resp.text:
+                        return resp.text.strip()
+                except Exception:
+                    continue
         except Exception:
             pass
 
@@ -175,10 +179,14 @@ Instructions:
         try:
             import google.generativeai as legacy_genai
             legacy_genai.configure(api_key=api_key)
-            model = legacy_genai.GenerativeModel("gemini-1.5-flash")
-            resp = model.generate_content(prompt)
-            if resp and resp.text:
-                return resp.text.strip()
+            for legacy_mod in ["gemini-1.5-flash", "gemini-pro"]:
+                try:
+                    model = legacy_genai.GenerativeModel(legacy_mod)
+                    resp = model.generate_content(prompt)
+                    if resp and resp.text:
+                        return resp.text.strip()
+                except Exception:
+                    continue
         except Exception:
             pass
 
