@@ -201,15 +201,40 @@ def get_demo_users():
 # ============================================================
 
 @app.get("/api/admin/users", response_model=List[UserResponse])
-def get_users_list(university_id: Optional[str] = None):
+def get_users_list(
+    university_id: Optional[str] = None,
+    current_user: UserResponse = Depends(require_roles(["SUPER_ADMIN", "UNIVERSITY_ADMIN", "FACULTY"]))
+):
+    # Enforce multi-tenant boundaries: non-super admins are scoped to their own university
+    if current_user.role != "SUPER_ADMIN" and current_user.university_id != "ALL":
+        university_id = current_user.university_id
     return list_all_users(university_id)
 
 @app.post("/api/admin/users", response_model=UserResponse)
-def create_new_user(req: CreateUserRequest):
+def create_new_user(
+    req: CreateUserRequest,
+    current_user: UserResponse = Depends(require_roles(["SUPER_ADMIN", "UNIVERSITY_ADMIN"]))
+):
+    # Prevent cross-tenant user creation by university admins
+    if current_user.role != "SUPER_ADMIN" and req.university_id != current_user.university_id:
+        raise HTTPException(
+            status_code=403,
+            detail=f"Cross-tenant violation: Cannot create user in '{req.university_id}'. You belong to '{current_user.university_id}'."
+        )
     return add_user_record(req)
 
 @app.delete("/api/admin/users/{username}")
-def delete_user(username: str):
+def delete_user(
+    username: str,
+    current_user: UserResponse = Depends(require_roles(["SUPER_ADMIN", "UNIVERSITY_ADMIN"]))
+):
+    target_user = get_user_from_db(username)
+    if target_user and current_user.role != "SUPER_ADMIN":
+        if target_user.get("university_id") != current_user.university_id:
+            raise HTTPException(
+                status_code=403,
+                detail=f"Cross-tenant violation: Cannot delete user from tenant '{target_user.get('university_id')}'."
+            )
     delete_user_record(username)
     return {"status": "success", "message": f"User {username} deleted"}
 
@@ -223,7 +248,10 @@ def list_universities():
     return get_all_universities()
 
 @app.post("/api/universities")
-def onboard_university(uni: UniversityModel):
+def onboard_university(
+    uni: UniversityModel,
+    current_user: UserResponse = Depends(require_roles(["SUPER_ADMIN", "UNIVERSITY_ADMIN"]))
+):
     return register_university(uni)
 
 @app.get("/api/universities/{university_id}/stats")
@@ -413,27 +441,15 @@ def chat_copilot(req: ChatMessageRequest):
 def get_recommendations(student_id: str):
     try:
         result = recommend_projects(student_id, 5)
-        if "data" not in result or not result["data"].get("values"):
-            return {
-                "student": student_id,
-                "recommendations": [
-                    {"project_id": "P001", "project_name": "AI-Based Smart Campus Project", "match_score": 0.94},
-                    {"project_id": "P002", "project_name": "Deep Learning Biomedical Imaging", "match_score": 0.88},
-                    {"project_id": "P003", "project_name": "Graph Neural Networks for Drug Discovery", "match_score": 0.82}
-                ]
-            }
-
-        fields = result["data"]["fields"]
-        values = result["data"]["values"]
-        recommendations = [dict(zip(fields, row)) for row in values]
-
-        return {"student": student_id, "recommendations": recommendations}
+        if isinstance(result, dict) and "recommendations" in result:
+            return result
+        return {"student": student_id, "recommendations": result}
     except Exception as e:
         return {
             "student": student_id,
             "recommendations": [
-                {"project_id": "P001", "project_name": "AI-Based Smart Campus Project", "match_score": 0.95},
-                {"project_id": "P002", "project_name": "Autonomous Drone Fleet Management", "match_score": 0.89}
+                {"project_id": "P001", "project_name": "AI-Based Smart Campus Energy Optimization", "match_score": 0.95, "reason": "Skill match in Python and Neural Networks."},
+                {"project_id": "P002", "project_name": "Autonomous Drone Fleet Telemetry", "match_score": 0.89, "reason": "Complementary domain experience."}
             ],
             "note": f"Fallback: {str(e)}"
         }
@@ -442,24 +458,16 @@ def get_recommendations(student_id: str):
 def get_knowledge_gaps():
     try:
         gaps = detect_knowledge_gaps(10)
-        if not gaps:
-            return {
-                "total_gaps": 3,
-                "knowledge_gaps": [
-                    {"skill": "Quantum Computing", "demand_score": 8.5, "status": "Critical Gap"},
-                    {"skill": "ROS Robotics", "demand_score": 7.8, "status": "Moderate Gap"},
-                    {"skill": "MLOps & Kubernetes", "demand_score": 9.1, "status": "High Demand"}
-                ]
-            }
         return {"total_gaps": len(gaps), "knowledge_gaps": gaps}
-    except Exception:
+    except Exception as e:
         return {
             "total_gaps": 3,
             "knowledge_gaps": [
-                {"skill": "Quantum Computing", "demand_score": 8.5, "status": "Critical Gap"},
-                {"skill": "ROS Robotics", "demand_score": 7.8, "status": "Moderate Gap"},
-                {"skill": "MLOps & Kubernetes", "demand_score": 9.1, "status": "High Demand"}
-            ]
+                {"skill": "Quantum Computing", "coverage_percentage": 4.0, "gap_severity": 96.0, "affected_projects": 18, "status": "Critical Gap"},
+                {"skill": "ROS Robotics & SLAM", "coverage_percentage": 9.3, "gap_severity": 90.7, "affected_projects": 14, "status": "Critical Gap"},
+                {"skill": "MLOps & Kubernetes", "coverage_percentage": 11.6, "gap_severity": 88.4, "affected_projects": 22, "status": "High Demand"}
+            ],
+            "note": str(e)
         }
 
 @app.get("/temporal-insights")

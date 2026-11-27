@@ -259,7 +259,7 @@
                 ${p.course_evidence_score ? `<span class="tag-item">Course Evidence: ${p.course_evidence_score}</span>` : ''}
               </div>
               <div class="score-box">Confidence Score: ${p.match_score || p.recommendation_score || 0.92}</div>
-              <div class="reason-box">${p.recommendation_reason || 'Recommended based on high student skill overlap and faculty research affinity in Knowledge Graph.'}</div>
+              <div class="reason-box">${p.recommendation_reason || p.reason || 'Recommended based on high student skill overlap and faculty research affinity in Knowledge Graph.'}</div>
             `;
             area.appendChild(div);
           });

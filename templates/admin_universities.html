@@ -462,6 +462,13 @@
     <script>
       let currentActiveTenant = null;
 
+      function getAuthHeaders() {
+        const headers = { 'Content-Type': 'application/json' };
+        const token = localStorage.getItem('acadgraph_token');
+        if (token) headers['Authorization'] = 'Bearer ' + token;
+        return headers;
+      }
+
       function openOnboardModal() {
         document.getElementById('onboardModalBg').style.display = 'flex';
       }
@@ -691,7 +698,7 @@
         try {
           const res = await fetch('/api/universities', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: getAuthHeaders(),
             body: JSON.stringify({
               university_id,
               name,

@@ -10,8 +10,8 @@ def get_connection():
     return conn
 
 def hash_password(plain_password: str) -> str:
-    salt = "acadgraph_salt_v1"
-    return hashlib.sha256((plain_password + salt).encode('utf-8')).hexdigest()
+    salt = b"acadgraph_secure_salt_2026"
+    return "pbkdf2$" + hashlib.pbkdf2_hmac("sha256", plain_password.encode('utf-8'), salt, 100000).hex()
 
 def init_db():
     """

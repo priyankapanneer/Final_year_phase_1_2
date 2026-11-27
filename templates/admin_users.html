@@ -369,6 +369,13 @@
     <script>
       let allUsersCache = [];
 
+      function getAuthHeaders() {
+        const headers = { 'Content-Type': 'application/json' };
+        const token = localStorage.getItem('acadgraph_token');
+        if (token) headers['Authorization'] = 'Bearer ' + token;
+        return headers;
+      }
+
       function openModal() {
         document.getElementById('modalBg').style.display = 'flex';
       }
@@ -378,7 +385,11 @@
 
       async function fetchUsers() {
         try {
-          const res = await fetch('/api/admin/users');
+          const res = await fetch('/api/admin/users', { headers: getAuthHeaders() });
+          if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.detail || 'Failed to fetch users');
+          }
           allUsersCache = await res.json();
 
           const totalUsers = allUsersCache.length;
@@ -448,7 +459,7 @@
         try {
           const res = await fetch('/api/admin/users', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: getAuthHeaders(),
             body: JSON.stringify({ name, username, password, role, university_id })
           });
           if (!res.ok) {
@@ -466,7 +477,10 @@
       async function deleteUser(username) {
         if (!confirm(`Are you sure you want to remove user '${username}'?`)) return;
         try {
-          const res = await fetch(`/api/admin/users/${encodeURIComponent(username)}`, { method: 'DELETE' });
+          const res = await fetch(`/api/admin/users/${encodeURIComponent(username)}`, {
+            method: 'DELETE',
+            headers: getAuthHeaders()
+          });
           if (!res.ok) throw new Error('Failed to delete user');
           fetchUsers();
         } catch (err) {

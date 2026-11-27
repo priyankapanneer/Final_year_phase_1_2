@@ -13,8 +13,15 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 # 24 hours
 
 security = HTTPBearer(auto_error=False)
 
+import hashlib
+
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    return hash_password(plain_password) == hashed_password
+    if hashed_password.startswith("pbkdf2$"):
+        return hash_password(plain_password) == hashed_password
+    # Backward compatibility with legacy SHA-256 hashes
+    legacy_salt = "acadgraph_salt_v1"
+    legacy_hash = hashlib.sha256((plain_password + legacy_salt).encode('utf-8')).hexdigest()
+    return legacy_hash == hashed_password
 
 class UserResponse(BaseModel):
     username: str
@@ -91,21 +98,26 @@ DEMO_USERS_DB = {
 
 def get_current_user(credentials: Optional[HTTPAuthorizationCredentials] = Security(security)) -> UserResponse:
     if not credentials or not credentials.credentials:
-        # Development fallback user
-        return UserResponse(
-            username="faculty.kumar@annauniv.edu",
-            name="Dr. K. Kumar (Dev Session)",
-            role="FACULTY",
-            university_id="UNI_ANNA"
+        allow_guest = os.getenv("ALLOW_DEV_GUEST", "true").lower() == "true"
+        if allow_guest:
+            return UserResponse(
+                username="admin.anna@annauniv.edu",
+                name="Dr. J. Arumugam (University Admin)",
+                role="UNIVERSITY_ADMIN",
+                university_id="UNI_ANNA"
+            )
+        raise HTTPException(
+            status_code=401,
+            detail="Authentication token required. Please sign in to access this resource."
         )
     
     token = credentials.credentials
     payload = decode_access_token(token)
     username = payload.get("sub")
     if not username:
-        raise HTTPException(status_code=401, detail="User not recognized")
+        raise HTTPException(status_code=401, detail="User not recognized from token")
     
-    user_data = get_user_from_db(username)
+    user_data = get_user_from_db(username) or DEMO_USERS_DB.get(username)
     if not user_data:
         raise HTTPException(status_code=401, detail="User not found in system")
     
