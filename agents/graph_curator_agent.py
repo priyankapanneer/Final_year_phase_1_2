@@ -4,9 +4,26 @@ from core.neo4j_client import run_cypher, MOCK_GRAPH_STORE
 class GraphCuratorAgent:
     """
     Knowledge Graph Curator & Ingestion Agent.
-    Validates extracted triplets, ensures multi-tenant tagging, and executes 
-    safe Cypher MERGE operations into Neo4j.
+    Validates extracted triplets, ensures multi-tenant tagging, whitelists Cypher elements,
+    and executes safe Cypher MERGE operations into Neo4j while persisting to SQLite.
     """
+
+    ALLOWED_LABELS = {
+        "STUDENT": "Student",
+        "FACULTY": "Faculty",
+        "COURSE": "Course",
+        "PROJECT": "Project",
+        "SKILL": "Skill",
+        "TOPIC": "Topic",
+        "UNIVERSITY": "University",
+        "DEPARTMENT": "Department"
+    }
+
+    ALLOWED_RELATIONS = {
+        "WORKS_ON", "TEACHES", "SUPERVISES", "REQUIRES_SKILL", 
+        "HAS_SKILL", "ENROLLED_IN", "OFFERED_BY", "HOSTED_BY", 
+        "AFFILIATED_WITH", "RELATED_TO"
+    }
 
     @classmethod
     def sanitize_id(cls, text: str) -> str:
@@ -20,6 +37,7 @@ class GraphCuratorAgent:
     def commit_triplets_to_neo4j(cls, triplets: list[dict], university_id: str) -> dict:
         """
         Executes Cypher MERGE commands for each triplet with strict tenant scoping.
+        Persists to both Neo4j and SQLite for multi-tenant offline persistence.
         """
         created_nodes = 0
         created_relationships = 0
@@ -33,12 +51,55 @@ class GraphCuratorAgent:
         """
         run_cypher(uni_query, {"uid": university_id})
 
+        # 2. SQLite Persistent Synchronization
+        try:
+            from core.database import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+            for trip in triplets:
+                s_name = str(trip["source"]).strip()
+                t_name = str(trip["target"]).strip()
+                s_lbl = cls.ALLOWED_LABELS.get(trip.get("source_label", "").upper(), "Entity")
+                t_lbl = cls.ALLOWED_LABELS.get(trip.get("target_label", "").upper(), "Entity")
+                s_uid = cls.sanitize_id(s_name)
+                t_uid = cls.sanitize_id(t_name)
+
+                if s_lbl == "Project":
+                    cur.execute("""
+                        INSERT OR IGNORE INTO tenant_projects (university_id, project_id, title, domain_area, status)
+                        VALUES (?, ?, ?, 'Academic Proposal', 'Active')
+                    """, (university_id, s_uid, s_name))
+                if t_lbl == "Project":
+                    cur.execute("""
+                        INSERT OR IGNORE INTO tenant_projects (university_id, project_id, title, domain_area, status)
+                        VALUES (?, ?, ?, 'Academic Proposal', 'Active')
+                    """, (university_id, t_uid, t_name))
+
+                if s_lbl == "Course":
+                    cur.execute("""
+                        INSERT OR IGNORE INTO tenant_courses (university_id, course_id, name, department, credits)
+                        VALUES (?, ?, ?, 'Computer Science', 3)
+                    """, (university_id, s_uid, s_name))
+                if t_lbl == "Course":
+                    cur.execute("""
+                        INSERT OR IGNORE INTO tenant_courses (university_id, course_id, name, department, credits)
+                        VALUES (?, ?, ?, 'Computer Science', 3)
+                    """, (university_id, t_uid, t_name))
+            conn.commit()
+            conn.close()
+        except Exception as db_err:
+            print(f"[GraphCurator SQLite Sync Notice]: {db_err}")
+
+        # 3. Cypher Graph Ingestion with Strict Whitelisting
         for trip in triplets:
             source = trip["source"]
-            s_label = trip["source_label"]
-            relation = trip["relation"]
             target = trip["target"]
-            t_label = trip["target_label"]
+
+            # Strict Whitelist Validation
+            s_label = cls.ALLOWED_LABELS.get(trip.get("source_label", "").upper(), "Entity")
+            t_label = cls.ALLOWED_LABELS.get(trip.get("target_label", "").upper(), "Entity")
+            raw_rel = re.sub(r'[^a-zA-Z0-9_]', '_', trip.get("relation", "").upper())
+            relation = raw_rel if raw_rel in cls.ALLOWED_RELATIONS else "RELATED_TO"
 
             s_id = cls.sanitize_id(source)
             t_id = cls.sanitize_id(target)

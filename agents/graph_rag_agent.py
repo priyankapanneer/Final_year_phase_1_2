@@ -93,9 +93,10 @@ class GraphRAGAgent:
         }
 
     @classmethod
-    def get_graph_context_summary(cls, uid: str) -> dict:
+    def get_graph_context_summary(cls, uid: str, query_text: str = "") -> dict:
         """
-        Fetches structured academic context from persistent SQLite & Neo4j stores.
+        Dynamically fetches and ranks structured academic subgraph context from persistent
+        SQLite, CSV corpora, and Neo4j based on user query keywords.
         """
         context = {
             "universities": [],
@@ -105,24 +106,21 @@ class GraphRAGAgent:
             "tenant_id": uid
         }
 
+        # 1. Fetch from SQLite
         try:
             from core.database import get_connection
             conn = get_connection()
             cursor = conn.cursor()
 
-            # Universities
             cursor.execute("SELECT university_id, name, location FROM universities")
             context["universities"] = [dict(r) for r in cursor.fetchall()]
 
-            # Courses
             cursor.execute("SELECT university_id, course_id, name, department FROM tenant_courses")
             context["courses"] = [dict(r) for r in cursor.fetchall()]
 
-            # Projects
             cursor.execute("SELECT university_id, project_id, title, domain_area FROM tenant_projects")
             context["projects"] = [dict(r) for r in cursor.fetchall()]
 
-            # Faculty
             cursor.execute("SELECT university_id, name, username FROM users WHERE role = 'FACULTY'")
             context["faculty"] = [dict(r) for r in cursor.fetchall()]
 
@@ -130,33 +128,117 @@ class GraphRAGAgent:
         except Exception:
             pass
 
+        # 2. Enrich from Curated Datasets (projects.csv, skills.csv, project_skills.csv)
+        try:
+            import pandas as pd
+            skills_map = {}
+            if os.path.exists("dataset/skills.csv"):
+                sdf = pd.read_csv("dataset/skills.csv")
+                skills_map = dict(zip(sdf["skill_id"], sdf["skill_name"]))
+
+            proj_skills = {}
+            if os.path.exists("dataset/project_skills.csv"):
+                ps_df = pd.read_csv("dataset/project_skills.csv")
+                for _, r in ps_df.iterrows():
+                    p, s = str(r["project_id"]), str(r["skill_id"])
+                    s_name = skills_map.get(s, s)
+                    proj_skills.setdefault(p, []).append(s_name)
+
+            if os.path.exists("dataset/projects.csv"):
+                pdf = pd.read_csv("dataset/projects.csv")
+                for _, r in pdf.iterrows():
+                    pid = str(r["project_id"])
+                    # Check if already in context
+                    if not any(p.get("project_id") == pid for p in context["projects"]):
+                        s_list = proj_skills.get(pid, ["Python", "Engineering"])
+                        context["projects"].append({
+                            "university_id": uid,
+                            "project_id": pid,
+                            "title": str(r.get("project_name", pid)),
+                            "domain_area": str(r.get("domain", "Research")),
+                            "skills": s_list[:4]
+                        })
+
+            if os.path.exists("dataset/courses.csv"):
+                cdf = pd.read_csv("dataset/courses.csv")
+                for _, r in cdf.iterrows():
+                    cid = str(r["course_id"])
+                    if not any(c.get("course_id") == cid for c in context["courses"]):
+                        context["courses"].append({
+                            "university_id": uid,
+                            "course_id": cid,
+                            "name": str(r.get("course_name", cid)),
+                            "department": str(r.get("department", "Engineering"))
+                        })
+        except Exception as e:
+            print(f"[GraphRAG Context Load Notice]: {e}")
+
+        # 3. Dynamic Subgraph Relevance Ranking
+        clean_q = query_text.lower().strip()
+        tokens = [t for t in re.split(r'[^a-zA-Z0-9]', clean_q) if len(t) > 2]
+
+        if tokens:
+            def project_relevance(p):
+                score = 0
+                txt = f"{p.get('project_id', '')} {p.get('title', '')} {p.get('domain_area', '')} {' '.join(p.get('skills', []))}".lower()
+                for tok in tokens:
+                    if tok in txt:
+                        score += 3
+                return score
+
+            def course_relevance(c):
+                score = 0
+                txt = f"{c.get('course_id', '')} {c.get('name', '')} {c.get('department', '')}".lower()
+                for tok in tokens:
+                    if tok in txt:
+                        score += 3
+                return score
+
+            context["projects"].sort(key=project_relevance, reverse=True)
+            context["courses"].sort(key=course_relevance, reverse=True)
+
         return context
 
     @classmethod
     def synthesize_with_gemini(cls, user_text: str, user: UserResponse, context: dict) -> str:
         """
-        Leverages Gemini Generative AI to produce natural language graph-grounded answers.
+        Leverages Gemini Generative AI to produce natural language graph-grounded answers
+        using dynamic query-relevant subgraphs.
         """
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not api_key:
             return None
 
+        # Format prioritized projects with skill dependencies
+        p_lines = []
+        for p in context['projects'][:12]:
+            skills_str = f" [Required Skills: {', '.join(p.get('skills', []))}]" if p.get('skills') else ""
+            p_lines.append(f"• {p['title']} ({p.get('project_id', '')}) - Domain: {p.get('domain_area', 'General')}{skills_str}")
+
+        c_lines = [f"• {c['name']} ({c.get('course_id', '')}) - Dept: {c.get('department', 'CS')}" for c in context['courses'][:10]]
+        f_lines = [f"• {f['name']} ({f.get('university_id', '')})" for f in context['faculty'][:8]]
+        u_lines = [f"{u['name']} ({u['university_id']})" for u in context['universities']]
+
         prompt = f"""You are AcadGraph AI, an enterprise-grade academic advisor & knowledge graph copilot for Indian engineering universities.
 Current User: {user.name} (Role: {user.role}, University: {user.university_id})
 
-Knowledge Graph Grounding Context:
-- Active Universities: {', '.join([f"{u['name']} ({u['university_id']})" for u in context['universities']])}
-- Sample Courses Cataloged: {', '.join([f"{c['name']} ({c['course_id']} - {c['university_id']})" for c in context['courses'][:8]])}
-- Active Research Projects: {', '.join([f"{p['title']} [{p['domain_area']}] ({p['university_id']})" for p in context['projects'][:8]])}
-- Key Faculty Members: {', '.join([f"{f['name']} ({f['university_id']})" for f in context['faculty'][:6]])}
+Dynamic Knowledge Graph Grounding Context (Prioritized for this query):
+- Active Universities: {', '.join(u_lines)}
+- Targeted Research Projects & Required Skills:
+{chr(10).join(p_lines)}
+- Curated Curriculum Courses:
+{chr(10).join(c_lines)}
+- Designated Faculty Mentors:
+{chr(10).join(f_lines)}
 
-User Question: {user_text}
+User Inquiry: {user_text}
 
 Instructions:
-1. Provide an executive, concise, and helpful response grounded in the academic knowledge graph context.
-2. Use markdown formatting with bullet points and bold highlights.
-3. If the user asks to compare universities, highlight curriculum distinctions, focus areas, and research strengths.
-4. Keep the tone professional, encouraging, and authoritative.
+1. Provide an executive, concise, and helpful response strictly grounded in the knowledge graph context above.
+2. If asked about a project, highlight the domain and required skills.
+3. If asked for recommendations or comparisons, refer to specific faculty, projects, or courses from the graph.
+4. Use clear markdown formatting with bold headings and bullet points.
+5. Keep the tone professional, encouraging, and authoritative.
 """
         # Try google.genai with prioritized blazing fast models (1.0s latency)
         try:
@@ -200,7 +282,7 @@ Instructions:
         """
         uid = user.university_id if user.university_id != "ALL" else "UNI_ANNA"
         lower = user_text.lower().strip()
-        context = cls.get_graph_context_summary(uid)
+        context = cls.get_graph_context_summary(uid, user_text)
 
         # 1. Attempt Gemini Generative AI Synthesis
         llm_reply = cls.synthesize_with_gemini(user_text, user, context)

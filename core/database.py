@@ -1,6 +1,7 @@
 import sqlite3
 import os
 import hashlib
+import secrets
 
 DB_FILE = os.path.join("core", "acadgraph.db")
 
@@ -9,9 +10,20 @@ def get_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-def hash_password(plain_password: str) -> str:
-    salt = b"acadgraph_secure_salt_2026"
-    return "pbkdf2$" + hashlib.pbkdf2_hmac("sha256", plain_password.encode('utf-8'), salt, 100000).hex()
+def hash_password(plain_password: str, salt_hex: str = None) -> str:
+    """
+    Cryptographic password hashing using PBKDF2-HMAC-SHA256 with 100,000 iterations
+    and a unique per-user 16-byte cryptographically secure salt.
+    Format: pbkdf2$100000$<salt_hex>$<derived_key_hex>
+    """
+    if not salt_hex:
+        salt_bytes = secrets.token_bytes(16)
+        salt_hex = salt_bytes.hex()
+    else:
+        salt_bytes = bytes.fromhex(salt_hex)
+
+    dk = hashlib.pbkdf2_hmac("sha256", plain_password.encode('utf-8'), salt_bytes, 100000).hex()
+    return f"pbkdf2$100000${salt_hex}${dk}"
 
 def init_db():
     """

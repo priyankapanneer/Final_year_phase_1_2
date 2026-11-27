@@ -1,0 +1,34 @@
+# ==============================================================================
+# AcadGraph: Agentic AI-Driven Multi-Tenant Academic Knowledge Graph Platform
+# Pinned Dependencies for Python 3.10+ / 3.11+ / 3.12+
+# ==============================================================================
+
+# Web Framework & API Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+requests>=2.31.0
+
+# Graph Database & Bolt Protocol
+neo4j>=5.15.0
+
+# Generative AI & GraphRAG Synthesis
+google-genai>=2.18.0
+
+# Academic NLP, NER & Transformers
+torch>=2.1.0
+transformers>=4.35.0
+seqeval>=1.2.2
+
+# Data Science, Machine Learning & Analytics
+pandas>=2.0.0
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Security, Authentication & Environment
+pyjwt>=2.8.0
+python-dotenv>=1.0.0
+
+# Document Ingestion & Parsing (PDF, Word, Text)
+pypdf>=4.0.0
+python-docx>=1.0.0

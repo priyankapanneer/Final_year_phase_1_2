@@ -293,42 +293,55 @@ def resolve_uploader_user(
         except Exception:
             pass
 
-    # 2. Explicit Username Check
-    if not user_record and requested_username:
-        user_record = get_user_from_db(requested_username) or DEMO_USERS_DB.get(requested_username)
-
-    # 3. User Role & Isolation Evaluation
-    if user_record:
-        if user_record.get("role") == "SUPER_ADMIN":
-            return UserResponse(
-                username=user_record["username"],
-                name=user_record["name"],
-                role="SUPER_ADMIN",
-                university_id="ALL"
-            )
-        if user_record.get("university_id") == target_university_id:
-            return UserResponse(
-                username=user_record["username"],
-                name=user_record["name"],
-                role=user_record["role"],
-                university_id=user_record["university_id"],
-                student_id=user_record.get("student_id")
-            )
-        # Studio multi-tenant delegation for administrative and faculty operators
-        if user_record.get("role") in ["UNIVERSITY_ADMIN", "FACULTY", "ADMIN"]:
-            return UserResponse(
-                username=user_record["username"],
-                name=f"{user_record['name']} (Tenant Operator)",
-                role="UNIVERSITY_ADMIN",
-                university_id=target_university_id
+    # 2. Check Dev Guest Fallback
+    allow_guest = os.getenv("ALLOW_DEV_GUEST", "true").lower() == "true"
+    if not user_record:
+        if allow_guest and requested_username:
+            user_record = get_user_from_db(requested_username) or DEMO_USERS_DB.get(requested_username)
+        elif not allow_guest:
+            raise HTTPException(
+                status_code=401,
+                detail="Authentication required. Please provide a valid Bearer token to ingest documents."
             )
 
-    # 4. Fallback: Authorized Tenant Officer for selected university
+    # 3. If still no record, assign default faculty persona in dev guest mode
+    if not user_record:
+        if allow_guest:
+            default_faculty = {
+                "UNI_ANNA": "faculty.kumar@annauniv.edu",
+                "UNI_IITM": "admin@iitm.ac.in",
+                "UNI_SRM": "admin.anna@annauniv.edu",
+                "UNI_MIT": "admin.anna@annauniv.edu"
+            }
+            def_user = default_faculty.get(target_university_id, "faculty.kumar@annauniv.edu")
+            user_record = get_user_from_db(def_user) or DEMO_USERS_DB.get(def_user)
+        else:
+            raise HTTPException(
+                status_code=401,
+                detail="Authentication credentials missing. Document ingestion requires active sign-in."
+            )
+
+    # 4. Enforce RBAC: Students cannot mutate graph
+    if user_record.get("role") == "STUDENT":
+        raise HTTPException(
+            status_code=403,
+            detail="Forbidden: Students do not possess permission to mutate the Academic Knowledge Graph. Contact your Faculty Mentor."
+        )
+
+    # 5. Enforce Tenant Isolation for non-Super Admins
+    if user_record.get("role") != "SUPER_ADMIN" and user_record.get("university_id") != "ALL":
+        if user_record.get("university_id") != target_university_id:
+            raise HTTPException(
+                status_code=403,
+                detail=f"Cross-tenant violation: User belongs to '{user_record.get('university_id')}' and cannot upload to '{target_university_id}'."
+            )
+
     return UserResponse(
-        username=f"officer.{target_university_id.lower()}@acadgraph.io",
-        name=f"{target_university_id} Ingestion Officer",
-        role="UNIVERSITY_ADMIN",
-        university_id=target_university_id
+        username=user_record["username"],
+        name=user_record["name"],
+        role=user_record["role"],
+        university_id=user_record["university_id"],
+        student_id=user_record.get("student_id")
     )
 
 @app.post("/api/upload-document")
@@ -415,13 +428,39 @@ class ChatMessageRequest(BaseModel):
     username: Optional[str] = "faculty.kumar@annauniv.edu"
 
 @app.post("/api/chat")
-def chat_copilot(req: ChatMessageRequest):
-    user_record = get_user_from_db(req.username) or DEMO_USERS_DB.get(req.username) or {
-        "username": req.username or "faculty.kumar@annauniv.edu",
-        "name": "Faculty Member",
-        "role": "FACULTY",
-        "university_id": "UNI_ANNA"
-    }
+def chat_copilot(req: ChatMessageRequest, authorization: Optional[str] = Header(None)):
+    user_record = None
+
+    # 1. Bearer Token Verification
+    if authorization and isinstance(authorization, str) and authorization.startswith("Bearer "):
+        token = authorization.split(" ")[1].strip()
+        try:
+            payload = decode_access_token(token)
+            uname = payload.get("sub") or payload.get("username")
+            if uname:
+                user_record = get_user_from_db(uname) or DEMO_USERS_DB.get(uname)
+        except Exception:
+            pass
+
+    # 2. Check Dev Guest Fallback
+    allow_guest = os.getenv("ALLOW_DEV_GUEST", "true").lower() == "true"
+    if not user_record:
+        if allow_guest and req.username:
+            user_record = get_user_from_db(req.username) or DEMO_USERS_DB.get(req.username)
+        elif not allow_guest:
+            raise HTTPException(
+                status_code=401,
+                detail="Authentication required. Please sign in to converse with the GraphRAG Copilot."
+            )
+
+    if not user_record:
+        user_record = {
+            "username": "faculty.kumar@annauniv.edu",
+            "name": "Dr. K. Kumar",
+            "role": "FACULTY",
+            "university_id": "UNI_ANNA"
+        }
+
     user = UserResponse(
         username=user_record["username"],
         name=user_record["name"],

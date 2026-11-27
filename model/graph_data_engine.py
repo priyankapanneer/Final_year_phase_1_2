@@ -142,7 +142,7 @@ def build_full_knowledge_graph():
     except Exception as e:
         print(f"[Graph Build DB Error]: {e}")
 
-    # 5. Core Academic Skills
+    # 5. Core Academic Skills (Database & CSV Ingestion)
     skills = [
         ("SK_PY", "Python", "Programming"),
         ("SK_ML", "Machine Learning", "AI"),
@@ -167,6 +167,172 @@ def build_full_knowledge_graph():
             "nodeType": "Skill",
             "properties": {"domain": domain}
         }
+
+    # Ingest Full Skills from CSV
+    try:
+        import pandas as pd
+        if os.path.exists("dataset/skills.csv"):
+            skills_df = pd.read_csv("dataset/skills.csv")
+            for _, r in skills_df.iterrows():
+                sid = str(r["skill_id"])
+                sname = str(r["skill_name"])
+                cat = str(r.get("category", "Technology"))
+                nodes[sid] = {
+                    "id": sid,
+                    "label": "Skill",
+                    "name": sname,
+                    "display_name": sname,
+                    "businessId": sid,
+                    "nodeType": "Skill",
+                    "properties": {"category": cat, "domain": cat}
+                }
+    except Exception as e:
+        print(f"[Skills CSV Load Notice]: {e}")
+
+    # Ingest Projects from CSV
+    uni_keys = ["UNI_ANNA", "UNI_IITM", "UNI_SRM", "UNI_MIT"]
+    try:
+        import pandas as pd
+        if os.path.exists("dataset/projects.csv"):
+            proj_df = pd.read_csv("dataset/projects.csv")
+            for i, r in proj_df.iterrows():
+                pid = str(r["project_id"])
+                if pid not in nodes:
+                    assigned_uni = uni_keys[i % len(uni_keys)]
+                    pname = str(r.get("project_name", pid))
+                    nodes[pid] = {
+                        "id": pid,
+                        "label": "Project",
+                        "name": pname,
+                        "display_name": pname,
+                        "businessId": pid,
+                        "nodeType": "Project",
+                        "university_id": assigned_uni,
+                        "properties": {
+                            "domain_area": str(r.get("domain", "General Engineering")),
+                            "status": str(r.get("status", "Active")),
+                            "university_id": assigned_uni
+                        }
+                    }
+                    if assigned_uni in nodes:
+                        relationships.append({
+                            "source": pid,
+                            "target": assigned_uni,
+                            "type": "HOSTED_BY"
+                        })
+    except Exception as e:
+        print(f"[Projects CSV Load Notice]: {e}")
+
+    # Ingest Courses from CSV
+    try:
+        import pandas as pd
+        if os.path.exists("dataset/courses.csv"):
+            courses_df = pd.read_csv("dataset/courses.csv")
+            for i, r in courses_df.iterrows():
+                cid = str(r["course_id"])
+                if cid not in nodes:
+                    assigned_uni = uni_keys[i % len(uni_keys)]
+                    cname = str(r.get("course_name", cid))
+                    nodes[cid] = {
+                        "id": cid,
+                        "label": "Course",
+                        "name": cname,
+                        "display_name": cname,
+                        "businessId": cid,
+                        "nodeType": "Course",
+                        "university_id": assigned_uni,
+                        "properties": {
+                            "department": str(r.get("department", "Computer Science")),
+                            "credits": int(r.get("credits", 3)),
+                            "university_id": assigned_uni
+                        }
+                    }
+                    if assigned_uni in nodes:
+                        relationships.append({
+                            "source": cid,
+                            "target": assigned_uni,
+                            "type": "OFFERED_BY"
+                        })
+    except Exception as e:
+        print(f"[Courses CSV Load Notice]: {e}")
+
+    # Ingest Faculty from CSV
+    try:
+        import pandas as pd
+        if os.path.exists("dataset/faculty.csv"):
+            fac_df = pd.read_csv("dataset/faculty.csv")
+            for i, r in fac_df.iterrows():
+                fid = str(r["faculty_id"])
+                if fid not in nodes:
+                    assigned_uni = uni_keys[i % len(uni_keys)]
+                    fname = str(r.get("faculty_name", fid))
+                    nodes[fid] = {
+                        "id": fid,
+                        "label": "Faculty",
+                        "name": fname,
+                        "display_name": fname,
+                        "businessId": fid,
+                        "nodeType": "Faculty",
+                        "university_id": assigned_uni,
+                        "properties": {
+                            "department": str(r.get("department", "Engineering")),
+                            "designation": str(r.get("designation", "Professor")),
+                            "university_id": assigned_uni
+                        }
+                    }
+                    if assigned_uni in nodes:
+                        relationships.append({
+                            "source": fid,
+                            "target": assigned_uni,
+                            "type": "AFFILIATED_WITH"
+                        })
+    except Exception as e:
+        print(f"[Faculty CSV Load Notice]: {e}")
+
+    # Ingest Inter-Entity Relationships from CSVs
+    try:
+        import pandas as pd
+        # 1. Project - Skill requirements
+        if os.path.exists("dataset/project_skills.csv"):
+            ps_df = pd.read_csv("dataset/project_skills.csv")
+            for _, r in ps_df.iterrows():
+                p, s = str(r["project_id"]), str(r["skill_id"])
+                if p in nodes and s in nodes:
+                    relationships.append({"source": p, "target": s, "type": "REQUIRES_SKILL"})
+
+        # 2. Faculty Supervises Project
+        if os.path.exists("dataset/supervises.csv"):
+            sup_df = pd.read_csv("dataset/supervises.csv")
+            for _, r in sup_df.iterrows():
+                f, p = str(r["faculty_id"]), str(r["project_id"])
+                if f in nodes and p in nodes:
+                    relationships.append({"source": f, "target": p, "type": "SUPERVISES"})
+
+        # 3. Faculty Teaches Course
+        if os.path.exists("dataset/teaches.csv"):
+            tch_df = pd.read_csv("dataset/teaches.csv")
+            for _, r in tch_df.iterrows():
+                f, c = str(r["faculty_id"]), str(r["course_id"])
+                if f in nodes and c in nodes:
+                    relationships.append({"source": f, "target": c, "type": "TEACHES"})
+
+        # 4. Student Works On Project (Sample for visual density)
+        if os.path.exists("dataset/works_on.csv"):
+            wo_df = pd.read_csv("dataset/works_on.csv")
+            for _, r in wo_df.head(120).iterrows():
+                s, p = str(r["student_id"]), str(r["project_id"])
+                if s in nodes and p in nodes:
+                    relationships.append({"source": s, "target": p, "type": "WORKS_ON"})
+
+        # 5. Student Skills (Sample for visual density)
+        if os.path.exists("dataset/student_skills.csv"):
+            ss_df = pd.read_csv("dataset/student_skills.csv")
+            for _, r in ss_df.head(120).iterrows():
+                s, sk = str(r["student_id"]), str(r["skill_id"])
+                if s in nodes and sk in nodes:
+                    relationships.append({"source": s, "target": sk, "type": "HAS_SKILL"})
+    except Exception as e:
+        print(f"[Rel CSV Load Notice]: {e}")
 
     # 6. Inter-Entity Academic Semantic Relationships
     # (Student -> Project, Faculty -> Project, Faculty -> Course, Project -> Skill, Course -> Skill, Student -> Skill)
@@ -284,7 +450,7 @@ def build_full_knowledge_graph():
 # GET GENERAL GRAPH DATA
 # ============================================================
 
-def get_graph_data(limit=150):
+def get_graph_data(limit=300):
     """
     Returns general knowledge graph dataset for visualizer.
     """
@@ -346,7 +512,7 @@ def get_graph_data(limit=150):
     nodes_map, relationships = build_full_knowledge_graph()
     return {
         "nodes": list(nodes_map.values())[:limit],
-        "relationships": relationships[:limit * 2]
+        "relationships": relationships[:limit * 4]
     }
 
 

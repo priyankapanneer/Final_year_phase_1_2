@@ -17,8 +17,24 @@ import hashlib
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     if hashed_password.startswith("pbkdf2$"):
-        return hash_password(plain_password) == hashed_password
-    # Backward compatibility with legacy SHA-256 hashes
+        parts = hashed_password.split("$")
+        # 1. New Dynamic Per-User Salt: pbkdf2$100000$<salt_hex>$<hash>
+        if len(parts) == 4:
+            try:
+                iters = int(parts[1])
+                salt_bytes = bytes.fromhex(parts[2])
+                expected = parts[3]
+                computed = hashlib.pbkdf2_hmac("sha256", plain_password.encode('utf-8'), salt_bytes, iters).hex()
+                return computed == expected
+            except Exception:
+                return False
+        # 2. Previous Static Salt: pbkdf2$<hash>
+        elif len(parts) == 2:
+            static_salt = b"acadgraph_secure_salt_2026"
+            computed = hashlib.pbkdf2_hmac("sha256", plain_password.encode('utf-8'), static_salt, 100000).hex()
+            return computed == parts[1]
+
+    # 3. Backward compatibility with legacy SHA-256 hashes
     legacy_salt = "acadgraph_salt_v1"
     legacy_hash = hashlib.sha256((plain_password + legacy_salt).encode('utf-8')).hexdigest()
     return legacy_hash == hashed_password
