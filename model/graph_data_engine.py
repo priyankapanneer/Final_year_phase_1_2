@@ -249,6 +249,34 @@ def build_full_knowledge_graph():
                 "type": rel
             })
 
+    # 7. Dynamically Ingested Entities from Document Ingestion Agents
+    try:
+        from core.neo4j_client import MOCK_GRAPH_STORE
+        for n in MOCK_GRAPH_STORE.get("nodes", []):
+            nid = n.get("id")
+            if nid and nid not in nodes:
+                nodes[nid] = {
+                    "id": nid,
+                    "label": n.get("label", "Entity"),
+                    "name": n.get("name", nid),
+                    "display_name": n.get("name", nid),
+                    "businessId": nid,
+                    "nodeType": n.get("label", "Entity"),
+                    "university_id": n.get("university_id", "GLOBAL"),
+                    "properties": {"name": n.get("name", nid), "university_id": n.get("university_id")}
+                }
+        for r in MOCK_GRAPH_STORE.get("relationships", []):
+            s = r.get("source")
+            t = r.get("target")
+            if s in nodes and t in nodes:
+                relationships.append({
+                    "source": s,
+                    "target": t,
+                    "type": r.get("type", "RELATED_TO")
+                })
+    except Exception as e:
+        print(f"[Dynamic Graph Integration Notice]: {e}")
+
     return nodes, relationships
 
 

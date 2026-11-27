@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Form
+from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Form, Header
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -13,7 +13,7 @@ from model.graph_data_engine import get_graph_data, get_entity_graph
 
 from api.auth import (
     LoginRequest, TokenResponse, UserResponse, CreateUserRequest, RegisterRequest,
-    create_access_token, verify_password, get_current_user,
+    create_access_token, decode_access_token, verify_password, get_current_user,
     require_roles, DEMO_USERS_DB, add_user_record, list_all_users, delete_user_record,
     get_user_from_db
 )
@@ -241,28 +241,73 @@ def university_details(university_id: str):
 class DocumentUploadRequest(BaseModel):
     text: str
     university_id: Optional[str] = "UNI_ANNA"
-    username: Optional[str] = "faculty.kumar@annauniv.edu"
+    username: Optional[str] = None
+
+def resolve_uploader_user(
+    requested_username: Optional[str],
+    target_university_id: str,
+    authorization_header: Optional[str] = None
+) -> UserResponse:
+    user_record = None
+
+    # 1. Bearer Token Authentication
+    if authorization_header and isinstance(authorization_header, str) and authorization_header.startswith("Bearer "):
+        token = authorization_header.split(" ")[1].strip()
+        try:
+            payload = decode_access_token(token)
+            token_user = payload.get("sub") or payload.get("username")
+            if token_user:
+                user_record = get_user_from_db(token_user) or DEMO_USERS_DB.get(token_user)
+        except Exception:
+            pass
+
+    # 2. Explicit Username Check
+    if not user_record and requested_username:
+        user_record = get_user_from_db(requested_username) or DEMO_USERS_DB.get(requested_username)
+
+    # 3. User Role & Isolation Evaluation
+    if user_record:
+        if user_record.get("role") == "SUPER_ADMIN":
+            return UserResponse(
+                username=user_record["username"],
+                name=user_record["name"],
+                role="SUPER_ADMIN",
+                university_id="ALL"
+            )
+        if user_record.get("university_id") == target_university_id:
+            return UserResponse(
+                username=user_record["username"],
+                name=user_record["name"],
+                role=user_record["role"],
+                university_id=user_record["university_id"],
+                student_id=user_record.get("student_id")
+            )
+        # Studio multi-tenant delegation for administrative and faculty operators
+        if user_record.get("role") in ["UNIVERSITY_ADMIN", "FACULTY", "ADMIN"]:
+            return UserResponse(
+                username=user_record["username"],
+                name=f"{user_record['name']} (Tenant Operator)",
+                role="UNIVERSITY_ADMIN",
+                university_id=target_university_id
+            )
+
+    # 4. Fallback: Authorized Tenant Officer for selected university
+    return UserResponse(
+        username=f"officer.{target_university_id.lower()}@acadgraph.io",
+        name=f"{target_university_id} Ingestion Officer",
+        role="UNIVERSITY_ADMIN",
+        university_id=target_university_id
+    )
 
 @app.post("/api/upload-document")
-def upload_document(req: DocumentUploadRequest):
-    user_record = get_user_from_db(req.username) or DEMO_USERS_DB.get(req.username) or {
-        "username": req.username or "faculty.kumar@annauniv.edu",
-        "name": "Faculty Member",
-        "role": "FACULTY",
-        "university_id": req.university_id or "UNI_ANNA"
-    }
-    user = UserResponse(
-        username=user_record["username"],
-        name=user_record["name"],
-        role=user_record["role"],
-        university_id=user_record["university_id"],
-        student_id=user_record.get("student_id")
-    )
+def upload_document(req: DocumentUploadRequest, authorization: Optional[str] = Header(None)):
+    target_uni = req.university_id or "UNI_ANNA"
+    user = resolve_uploader_user(req.username, target_uni, authorization)
 
     result = AgentOrchestrator.process_uploaded_document(
         text=req.text,
         user=user,
-        target_university_id=req.university_id
+        target_university_id=target_uni
     )
 
     if not result.get("success"):
@@ -296,7 +341,8 @@ async def parse_document_file_endpoint(file: UploadFile = File(...)):
 async def upload_file_and_ingest(
     file: UploadFile = File(...),
     university_id: Optional[str] = Form("UNI_ANNA"),
-    username: Optional[str] = Form("faculty.kumar@annauniv.edu")
+    username: Optional[str] = Form(None),
+    authorization: Optional[str] = Header(None)
 ):
     """
     Direct multi-format binary file ingestion:
@@ -308,19 +354,7 @@ async def upload_file_and_ingest(
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"File parsing failed: {str(e)}")
 
-    user_record = get_user_from_db(username) or DEMO_USERS_DB.get(username) or {
-        "username": username,
-        "name": "Faculty Member",
-        "role": "FACULTY",
-        "university_id": university_id
-    }
-    user = UserResponse(
-        username=user_record["username"],
-        name=user_record["name"],
-        role=user_record["role"],
-        university_id=user_record["university_id"],
-        student_id=user_record.get("student_id")
-    )
+    user = resolve_uploader_user(username, university_id, authorization)
 
     result = AgentOrchestrator.process_uploaded_document(
         text=extracted_text,

@@ -11,7 +11,7 @@ class DocumentAgent:
     """
     Document Ingestion & Knowledge Extraction Agent.
     Transforms raw uploaded text/PDFs into structured academic entities and relations.
-    Features Canonical Entity Disambiguation and Fuzzy Deduplication.
+    Features Canonical Entity Disambiguation, Resume/CV Profiling, and Fuzzy Deduplication.
     """
     
     _tokenizer = None
@@ -24,7 +24,14 @@ class DocumentAgent:
         "Python", "PyTorch", "TensorFlow", "Neo4j", "Graph Database", "Machine Learning", 
         "Deep Learning", "Natural Language Processing", "NLP", "Computer Vision", 
         "Data Science", "SQL", "Cloud Computing", "AWS", "Docker", "Kubernetes", 
-        "Robotics", "ROS", "Cybersecurity", "Blockchain", "Quantum Computing", "React", "FastAPI"
+        "Robotics", "ROS", "Cybersecurity", "Blockchain", "Quantum Computing", "React", "FastAPI",
+        "Java", "C++", "C#", "C", "JavaScript", "TypeScript", "HTML", "CSS", "MySQL", 
+        "PostgreSQL", "MongoDB", "Redis", "Full Stack", "Front End", "Backend", 
+        "Software Engineering", "Artificial Intelligence", "AI", "Data Analytics", "Big Data",
+        "Hadoop", "Spark", "Git", "GitHub", "Linux", "Node.js", "Express", "Angular", 
+        "Vue", "Spring Boot", "Django", "Flask", "Microservices", "REST API", "DevOps", 
+        "CI/CD", "Agile", "Scrum", "OOP", "Object Oriented Programming", "Data Structures", 
+        "Algorithms", "IoT", "Internet of Things", "Autonomous Systems", "Bioinformatics"
     ]
 
     CANONICAL_SKILL_MAP = {
@@ -35,7 +42,15 @@ class DocumentAgent:
         "cv": "Computer Vision",
         "k8s": "Kubernetes",
         "graph db": "Neo4j",
-        "graph database": "Neo4j"
+        "graph database": "Neo4j",
+        "ai": "Artificial Intelligence",
+        "js": "JavaScript",
+        "ts": "TypeScript",
+        "ds": "Data Science",
+        "se": "Software Engineering",
+        "oop": "Object Oriented Programming",
+        "rest": "REST API",
+        "apis": "REST API"
     }
 
     @classmethod
@@ -49,7 +64,7 @@ class DocumentAgent:
             if os.path.exists(rel_model_path) and os.path.exists(vec_model_path):
                 cls._relation_model = joblib.load(rel_model_path)
                 cls._relation_vectorizer = joblib.load(vec_model_path)
-        except Exception as e:
+        except Exception:
             pass
 
         try:
@@ -86,7 +101,7 @@ class DocumentAgent:
             return clean.upper().replace(" ", "")
 
         if label == "STUDENT":
-            # Canonicalize S0001
+            # Canonicalize S0001 if ID format
             match = re.search(r'S\d{3,5}', clean, re.IGNORECASE)
             return match.group(0).upper() if match else clean
 
@@ -113,7 +128,7 @@ class DocumentAgent:
         return unique
 
     @classmethod
-    def chunk_text(cls, text: str, max_chunk_size: int = 500) -> list[str]:
+    def chunk_text(cls, text: str, max_chunk_size: int = 600) -> list[str]:
         sentences = re.split(r'(?<=[.!?\n]) +', text.strip())
         chunks = []
         current_chunk = []
@@ -140,10 +155,32 @@ class DocumentAgent:
         extracted = []
 
         # 1. Fast Rule-based & Ontology Matching (Sub-second response)
-        # Student pattern
+        # Student pattern (Student S0001, Student John Doe)
         student_matches = re.finditer(r'\b(S\d{3,5}|Student\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\b', text, re.IGNORECASE)
         for m in student_matches:
             extracted.append({"text": m.group(0), "label": "STUDENT"})
+
+        # Candidate / Resume Profile Name detection (e.g. "Priyanka Panneerselvam")
+        lines = [line.strip() for line in text.strip().split('\n') if line.strip()]
+        for line in lines[:6]:
+            m_prefix = re.match(r'^(?:Name|Candidate|Applicant|Author|Profile)\s*[:\-]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b', line, re.IGNORECASE)
+            if m_prefix:
+                extracted.append({"text": m_prefix.group(1).strip(), "label": "STUDENT"})
+                break
+            
+            # Line of 2 to 4 capitalized words at start of document
+            clean_line = re.sub(r'[,|•\-\(\)\d]', ' ', line).strip()
+            words = clean_line.split()
+            if 2 <= len(words) <= 4:
+                if all(w[0].isupper() for w in words if w):
+                    heading_keywords = {
+                        "resume", "curriculum", "vitae", "summary", "experience", "education", 
+                        "skills", "projects", "engineer", "associate", "developer", "student", 
+                        "undergraduate", "university", "institute", "college", "department"
+                    }
+                    if not any(w.lower() in heading_keywords for w in words):
+                        extracted.append({"text": " ".join(words), "label": "STUDENT"})
+                        break
 
         # Faculty pattern
         faculty_matches = re.finditer(r'\b(?:Dr\.|Prof\.|Professor)\s+[A-Z][a-z]+(?:\s+[A-Z]\.?)?(?:\s+[A-Z][a-z]+)?\b', text)
@@ -151,20 +188,21 @@ class DocumentAgent:
             extracted.append({"text": m.group(0), "label": "FACULTY"})
 
         # Course pattern
-        course_matches = re.finditer(r'\b(?:CS|IT|EC|EE|ME|AI|DS)\d{3,4}\b', text, re.IGNORECASE)
+        course_matches = re.finditer(r'\b(?:CS|IT|EC|EE|ME|AI|DS|SE)\d{3,4}\b', text, re.IGNORECASE)
         for m in course_matches:
             extracted.append({"text": m.group(0).upper(), "label": "COURSE"})
 
-        # Project pattern
-        project_matches = re.finditer(r'(?:[A-Z][\w\s-]{3,35}?(?:System|Project|Platform|Framework|Model|Pipeline|Detector|Analyzer|Application))', text)
+        # Project pattern (does not cross newlines)
+        project_matches = re.finditer(r'(?:[A-Z][A-Za-z0-9_\- ]{3,35}?(?:System|Project|Platform|Framework|Model|Pipeline|Detector|Analyzer|Application|Engine|Portal|Database))\b', text)
         for m in project_matches:
             p_text = m.group(0).strip()
-            if len(p_text) > 5 and not p_text.startswith("The ") and p_text not in ["Machine Learning", "Deep Learning"]:
+            if len(p_text) > 5 and not p_text.startswith("The ") and p_text not in ["Machine Learning", "Deep Learning", "Data Science"] and "Associate" not in p_text and "Engineer" not in p_text:
                 extracted.append({"text": p_text, "label": "PROJECT"})
 
-        # Skills
+        # Skills pattern matching against comprehensive academic & tech skills dictionary
         for skill in cls.COMMON_SKILLS:
-            if re.search(r'\b' + re.escape(skill) + r'\b', text, re.IGNORECASE):
+            pattern = r'\b' + re.escape(skill) + r'\b'
+            if re.search(pattern, text, re.IGNORECASE):
                 extracted.append({"text": skill, "label": "SKILL"})
 
         return cls.fuzzy_deduplicate(extracted)
@@ -188,7 +226,7 @@ class DocumentAgent:
             return "SUPERVISES"
         if any(w in lower for w in ["requires skill", "using", "built with", "skills required", "prerequisite"]):
             return "REQUIRES_SKILL"
-        if any(w in lower for w in ["has skill", "proficient in", "knows"]):
+        if any(w in lower for w in ["has skill", "proficient in", "knows", "skilled in"]):
             return "HAS_SKILL"
         if any(w in lower for w in ["enrolled in", "registered for", "taking course"]):
             return "ENROLLED_IN"
@@ -211,7 +249,24 @@ class DocumentAgent:
             projects = [e["text"] for e in entities if e["label"] == "PROJECT"]
             skills = [e["text"] for e in entities if e["label"] == "SKILL"]
 
-            # Student -> Project
+            # 1. Student -> Skill (Fundamental for Resumes, Student Profiles)
+            for s in students:
+                for sk in skills:
+                    triplets.append({
+                        "source": s, "source_label": "Student",
+                        "relation": "HAS_SKILL",
+                        "target": sk, "target_label": "Skill"
+                    })
+
+            # 2. Student -> University Tenant Affiliation
+            for s in students:
+                triplets.append({
+                    "source": s, "source_label": "Student",
+                    "relation": "AFFILIATED_WITH",
+                    "target": university_id, "target_label": "University"
+                })
+
+            # 3. Student -> Project
             for s in students:
                 for p in projects:
                     rel = cls.predict_relation(f"{s} is working on {p}")
@@ -221,7 +276,7 @@ class DocumentAgent:
                         "target": p, "target_label": "Project"
                     })
 
-            # Faculty -> Course
+            # 4. Faculty -> Course
             for f in faculties:
                 for c in courses:
                     rel = cls.predict_relation(f"{f} teaches {c}")
@@ -231,7 +286,7 @@ class DocumentAgent:
                         "target": c, "target_label": "Course"
                     })
 
-            # Faculty -> Project
+            # 5. Faculty -> Project
             for f in faculties:
                 for p in projects:
                     rel = cls.predict_relation(f"{f} supervises {p}")
@@ -241,13 +296,30 @@ class DocumentAgent:
                         "target": p, "target_label": "Project"
                     })
 
-            # Project -> Skill
+            # 6. Faculty -> University Tenant Affiliation
+            for f in faculties:
+                triplets.append({
+                    "source": f, "source_label": "Faculty",
+                    "relation": "AFFILIATED_WITH",
+                    "target": university_id, "target_label": "University"
+                })
+
+            # 7. Project -> Skill
             for p in projects:
                 for sk in skills:
                     rel = cls.predict_relation(f"Project {p} requires skill {sk}")
                     triplets.append({
                         "source": p, "source_label": "Project",
                         "relation": rel if rel != "RELATED_TO" else "REQUIRES_SKILL",
+                        "target": sk, "target_label": "Skill"
+                    })
+
+            # 8. Course -> Skill
+            for c in courses:
+                for sk in skills:
+                    triplets.append({
+                        "source": c, "source_label": "Course",
+                        "relation": "COVERS_SKILL",
                         "target": sk, "target_label": "Skill"
                     })
 

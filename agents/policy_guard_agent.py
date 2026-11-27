@@ -22,8 +22,8 @@ class PolicyGuardAgent:
         """
         Returns (is_authorized, reason)
         """
-        # Super admin has unrestricted access
-        if user.role == "SUPER_ADMIN":
+        # Super admin has unrestricted access across all tenants
+        if user.role == "SUPER_ADMIN" or user.university_id == "ALL":
             return True, "Authorized as Super Admin"
         
         # Check action role permissions
@@ -32,7 +32,7 @@ class PolicyGuardAgent:
             return False, f"Action '{action}' is not permitted for role '{user.role}'. Required: {allowed_roles}"
         
         # Check tenant isolation
-        if target_university_id and target_university_id != user.university_id:
+        if target_university_id and user.university_id != "ALL" and target_university_id != user.university_id:
             return False, f"Cross-tenant violation: User belongs to '{user.university_id}' but attempted access on '{target_university_id}'."
         
         return True, "Authorization granted"

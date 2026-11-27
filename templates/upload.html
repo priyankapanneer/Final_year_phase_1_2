@@ -275,6 +275,7 @@
       </div>
 
       <div class="card">
+        <div id="errorBanner" style="display: none; padding: 12px 16px; margin-bottom: 16px; background-color: #171717; border: 1px solid #525252; border-left: 4px solid #ffffff; border-radius: 4px; color: #ffffff; font-size: 13px;"></div>
         <form id="uploadForm" onsubmit="handleProcess(event)">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <div class="form-group">
@@ -302,6 +303,7 @@
               <span class="badge-sample" onclick="loadSample(1)">Sample 1: Student Project</span>
               <span class="badge-sample" onclick="loadSample(2)">Sample 2: Course & Faculty</span>
               <span class="badge-sample" onclick="loadSample(3)">Sample 3: Complex Syllabus</span>
+              <span class="badge-sample" onclick="loadSample(4)">Sample 4: Resume / Profile</span>
             </div>
           </div>
 
@@ -342,7 +344,8 @@
       const samples = {
         1: "Student S0001 is working on AI-Based Smart Campus Project using PyTorch and Neo4j. The project is supervised by Dr. Kumar.",
         2: "Dr. K. Kumar teaches CS101 Advanced Machine Learning. The course requires skills in Python and Linear Algebra. Student S0002 is enrolled in CS101.",
-        3: "Faculty Prof. Arul supervises Autonomous Drone Navigation Project. The system requires skills in Robotics, ROS, and Computer Vision. Student S0003 and Student S0004 are working on this project."
+        3: "Faculty Prof. Arul supervises Autonomous Drone Navigation Project. The system requires skills in Robotics, ROS, and Computer Vision. Student S0003 and Student S0004 are working on this project.",
+        4: "Priyanka Panneerselvam\nAssociate Software Engineer\nAI and Data Science undergraduate skilled in Java, Python, SQL, Machine Learning, Deep Learning, and Full Stack development."
       };
 
       function loadSample(num) {
@@ -367,8 +370,8 @@
           });
 
           if (!res.ok) {
-            const errData = await res.json();
-            throw new Error(errData.detail || 'Could not parse document file');
+            const errData = await res.json().catch(() => ({}));
+            throw new Error(errData.detail || errData.error || 'Could not parse document file');
           }
 
           const data = await res.json();
@@ -392,7 +395,7 @@
             };
             reader.readAsText(file);
           } else {
-            badge.innerHTML = `<span style="color: #ef4444;">✗ Parsing failed: ${err.message}</span>`;
+            badge.innerHTML = `<span style="color: #ffffff; background: #262626; padding: 2px 6px; border-radius: 4px;">✗ Parsing notice: ${err.message}</span>`;
           }
         }
       }
@@ -401,8 +404,12 @@
         e.preventDefault();
         const text = document.getElementById('docText').value.trim();
         const uni = document.getElementById('universitySelect').value;
+        const errBanner = document.getElementById('errorBanner');
+        errBanner.style.display = 'none';
+
         if (!text) {
-          alert('Please enter text or upload a file first.');
+          errBanner.innerHTML = '<strong>Validation Error:</strong> Please enter text or upload a document file first.';
+          errBanner.style.display = 'block';
           return;
         }
 
@@ -411,15 +418,32 @@
         btn.disabled = true;
         spinner.style.display = 'inline';
 
+        // Retrieve auth state from localStorage if present
+        const token = localStorage.getItem('acadgraph_token');
+        const userStr = localStorage.getItem('acadgraph_user');
+        let username = null;
+        if (userStr) {
+          try {
+            const u = JSON.parse(userStr);
+            username = u.username;
+          } catch(err) {}
+        }
+
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) {
+          headers['Authorization'] = 'Bearer ' + token;
+        }
+
         try {
           const response = await fetch('/api/upload-document', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text, university_id: uni })
+            headers: headers,
+            body: JSON.stringify({ text, university_id: uni, username })
           });
 
-          const data = await response.json();
-          if (data.success) {
+          const data = await response.json().catch(() => ({}));
+
+          if (response.ok && data.success) {
             document.getElementById('resultsArea').style.display = 'block';
             document.getElementById('chunksCount').innerText = data.extraction_stats.chunks;
             document.getElementById('entitiesCount').innerText = data.extraction_stats.entities_count;
@@ -446,11 +470,18 @@
                 tripContainer.appendChild(item);
               });
             }
+
+            // Scroll to results
+            document.getElementById('resultsArea').scrollIntoView({ behavior: 'smooth' });
           } else {
-            alert('Error: ' + (data.error || 'Failed to process document'));
+            const errMsg = data.detail || data.error || (typeof data === 'string' ? data : 'Failed to process document');
+            errBanner.innerHTML = `<strong>Processing Error:</strong> ${errMsg}`;
+            errBanner.style.display = 'block';
+            errBanner.scrollIntoView({ behavior: 'smooth' });
           }
         } catch (err) {
-          alert('Request failed: ' + err.message);
+          errBanner.innerHTML = `<strong>Request Failed:</strong> ${err.message}`;
+          errBanner.style.display = 'block';
         } finally {
           btn.disabled = false;
           spinner.style.display = 'none';
