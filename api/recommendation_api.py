@@ -22,6 +22,7 @@ from api.tenancy import (
     register_university, get_university_stats, get_university_details
 )
 from core.document_parser import parse_document_file
+from fastapi.staticfiles import StaticFiles
 from agents.agent_orchestrator import AgentOrchestrator
 
 
@@ -42,6 +43,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+if os.path.exists("static"):
+    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # ============================================================

@@ -3,304 +3,162 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Access Management | AcadGraph</title>
+    <title>User Access & RBAC | AcadGraph Enterprise</title>
+    <link rel="stylesheet" href="/static/css/premium.css" />
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      }
-      body {
-        background: #000000;
-        color: #ffffff;
-        display: flex;
-        min-height: 100vh;
-      }
-
-      /* Sidebar */
-      .sidebar {
-        width: 250px;
-        background: #0a0a0a;
-        border-right: 1px solid #262626;
-        display: flex;
-        flex-direction: column;
-        padding: 24px 16px;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 50;
-      }
-      .brand {
-        font-size: 18px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        padding: 0 12px 24px;
-        border-bottom: 1px solid #262626;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .badge-tenant {
-        font-size: 10px;
-        padding: 2px 6px;
-        border: 1px solid #404040;
-        border-radius: 4px;
-        color: #a3a3a3;
-      }
-      .nav-sections {
-        flex: 1;
-        overflow-y: auto;
-        padding: 18px 0;
-      }
-      .nav-group-title {
-        font-size: 10px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #737373;
-        padding: 12px 12px 6px;
-      }
-      .nav-link {
-        display: flex;
-        align-items: center;
-        padding: 9px 12px;
-        border-radius: 6px;
-        color: #a3a3a3;
-        text-decoration: none;
-        font-size: 13px;
-        margin-bottom: 2px;
-        transition: all 0.15s;
-      }
-      .nav-link:hover {
-        background: #171717;
-        color: #ffffff;
-      }
-      .nav-link.active {
-        background: #ffffff;
-        color: #000000;
-        font-weight: 600;
-      }
-
-      /* Main Canvas */
-      .main-wrapper {
-        margin-left: 250px;
-        flex: 1;
-        padding: 40px 48px;
-        max-width: 1280px;
-      }
-      .header-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 24px;
-      }
-      .page-title {
-        font-size: 26px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        margin-bottom: 6px;
-      }
-      .page-desc {
-        color: #737373;
-        font-size: 14px;
-      }
-
-      /* Stats Overview Bar */
-      .stats-overview {
+      .stats-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
+        gap: 16px;
         margin-bottom: 24px;
       }
-      .stat-card {
-        background: #0a0a0a;
-        border: 1px solid #262626;
-        border-radius: 8px;
-        padding: 16px 20px;
-      }
-      .stat-num {
-        font-size: 24px;
-        font-weight: 700;
-        color: #ffffff;
-      }
-      .stat-label {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #737373;
-        margin-top: 4px;
-      }
-
-      /* Filter & Controls */
       .filter-bar {
         display: flex;
         gap: 12px;
-        margin-bottom: 16px;
         align-items: center;
+        margin-bottom: 20px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-card);
+        padding: 12px 18px;
+        border-radius: var(--radius-md);
       }
-      .filter-select {
-        background: #0a0a0a;
-        border: 1px solid #262626;
-        color: #ffffff;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 13px;
-        outline: none;
+      .filter-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
       }
-      .filter-select:focus {
-        border-color: #ffffff;
-      }
-
-      .btn-primary {
-        background: #ffffff;
-        color: #000000;
-        border: 1px solid #ffffff;
-        padding: 10px 20px;
-        border-radius: 6px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: opacity 0.15s;
-      }
-      .btn-primary:hover {
-        opacity: 0.9;
-      }
-
-      .card {
-        background: #0a0a0a;
-        border: 1px solid #262626;
-        border-radius: 8px;
-        padding: 24px;
+      .table-card {
+        background: var(--bg-surface);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border-card);
+        border-radius: var(--radius-lg);
+        padding: 8px;
         overflow-x: auto;
+        box-shadow: var(--card-shadow);
       }
-
       table {
         width: 100%;
         border-collapse: collapse;
       }
       th {
         text-align: left;
-        color: #737373;
+        color: var(--text-muted);
         font-size: 11px;
-        padding: 12px 14px;
-        border-bottom: 1px solid #262626;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border-subtle);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.05em;
+        font-weight: 700;
       }
       td {
-        padding: 14px;
-        border-bottom: 1px solid #1a1a1a;
+        padding: 14px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         font-size: 13px;
-        color: #e5e5e5;
+        color: var(--text-primary);
+        vertical-align: middle;
       }
       tr:last-child td {
         border-bottom: none;
       }
-      .role-badge {
+      tr:hover td {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .role-pill {
+        font-family: var(--font-mono);
         font-size: 11px;
-        font-weight: 600;
+        font-weight: 700;
         padding: 3px 8px;
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         display: inline-block;
-        background: #141414;
-        border: 1px solid #333333;
+        letter-spacing: 0.04em;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border-subtle);
         color: #ffffff;
       }
       .role-super {
         background: #ffffff;
         color: #000000;
-        border: 1px solid #ffffff;
+        border-color: #ffffff;
       }
       .role-admin {
-        background: #1a1a1a;
+        background: #18181b;
         color: #ffffff;
-        border: 1px solid #ffffff;
-        font-weight: 700;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .tenant-badge {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-secondary);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-subtle);
+        padding: 3px 8px;
+        border-radius: var(--radius-sm);
       }
       .btn-del {
         background: transparent;
-        border: 1px solid #404040;
-        color: #a3a3a3;
-        padding: 4px 10px;
-        border-radius: 4px;
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        padding: 5px 12px;
+        border-radius: var(--radius-sm);
         font-size: 12px;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.15s;
+        transition: var(--transition);
       }
       .btn-del:hover {
-        border-color: #ffffff;
-        color: #ffffff;
+        border-color: #ef4444;
+        color: #f87171;
+        background: rgba(239, 68, 68, 0.08);
       }
-
       /* Modal */
       .modal-bg {
         display: none;
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(4px);
+        background: rgba(0, 0, 0, 0.82);
+        backdrop-filter: blur(12px);
         align-items: center;
         justify-content: center;
-        z-index: 100;
+        z-index: 1000;
+        padding: 20px;
       }
-      .modal {
-        background: #0a0a0a;
-        border: 1px solid #333333;
-        border-radius: 8px;
+      .modal-card {
+        background: #0d0e12;
+        border: 1px solid var(--border-hover);
+        border-radius: var(--radius-lg);
         width: 100%;
-        max-width: 480px;
-        padding: 30px;
+        max-width: 500px;
+        padding: 32px;
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        position: relative;
       }
-      .modal h2 {
+      .modal-title {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 800;
+        letter-spacing: -0.02em;
         color: #ffffff;
-        margin-bottom: 16px;
-      }
-      .form-group {
-        margin-bottom: 14px;
-      }
-      label {
-        display: block;
-        font-size: 13px;
-        color: #a3a3a3;
         margin-bottom: 6px;
       }
-      input, select {
-        width: 100%;
-        background: #141414;
-        border: 1px solid #262626;
-        color: #ffffff;
-        padding: 10px 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        outline: none;
-      }
-      input:focus, select:focus {
-        border-color: #ffffff;
+      .modal-sub {
+        color: var(--text-secondary);
+        font-size: 13px;
+        margin-bottom: 20px;
       }
       .modal-actions {
         display: flex;
         justify-content: flex-end;
         gap: 10px;
         margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border-subtle);
       }
-      .btn-cancel {
-        background: transparent;
-        border: 1px solid #333333;
-        color: #a3a3a3;
-        padding: 8px 16px;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      .btn-cancel:hover {
-        color: #ffffff;
-        border-color: #555555;
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
       }
     </style>
   </head>
@@ -308,73 +166,131 @@
     <!-- Left Sidebar -->
     <aside class="sidebar">
       <div class="brand">
-        <span>AcadGraph</span>
-        <span class="badge-tenant">ADMIN</span>
+        <a href="/" class="brand-wrapper">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-text">AcadGraph</div>
+            <div style="font-size: 10px; color: var(--text-muted); font-weight: 600;">ENTERPRISE</div>
+          </div>
+        </a>
+        <span class="badge-tenant">RBAC</span>
       </div>
 
       <div class="nav-sections">
-        <div class="nav-group-title">Analytics</div>
-        <a href="/" class="nav-link">Dashboard</a>
-        <a href="/graph" class="nav-link">Knowledge Graph</a>
-        <a href="/recommendation" class="nav-link">Recommendations</a>
-        <a href="/knowledge-gap" class="nav-link">Gap Analysis</a>
-        <a href="/temporal" class="nav-link">Temporal Trends</a>
+        <div class="nav-group-title">Analytics & Discovery</div>
+        <a href="/" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="/graph" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="m5 16 5.5-8"/><path d="m18.5 16-5.5-8"/></svg>
+          <span>Knowledge Graph</span>
+        </a>
+        <a href="/recommendation" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <span>Recommendations</span>
+        </a>
+        <a href="/knowledge-gap" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <span>Gap Analysis</span>
+        </a>
+        <a href="/temporal" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <span>Temporal Trends</span>
+        </a>
 
-        <div class="nav-group-title">AI Studio</div>
-        <a href="/chat" class="nav-link">AI Copilot</a>
-        <a href="/upload" class="nav-link">Document Ingestion</a>
+        <div class="nav-group-title">Agentic AI Studio</div>
+        <a href="/chat" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>AI Copilot</span>
+        </a>
+        <a href="/upload" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+          <span>Ingestion Studio</span>
+        </a>
 
         <div class="nav-group-title">Administration</div>
-        <a href="/admin/users" class="nav-link active">User Access</a>
-        <a href="/admin/universities" class="nav-link">Universities</a>
+        <a href="/admin/users" class="nav-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>User Access</span>
+        </a>
+        <a href="/admin/universities" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v11H9Z"/></svg>
+          <span>Universities</span>
+        </a>
       </div>
 
-      <div style="padding-top: 16px; border-top: 1px solid #262626;">
-        <a href="/login" style="display: block; text-align: center; color: #737373; font-size: 12px; text-decoration: none;" onclick="localStorage.clear()">Sign Out</a>
+      <div style="padding-top: 16px; border-top: 1px solid var(--border-subtle);">
+        <a href="/login" class="nav-link" style="color: var(--text-muted);" onclick="localStorage.clear()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+          <span>Sign Out</span>
+        </a>
       </div>
     </aside>
 
-    <!-- Main Workspace -->
+    <!-- Main Content Area -->
     <main class="main-wrapper">
-      <div class="header-row">
-        <div>
-          <h1 class="page-title">User Access & Role Management</h1>
-          <p class="page-desc">Every university maintains designated University Admins, faculty, and students with RBAC boundaries in SQLite.</p>
+      <!-- Top Command Bar -->
+      <div class="top-command-bar">
+        <div class="breadcrumb-trail">
+          <span>Enterprise Admin</span>
+          <span>/</span>
+          <span class="active">User Access & Role Management</span>
         </div>
-        <button class="btn-primary" onclick="openModal()">+ Add New User</button>
+        <div class="engine-pulse">
+          <span class="pulse-beacon"></span>
+          <span>Zero-Trust RBAC Active</span>
+        </div>
       </div>
 
-      <!-- Stats Bar -->
-      <div class="stats-overview">
-        <div class="stat-card">
-          <div class="stat-num" id="statTotalUsers">0</div>
-          <div class="stat-label">Total Users</div>
+      <div class="page-header-row">
+        <div>
+          <h1 class="page-title">User Access & Role Management</h1>
+          <p class="page-subtitle">Every university maintains designated University Admins, faculty, and students with strict RBAC boundaries.</p>
         </div>
-        <div class="stat-card">
-          <div class="stat-num" id="statTotalAdmins">0</div>
-          <div class="stat-label">University Admins (1 per Uni)</div>
+        <button class="btn-primary" onclick="openModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>Add New User</span>
+        </button>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="metric-card">
+          <div class="metric-val" id="statTotalUsers">0</div>
+          <div class="metric-lbl">Total Registered Users</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num" id="statTotalFaculty">0</div>
-          <div class="stat-label">Faculty Members</div>
+        <div class="metric-card">
+          <div class="metric-val" id="statTotalAdmins">0</div>
+          <div class="metric-lbl">University Admins (100% 1-to-1)</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num" id="statTotalStudents">0</div>
-          <div class="stat-label">Enrolled Students</div>
+        <div class="metric-card">
+          <div class="metric-val" id="statTotalFaculty">0</div>
+          <div class="metric-lbl">Faculty Members</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" id="statTotalStudents">0</div>
+          <div class="metric-lbl">Enrolled Students</div>
         </div>
       </div>
 
       <!-- Filters -->
       <div class="filter-bar">
-        <span style="font-size: 12px; color: #737373; text-transform: uppercase;">Filter:</span>
-        <select id="filterUni" class="filter-select" onchange="renderFilteredUsers()">
+        <span class="filter-label">Filter By:</span>
+        <select id="filterUni" onchange="renderFilteredUsers()" style="max-width: 220px;">
           <option value="ALL">All Universities</option>
           <option value="UNI_ANNA">Anna University</option>
           <option value="UNI_IITM">IIT Madras</option>
           <option value="UNI_SRM">SRM Institute</option>
           <option value="UNI_MIT">MIT Campus</option>
         </select>
-        <select id="filterRole" class="filter-select" onchange="renderFilteredUsers()">
+        <select id="filterRole" onchange="renderFilteredUsers()" style="max-width: 200px;">
           <option value="ALL">All Roles</option>
           <option value="UNIVERSITY_ADMIN">University Admin</option>
           <option value="FACULTY">Faculty</option>
@@ -383,12 +299,13 @@
         </select>
       </div>
 
-      <div class="card">
+      <!-- Users Table Card -->
+      <div class="table-card">
         <table id="usersTable">
           <thead>
             <tr>
               <th>Full Name</th>
-              <th>Email / ID</th>
+              <th>Academic Email / Username</th>
               <th>Assigned Role</th>
               <th>University Tenant</th>
               <th>Actions</th>
@@ -402,9 +319,11 @@
     </main>
 
     <!-- Add User Modal -->
-    <div class="modal-bg" id="modalBg">
-      <div class="modal">
-        <h2>Add Academic User</h2>
+    <div class="modal-bg" id="modalBg" onclick="if(event.target===this) closeModal()">
+      <div class="modal-card">
+        <div class="modal-title">Add Academic User</div>
+        <div class="modal-sub">Create user account with explicit multi-tenant tenancy assignment.</div>
+
         <form id="addUserForm" onsubmit="handleCreateUser(event)">
           <div class="form-group">
             <label for="uName">Full Name</label>
@@ -418,7 +337,7 @@
             <label for="uPass">Temporary Password</label>
             <input type="password" id="uPass" placeholder="••••••••" required />
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="grid-2">
             <div class="form-group">
               <label for="uRole">Role</label>
               <select id="uRole">
@@ -438,8 +357,10 @@
             </div>
           </div>
           <div class="modal-actions">
-            <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
-            <button type="submit" class="btn-primary">Save User</button>
+            <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+            <button type="submit" class="btn-primary">
+              <span>Save User</span>
+            </button>
           </div>
         </form>
       </div>
@@ -460,7 +381,6 @@
           const res = await fetch('/api/admin/users');
           allUsersCache = await res.json();
 
-          // Compute Counts
           const totalUsers = allUsersCache.length;
           const adminsCount = allUsersCache.filter(u => u.role === 'UNIVERSITY_ADMIN').length;
           const facultyCount = allUsersCache.filter(u => u.role === 'FACULTY').length;
@@ -491,7 +411,7 @@
         tbody.innerHTML = '';
 
         if (filtered.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #737373;">No users match the selected filters.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 32px;">No users match the selected filters.</td></tr>';
           return;
         }
 
@@ -500,17 +420,17 @@
           const isSuper = u.role === 'SUPER_ADMIN';
           const isUniAdmin = u.role === 'UNIVERSITY_ADMIN';
 
-          let badgeClass = 'role-badge';
+          let badgeClass = 'role-pill';
           if (isSuper) badgeClass += ' role-super';
           else if (isUniAdmin) badgeClass += ' role-admin';
 
           tr.innerHTML = `
-            <td><strong>${u.name}</strong></td>
-            <td style="color: #a3a3a3;">${u.username}</td>
+            <td><strong style="color: #ffffff;">${u.name}</strong></td>
+            <td style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 12px;">${u.username}</td>
             <td><span class="${badgeClass}">${u.role}</span></td>
-            <td>${u.university_id}</td>
+            <td><span class="tenant-badge">${u.university_id}</span></td>
             <td>
-              ${!isSuper ? `<button class="btn-del" onclick="deleteUser('${u.username}')">Remove</button>` : '<span style="color: #525252; font-size: 12px;">Protected</span>'}
+              ${!isSuper ? `<button class="btn-del" onclick="deleteUser('${u.username}')">Remove</button>` : '<span style="color: var(--text-muted); font-size: 11px; font-weight: 600;">System Protected</span>'}
             </td>
           `;
           tbody.appendChild(tr);

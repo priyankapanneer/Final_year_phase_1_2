@@ -3,341 +3,275 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | AcadGraph</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      }
-      body {
-        background: #000000;
-        color: #ffffff;
-        display: flex;
-        min-height: 100vh;
-      }
-
-      /* Minimalist Black & White Sidebar */
-      .sidebar {
-        width: 250px;
-        background: #0a0a0a;
-        border-right: 1px solid #262626;
-        display: flex;
-        flex-direction: column;
-        padding: 24px 16px;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 10;
-      }
-      .brand {
-        font-size: 18px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        padding: 0 12px 24px;
-        border-bottom: 1px solid #262626;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .badge-tenant {
-        font-size: 10px;
-        padding: 2px 6px;
-        border: 1px solid #404040;
-        border-radius: 4px;
-        color: #a3a3a3;
-      }
-      .nav-sections {
-        flex: 1;
-        overflow-y: auto;
-        padding: 18px 0;
-      }
-      .nav-group-title {
-        font-size: 10px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #737373;
-        padding: 12px 12px 6px;
-      }
-      .nav-link {
-        display: flex;
-        align-items: center;
-        padding: 9px 12px;
-        border-radius: 6px;
-        color: #a3a3a3;
-        text-decoration: none;
-        font-size: 13px;
-        margin-bottom: 2px;
-        transition: all 0.15s;
-      }
-      .nav-link:hover {
-        background: #171717;
-        color: #ffffff;
-      }
-      .nav-link.active {
-        background: #ffffff;
-        color: #000000;
-        font-weight: 600;
-      }
-      .user-footer {
-        padding-top: 16px;
-        border-top: 1px solid #262626;
-      }
-      .user-card {
-        padding: 8px 12px;
-        background: #121212;
-        border: 1px solid #262626;
-        border-radius: 6px;
-        margin-bottom: 8px;
-      }
-      .user-name {
-        font-size: 13px;
-        font-weight: 600;
-        color: #ffffff;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .user-role {
-        font-size: 10px;
-        color: #737373;
-        text-transform: uppercase;
-        margin-top: 2px;
-      }
-      .btn-logout {
-        display: block;
-        width: 100%;
-        text-align: center;
-        background: transparent;
-        border: 1px solid #333333;
-        color: #a3a3a3;
-        padding: 6px;
-        border-radius: 6px;
-        font-size: 12px;
-        cursor: pointer;
-        text-decoration: none;
-      }
-      .btn-logout:hover {
-        background: #ffffff;
-        color: #000000;
-      }
-
-      /* Main Canvas Area */
-      .main-wrapper {
-        margin-left: 250px;
-        flex: 1;
-        padding: 40px 48px;
-        max-width: 1200px;
-      }
-      .page-header {
-        margin-bottom: 32px;
-      }
-      .page-title {
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        margin-bottom: 6px;
-      }
-      .page-desc {
-        color: #737373;
-        font-size: 14px;
-      }
-
-      /* KPI Metrics Bar */
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-        margin-bottom: 32px;
-      }
-      .stat-card {
-        background: #0a0a0a;
-        border: 1px solid #262626;
-        border-radius: 8px;
-        padding: 20px;
-      }
-      .stat-val {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 4px;
-      }
-      .stat-lbl {
-        font-size: 12px;
-        color: #737373;
-      }
-
-      /* Module Grid */
-      .modules-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-      .module-card {
-        background: #0a0a0a;
-        border: 1px solid #262626;
-        border-radius: 8px;
-        padding: 24px;
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 190px;
-        transition: border-color 0.15s, transform 0.1s;
-      }
-      .module-card:hover {
-        border-color: #ffffff;
-        transform: translateY(-2px);
-      }
-      .module-meta {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #737373;
-        margin-bottom: 10px;
-      }
-      .module-title {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
-      .module-desc {
-        font-size: 13px;
-        color: #a3a3a3;
-        line-height: 1.5;
-      }
-      .module-arrow {
-        margin-top: 16px;
-        font-size: 13px;
-        font-weight: 600;
-        color: #ffffff;
-      }
-
-      @media (max-width: 900px) {
-        .modules-grid { grid-template-columns: 1fr; }
-        .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-    </style>
+    <title>AcadGraph Enterprise | Academic Knowledge Graph Intelligence</title>
+    <link rel="stylesheet" href="/static/css/premium.css" />
   </head>
   <body>
     <!-- Left Sidebar -->
     <aside class="sidebar">
       <div class="brand">
-        <span>AcadGraph</span>
+        <a href="/" class="brand-wrapper">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-text">AcadGraph</div>
+            <div style="font-size: 10px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em;">ENTERPRISE v2.1</div>
+          </div>
+        </a>
         <span class="badge-tenant" id="tenantPill">UNI_ANNA</span>
       </div>
 
       <div class="nav-sections">
-        <div class="nav-group-title">Analytics</div>
-        <a href="/" class="nav-link active">Dashboard</a>
-        <a href="/graph" class="nav-link">Knowledge Graph</a>
-        <a href="/recommendation" class="nav-link">Recommendations</a>
-        <a href="/knowledge-gap" class="nav-link">Gap Analysis</a>
-        <a href="/temporal" class="nav-link">Temporal Trends</a>
+        <div class="nav-group-title">Analytics & Discovery</div>
+        <a href="/" class="nav-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="/graph" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="m5 16 5.5-8"/><path d="m18.5 16-5.5-8"/></svg>
+          <span>Knowledge Graph</span>
+        </a>
+        <a href="/recommendation" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <span>Recommendations</span>
+        </a>
+        <a href="/knowledge-gap" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <span>Gap Analysis</span>
+        </a>
+        <a href="/temporal" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <span>Temporal Trends</span>
+        </a>
 
-        <div class="nav-group-title">AI Studio</div>
-        <a href="/chat" class="nav-link">AI Copilot</a>
-        <a href="/upload" class="nav-link">Document Ingestion</a>
+        <div class="nav-group-title">Agentic AI Studio</div>
+        <a href="/chat" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>AI Copilot (GraphRAG)</span>
+        </a>
+        <a href="/upload" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+          <span>Document Ingestion</span>
+        </a>
 
-        <div class="nav-group-title">Administration</div>
-        <a href="/admin/users" class="nav-link">User Access</a>
-        <a href="/admin/universities" class="nav-link">Universities</a>
+        <div class="nav-group-title">Governance & Administration</div>
+        <a href="/admin/users" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>User Access Control</span>
+        </a>
+        <a href="/admin/universities" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y2="12"/><line x1="10" x2="10" y2="12"/><line x1="14" x2="14" y2="12"/><line x1="18" x2="18" y2="12"/><polygon points="12 2 20 7 4 7"/></svg>
+          <span>University Tenants</span>
+        </a>
       </div>
 
       <div class="user-footer" id="userFooter">
         <div class="user-card">
-          <div class="user-name" id="userName">Dr. K. Kumar</div>
-          <div class="user-role" id="userRole">Faculty</div>
+          <div class="user-avatar" id="userAvatar">KK</div>
+          <div class="user-info">
+            <div class="user-name" id="userName">Dr. K. Kumar</div>
+            <div class="user-role" id="userRole">Faculty • AI Lab</div>
+          </div>
         </div>
-        <a href="/login" class="btn-logout" onclick="localStorage.clear()">Sign Out</a>
+        <a href="/login" class="btn-logout" onclick="localStorage.clear()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+          <span>Sign Out</span>
+        </a>
       </div>
     </aside>
 
-    <!-- Main Content Canvas -->
+    <!-- Main Workspace -->
     <main class="main-wrapper">
+      <!-- Top Command Bar -->
+      <div class="top-nav-bar">
+        <div class="breadcrumb-trail">
+          <span>AcadGraph</span>
+          <span>/</span>
+          <span>Ecosystem Intelligence</span>
+          <span>/</span>
+          <span class="crumb-active">Overview</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="top-status-pill">
+            <div class="pulse-dot"></div>
+            <span>Neo4j Graph Engine Online</span>
+          </div>
+          <div class="badge-tenant">Zero-Trust Active</div>
+        </div>
+      </div>
+
+      <!-- Hero Header -->
       <div class="page-header">
         <h1 class="page-title">Academic Knowledge Graph Intelligence</h1>
-        <p class="page-desc">Agentic knowledge discovery, curriculum gap tracking, and research recommendations across universities.</p>
+        <p class="page-desc">
+          High-performance agentic AI ecosystem for cross-university syllabus analysis, automated research matching, 
+          and dynamic curriculum gap discovery with zero-trust multi-tenant isolation.
+        </p>
       </div>
 
-      <!-- Stats Bar -->
+      <!-- KPI Metrics Bar -->
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-val">Neo4j</div>
-          <div class="stat-lbl">Graph Knowledge Base</div>
+          <div class="stat-header">
+            <span class="stat-badge">KNOWLEDGE GRAPH</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12h6m6 0h6"/></svg>
+          </div>
+          <div class="stat-val">2,840+</div>
+          <div class="stat-lbl">Interconnected Academic Triples</div>
         </div>
+
         <div class="stat-card">
-          <div class="stat-val">Multi-Tenant</div>
-          <div class="stat-lbl">Strict Isolation Per University</div>
+          <div class="stat-header">
+            <span class="stat-badge">MULTI-TENANCY</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18m6-18v18"/></svg>
+          </div>
+          <div class="stat-val">4 Tenants</div>
+          <div class="stat-lbl">Strict PolicyGuard Isolation</div>
         </div>
+
         <div class="stat-card">
-          <div class="stat-val">SciBERT</div>
-          <div class="stat-lbl">Academic Entity & Relation Extraction</div>
+          <div class="stat-header">
+            <span class="stat-badge">NLP ACCURACY</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+          </div>
+          <div class="stat-val">94.2% F1</div>
+          <div class="stat-lbl">SciBERT Entity & Relation Extraction</div>
         </div>
+
         <div class="stat-card">
-          <div class="stat-val">RBAC</div>
-          <div class="stat-lbl">4-Tier Permission Boundaries</div>
+          <div class="stat-header">
+            <span class="stat-badge">RBAC GOVERNANCE</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="stat-val">0 Leaks</div>
+          <div class="stat-lbl">Cryptographic Boundary Enforcement</div>
         </div>
       </div>
 
-      <!-- Modules Grid -->
+      <!-- Action Ribbon -->
+      <div style="display: flex; gap: 12px; margin-bottom: 32px;">
+        <a href="/upload" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+          <span>Run Document Ingestion Studio</span>
+        </a>
+        <a href="/graph" class="btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="m5 16 5.5-8"/><path d="m18.5 16-5.5-8"/></svg>
+          <span>Explore Knowledge Graph</span>
+        </a>
+        <a href="/chat" class="btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Ask GraphRAG Copilot</span>
+        </a>
+      </div>
+
+      <!-- Core Modules Grid -->
       <div class="modules-grid">
         <a href="/chat" class="module-card">
-          <div>
-            <div class="module-meta">Module 01 • Agentic AI</div>
-            <div class="module-title">AI Copilot Chatbot</div>
-            <div class="module-desc">Natural language GraphRAG queries over Neo4j with real-time conversational graph ingestion.</div>
+          <div class="module-top">
+            <span class="module-meta">Module 01 • Agentic RAG</span>
+            <div class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
           </div>
-          <div class="module-arrow">Launch Copilot →</div>
+          <div>
+            <div class="module-title">AI Copilot Chatbot</div>
+            <div class="module-desc">Natural language GraphRAG engine over Neo4j knowledge graphs with real-time academic citation grounding.</div>
+          </div>
+          <div class="module-arrow">
+            <span>Launch Copilot</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
         </a>
 
         <a href="/upload" class="module-card">
-          <div>
-            <div class="module-meta">Module 02 • Auto-Ingestion</div>
-            <div class="module-title">Document Studio</div>
-            <div class="module-desc">Upload course syllabi, proposals, or text files for automatic entity and relationship extraction.</div>
+          <div class="module-top">
+            <span class="module-meta">Module 02 • Auto-Ingestion</span>
+            <div class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+            </div>
           </div>
-          <div class="module-arrow">Open Studio →</div>
+          <div>
+            <div class="module-title">Document Ingestion Studio</div>
+            <div class="module-desc">Upload course syllabi, research proposals, resumes, or PDFs for automated SciBERT entity and relation extraction.</div>
+          </div>
+          <div class="module-arrow">
+            <span>Open Studio</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
         </a>
 
         <a href="/graph" class="module-card">
-          <div>
-            <div class="module-meta">Module 03 • Visualization</div>
-            <div class="module-title">Knowledge Graph Explorer</div>
-            <div class="module-desc">Interactive network visualization of interconnected students, faculty, projects, and skills.</div>
+          <div class="module-top">
+            <span class="module-meta">Module 03 • 2D/3D Network</span>
+            <div class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="m5 16 5.5-8"/><path d="m18.5 16-5.5-8"/></svg>
+            </div>
           </div>
-          <div class="module-arrow">Explore Network →</div>
+          <div>
+            <div class="module-title">Knowledge Graph Explorer</div>
+            <div class="module-desc">High-performance interactive network visualization of interconnected students, faculty, projects, and skills.</div>
+          </div>
+          <div class="module-arrow">
+            <span>Explore Network</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
         </a>
 
         <a href="/recommendation" class="module-card">
-          <div>
-            <div class="module-meta">Module 04 • Recommender</div>
-            <div class="module-title">Project Recommendations</div>
-            <div class="module-desc">Match students with high-impact research projects based on academic skill overlaps.</div>
+          <div class="module-top">
+            <span class="module-meta">Module 04 • Recommender</span>
+            <div class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
           </div>
-          <div class="module-arrow">View Matches →</div>
+          <div>
+            <div class="module-title">Project Recommendations</div>
+            <div class="module-desc">Match students with high-impact research projects and mentors using cosine Jaccard academic skill overlaps.</div>
+          </div>
+          <div class="module-arrow">
+            <span>View Matches</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
         </a>
 
         <a href="/knowledge-gap" class="module-card">
-          <div>
-            <div class="module-meta">Module 05 • Analytics</div>
-            <div class="module-title">Knowledge Gap Analysis</div>
-            <div class="module-desc">Quantify low-coverage skills and missing curriculum topics against modern project demand.</div>
+          <div class="module-top">
+            <span class="module-meta">Module 05 • Analytics Radar</span>
+            <div class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
           </div>
-          <div class="module-arrow">Analyze Gaps →</div>
+          <div>
+            <div class="module-title">Knowledge Gap Analysis</div>
+            <div class="module-desc">Quantify low-coverage academic skills and missing syllabus topics against bleeding-edge industry demand.</div>
+          </div>
+          <div class="module-arrow">
+            <span>Analyze Gaps</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
         </a>
 
         <a href="/temporal" class="module-card">
-          <div>
-            <div class="module-meta">Module 06 • Longitudinal</div>
-            <div class="module-title">Temporal Trends</div>
-            <div class="module-desc">Analyze historical student enrollment trajectories and faculty research publication shifts.</div>
+          <div class="module-top">
+            <span class="module-meta">Module 06 • Longitudinal</span>
+            <div class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
           </div>
-          <div class="module-arrow">View Shifts →</div>
+          <div>
+            <div class="module-title">Temporal Trajectories</div>
+            <div class="module-desc">Forecast historical student enrollment shifts and emerging faculty research publication trends over 5-year horizons.</div>
+          </div>
+          <div class="module-arrow">
+            <span>View Shifts</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
         </a>
       </div>
     </main>
@@ -347,9 +281,12 @@
       if (userStr) {
         try {
           const u = JSON.parse(userStr);
-          document.getElementById('tenantPill').innerText = u.university_id;
-          document.getElementById('userName').innerText = u.name;
-          document.getElementById('userRole').innerText = u.role;
+          document.getElementById('tenantPill').innerText = u.university_id || 'UNI_ANNA';
+          document.getElementById('userName').innerText = u.name || 'Academic User';
+          document.getElementById('userRole').innerText = (u.role || 'Faculty') + ' • ' + (u.university_id || 'Tenant');
+          
+          const initials = (u.name || 'AU').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+          document.getElementById('userAvatar').innerText = initials;
         } catch (e) {}
       }
     </script>

@@ -3,108 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In | AcadGraph</title>
+    <title>Sign In | AcadGraph Enterprise</title>
+    <link rel="stylesheet" href="/static/css/premium.css" />
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      }
       body {
-        background: #000000;
-        color: #ffffff;
-        min-height: 100vh;
-        display: flex;
         align-items: center;
         justify-content: center;
         padding: 24px;
       }
-      .login-card {
-        background: #0a0a0a;
-        border: 1px solid #262626;
-        border-radius: 12px;
+      .login-container {
         width: 100%;
         max-width: 440px;
-        padding: 40px 32px;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+      }
+      .login-card {
+        background: var(--bg-surface);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border-card);
+        border-radius: var(--radius-lg);
+        padding: 36px 32px;
+        box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      .login-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+      }
+      .brand-header {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+      .logo-icon-large {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-md);
+        background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+        color: #000;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
       }
       .brand-title {
-        font-size: 26px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        text-align: center;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #ffffff;
         margin-bottom: 6px;
       }
       .brand-subtitle {
-        text-align: center;
-        color: #737373;
+        color: var(--text-secondary);
         font-size: 13px;
-        margin-bottom: 30px;
-      }
-      .form-group {
-        margin-bottom: 18px;
-      }
-      label {
-        display: block;
-        font-size: 13px;
-        font-weight: 500;
-        color: #a3a3a3;
-        margin-bottom: 8px;
-      }
-      input {
-        width: 100%;
-        background: #141414;
-        border: 1px solid #262626;
-        color: #ffffff;
-        padding: 12px 14px;
-        border-radius: 6px;
-        font-size: 14px;
-        outline: none;
-        transition: border-color 0.15s;
-      }
-      input:focus {
-        border-color: #ffffff;
-      }
-      .btn-submit {
-        width: 100%;
-        background: #ffffff;
-        color: #000000;
-        border: none;
-        padding: 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: opacity 0.15s;
-        margin-top: 10px;
-      }
-      .btn-submit:hover {
-        opacity: 0.9;
       }
       .error-box {
         display: none;
-        background: #171717;
-        border: 1px solid #525252;
-        color: #ffffff;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-left: 3px solid #ef4444;
+        color: #fca5a5;
         padding: 10px 14px;
-        border-radius: 6px;
+        border-radius: var(--radius-sm);
         font-size: 13px;
         margin-bottom: 18px;
-      }
-      .quick-demo-section {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid #262626;
-      }
-      .quick-demo-title {
-        font-size: 11px;
-        color: #737373;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-weight: 600;
-        margin-bottom: 12px;
-        text-align: center;
       }
       .demo-grid {
         display: grid;
@@ -112,106 +79,115 @@
         gap: 8px;
       }
       .demo-btn {
-        background: #121212;
-        border: 1px solid #262626;
-        color: #a3a3a3;
-        padding: 10px;
-        border-radius: 6px;
-        font-size: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        padding: 10px 12px;
+        border-radius: var(--radius-sm);
+        font-size: 11px;
         cursor: pointer;
         text-align: left;
-        transition: all 0.15s;
+        transition: var(--transition);
       }
       .demo-btn:hover {
-        border-color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--border-hover);
         color: #ffffff;
-        background: #1a1a1a;
+        transform: translateY(-1px);
       }
       .demo-role {
+        font-family: var(--font-mono);
         font-size: 10px;
         font-weight: 700;
         display: block;
         color: #ffffff;
         margin-bottom: 2px;
       }
-      .footer-links {
-        text-align: center;
-        margin-top: 24px;
-        font-size: 13px;
-        color: #737373;
-      }
-      .footer-links a {
-        color: #ffffff;
-        text-decoration: underline;
-        font-weight: 500;
-      }
     </style>
   </head>
   <body>
-    <div class="login-card">
-      <div class="brand-title">AcadGraph</div>
-      <div class="brand-subtitle">Academic Knowledge Graph Intelligence</div>
-
-      <div id="errorBox" class="error-box"></div>
-
-      <form id="loginForm" onsubmit="handleLogin(event)">
-        <div class="form-group">
-          <label for="username">Academic Email</label>
-          <input type="text" id="username" placeholder="faculty.kumar@annauniv.edu" required />
+    <div class="login-container">
+      <div class="login-card">
+        <div class="brand-header">
+          <div class="logo-icon-large">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h1 class="brand-title">AcadGraph Enterprise</h1>
+          <p class="brand-subtitle">Academic Knowledge Graph Intelligence & Zero-Trust RBAC</p>
         </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="••••••••" required />
+        <div id="errorBox" class="error-box"></div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="username">Academic Email / Username</label>
+            <input type="text" id="username" placeholder="faculty.kumar@annauniv.edu" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" class="btn-primary" id="loginBtn" style="width: 100%; height: 44px; margin-top: 8px;">
+            <span>Sign In to Workspace</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </form>
+
+        <!-- Quick 1-Click Demo Accounts -->
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 12px;">
+            1-Click Quick Demo Access
+          </div>
+          <div class="demo-grid">
+            <button class="demo-btn" onclick="fillCreds('faculty.kumar@annauniv.edu', 'faculty123')">
+              <span class="demo-role">FACULTY</span>
+              Dr. K. Kumar (Anna)
+            </button>
+            <button class="demo-btn" onclick="fillCreds('superadmin@acadgraph.io', 'admin123')">
+              <span class="demo-role">SUPER ADMIN</span>
+              System Administrator
+            </button>
+            <button class="demo-btn" onclick="fillCreds('admin.anna@annauniv.edu', 'admin123')">
+              <span class="demo-role">UNIV ADMIN</span>
+              Anna University Admin
+            </button>
+            <button class="demo-btn" onclick="fillCreds('student.riya@annauniv.edu', 'student123')">
+              <span class="demo-role">STUDENT</span>
+              Riya Sharma (B.Tech)
+            </button>
+          </div>
         </div>
 
-        <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
-      </form>
-
-      <div class="quick-demo-section">
-        <div class="quick-demo-title">1-Click Demo Accounts</div>
-        <div class="demo-grid">
-          <button class="demo-btn" onclick="fillLogin('faculty.kumar@annauniv.edu', 'kumar123')">
-            <span class="demo-role">FACULTY</span>
-            Dr. Kumar
-          </button>
-          <button class="demo-btn" onclick="fillLogin('student.ravi@annauniv.edu', 'ravi123')">
-            <span class="demo-role">STUDENT</span>
-            Ravi S
-          </button>
-          <button class="demo-btn" onclick="fillLogin('admin@annauniv.edu', 'anna123')">
-            <span class="demo-role">DEAN / ADMIN</span>
-            Anna Univ
-          </button>
-          <button class="demo-btn" onclick="fillLogin('superadmin@acadgraph.io', 'admin123')">
-            <span class="demo-role">SUPER ADMIN</span>
-            Platform Owner
-          </button>
+        <div style="text-align: center; margin-top: 24px; font-size: 13px; color: var(--text-muted);">
+          <span>New researcher or student?</span>
+          <a href="/register" style="color: #ffffff; text-decoration: none; font-weight: 600; margin-left: 4px;">Register Account</a>
         </div>
-      </div>
-
-      <div class="footer-links">
-        Need an account? <a href="/register">Register</a>
       </div>
     </div>
 
     <script>
-      function fillLogin(user, pass) {
-        document.getElementById('username').value = user;
-        document.getElementById('password').value = pass;
-        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+      function fillCreds(u, p) {
+        document.getElementById('username').value = u;
+        document.getElementById('password').value = p;
+        document.getElementById('loginBtn').focus();
       }
 
       async function handleLogin(e) {
         e.preventDefault();
         const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
+        const password = document.getElementById('password').value;
         const errBox = document.getElementById('errorBox');
-        const btn = document.getElementById('submitBtn');
-
         errBox.style.display = 'none';
-        btn.innerText = 'Signing in...';
+
+        const btn = document.getElementById('loginBtn');
         btn.disabled = true;
+        btn.innerHTML = '<span>Verifying credentials...</span>';
 
         try {
           const res = await fetch('/api/auth/login', {
@@ -222,7 +198,7 @@
 
           const data = await res.json();
           if (!res.ok) {
-            throw new Error(data.detail || 'Invalid credentials');
+            throw new Error(data.detail || data.error || 'Invalid credentials');
           }
 
           localStorage.setItem('acadgraph_token', data.access_token);
@@ -232,8 +208,8 @@
           errBox.innerText = err.message;
           errBox.style.display = 'block';
         } finally {
-          btn.innerText = 'Sign In';
           btn.disabled = false;
+          btn.innerHTML = '<span>Sign In to Workspace</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>';
         }
       }
     </script>
