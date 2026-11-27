@@ -69,13 +69,19 @@ class DocumentAgent:
 
         try:
             ner_path = os.path.join("model", "scibert_ner_model")
-            if os.path.exists(ner_path):
+            safetensors_path = os.path.join(ner_path, "model.safetensors")
+            is_valid_weights = os.path.exists(safetensors_path) and os.path.getsize(safetensors_path) > 1_000_000
+            
+            if is_valid_weights:
                 from transformers import AutoTokenizer, AutoModelForTokenClassification
                 cls._tokenizer = AutoTokenizer.from_pretrained(ner_path)
                 cls._ner_model = AutoModelForTokenClassification.from_pretrained(ner_path)
                 cls._ner_model.eval()
-        except Exception:
-            pass
+                print("[DocumentAgent] SciBERT Transformer weights loaded successfully.")
+            else:
+                print("[DocumentAgent] SciBERT checkpoint is Git LFS pointer; utilizing specialized academic ontology, regex & relation classifier pipeline.")
+        except Exception as e:
+            print(f"[DocumentAgent] Transformer notice: {e}")
 
         cls._models_loaded = True
 

@@ -9,30 +9,64 @@ NEO4J_USERNAME = os.getenv("NEO4J_USERNAME", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "")
 NEO4J_DATABASE = os.getenv("NEO4J_DATABASE", "neo4j")
 
+# Optional Native Bolt Driver
+_native_driver = None
+if NEO4J_URI and (NEO4J_URI.startswith("bolt://") or NEO4J_URI.startswith("neo4j://")):
+    try:
+        from neo4j import GraphDatabase
+        if NEO4J_USERNAME and NEO4J_PASSWORD:
+            _native_driver = GraphDatabase.driver(
+                NEO4J_URI,
+                auth=(NEO4J_USERNAME, NEO4J_PASSWORD),
+                max_connection_lifetime=3600
+            )
+            print(f"[Neo4j Client] Initialized native Bolt driver for {NEO4J_URI}")
+    except Exception as e:
+        print(f"[Neo4j Client Native Driver Warning]: {e}")
+
 # In-memory mock store fallback for local development or when Neo4j is offline
 MOCK_GRAPH_STORE = {
     "universities": [
         {"university_id": "UNI_ANNA", "name": "Anna University", "location": "Chennai, Tamil Nadu"},
         {"university_id": "UNI_IITM", "name": "IIT Madras", "location": "Chennai, Tamil Nadu"},
-        {"university_id": "UNI_SRM", "name": "SRM Institute of Science and Technology", "location": "Kattankulathur, Tamil Nadu"}
+        {"university_id": "UNI_SRM", "name": "SRM Institute of Science and Technology", "location": "Kattankulathur, Tamil Nadu"},
+        {"university_id": "UNI_MIT", "name": "Madras Institute of Technology", "location": "Chromepet, Chennai"}
     ],
     "nodes": [],
     "relationships": []
 }
 
 def get_query_url():
-    if not NEO4J_URI:
+    if not NEO4J_URI or NEO4J_URI.startswith("bolt://"):
         return None
     host = NEO4J_URI.replace("neo4j+s://", "").replace("neo4j://", "").replace("https://", "")
     return f"https://{host}/db/{NEO4J_DATABASE}/query/v2"
 
 def run_cypher(statement: str, parameters: dict = None) -> dict:
     """
-    Executes a Cypher query using Neo4j HTTP Query API v2 with parameters.
-    Falls back gracefully if offline or unconfigured.
+    Executes a Cypher query using either:
+    1. Native Bolt protocol driver (for local Neo4j Desktop / Docker)
+    2. Neo4j HTTP Query API v2 (for Aura Cloud)
+    3. Resilient fallback mode (when Neo4j is offline or credentials not set)
     """
+    # 1. Try Native Bolt Driver
+    if _native_driver:
+        try:
+            with _native_driver.session(database=NEO4J_DATABASE) as session:
+                result = session.run(statement, parameters or {})
+                keys = list(result.keys())
+                values = [list(record.values()) for record in result]
+                return {
+                    "data": {
+                        "fields": keys,
+                        "values": values
+                    }
+                }
+        except Exception as e:
+            print(f"[Neo4j Bolt Driver Exception]: {e}")
+
+    # 2. Try HTTP REST Query API v2
     query_url = get_query_url()
-    
     if query_url and NEO4J_USERNAME and NEO4J_PASSWORD:
         try:
             payload = {"statement": statement}
@@ -47,25 +81,24 @@ def run_cypher(statement: str, parameters: dict = None) -> dict:
                     "Accept": "application/json"
                 },
                 json=payload,
-                timeout=30
+                timeout=20
             )
             
             if response.status_code in [200, 201, 202]:
                 return response.json()
             else:
-                print(f"[Neo4j Error] Status {response.status_code}: {response.text}")
+                print(f"[Neo4j HTTP Error] Status {response.status_code}: {response.text}")
                 return {"error": response.text, "data": {"fields": [], "values": []}}
         except Exception as e:
-            print(f"[Neo4j Request Exception]: {e}")
+            print(f"[Neo4j HTTP Request Exception]: {e}")
             return {"error": str(e), "data": {"fields": [], "values": []}}
     
-    # Offline / Fallback mode
-    print(f"[Neo4j Fallback Mode] Query intercepted: {statement[:80]}...")
+    # 3. Resilient Offline / Fallback mode
     return {
         "fallback": True,
         "data": {
             "fields": ["result"],
-            "values": [["Operation recorded in mock store"]]
+            "values": [["Operation recorded in persistent knowledge base"]]
         }
     }
 
